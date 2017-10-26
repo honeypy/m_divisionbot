@@ -9,7 +9,6 @@ import csv
 from text import location_text, faq_text
 
 telegram_token = config.telegram_token
-botan_token = config.botan_token
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level= logging.INFO)
 
@@ -17,7 +16,7 @@ PORT = int(os.environ.get('PORT', '5000'))
 updater = Updater(telegram_token)
 dispatcher = updater.dispatcher
 
-start_keyboard = ('МЕСТО ПРОВЕДЕНИЯ', 'FAQ', 'ЛАЙНАП', 'ИГРАЮТ СЕЙЧАС', 'КАНАЛ', 'ЧАТ', 'ССЫЛКИ')
+start_keyboard = ('МЕСТО ПРОВЕДЕНИЯ', 'FAQ', 'РАСПИСАНИЕ', 'ИГРАЮТ СЕЙЧАС', 'КАНАЛ', 'ЧАТ', 'ССЫЛКИ')
 links_keyboard = ('MYSTERY VK','MYSTERY FB','m_VK','m_INSTAGRAM','m_SOUNDCLOUD', '<< в начало')
 
 def start(bot, update):
@@ -76,7 +75,7 @@ def button(bot, update):
         bot.sendMessage(chat_id=query.message.chat.id, text=location_text, parse_mode='HTML',
                         reply_markup=markup)
 
-    elif data == 'ЛАЙНАП':
+    elif data == 'РАСПИСАНИЕ':
         #menu = build_menu(buttons_list, 1)
         #markup = InlineKeyboardMarkup(menu)
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
