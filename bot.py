@@ -112,13 +112,6 @@ def button(bot, update):
                         parse_mode='HTML', reply_markup=markup)
 
 
-    elif data  == 'back_music':
-        buttons_list = make_buttons_list(dates_keyboard)
-        menu = build_menu(buttons_list, 1)
-        markup = InlineKeyboardMarkup(menu)
-        bot.sendMessage(chat_id=query.message.chat.id, text='Выберите день:', \
-                        parse_mode='HTML', reply_markup=markup)
-
     elif data == 'back_main':
         buttons_list = make_buttons_list(start_keyboard)
         menu = build_menu(buttons_list, 1)
