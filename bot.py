@@ -5,11 +5,14 @@ import logging
 import config
 import datetime
 import csv
+import os
+
 
 from text import location_text, faq_text
 
-telegram_token = config.telegram_token
+os.environ['TZ'] = 'Europe/Moscow'
 
+telegram_token = config.telegram_token
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level= logging.INFO)
 
 PORT = int(os.environ.get('PORT', '5000'))
