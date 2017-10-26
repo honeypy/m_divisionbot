@@ -37,7 +37,7 @@ def make_buttons_list(lst):
     buttons_list = []
     for a in lst:
         if a == 'FAQ':
-            button = InlineKeyboardButton(a, url='http://telegra.ph/FAQ-Mystery-2017-10-25')
+            button = InlineKeyboardButton(a, url='http://telegra.ph/FAQ-Mystery-2017-10-26')
         elif a == 'КАНАЛ':
             button = InlineKeyboardButton(a, url='https://t.me/m_division')
         elif a == 'ЧАТ':
