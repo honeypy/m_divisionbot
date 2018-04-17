@@ -1,2 +1,5 @@
 config.py
 venv
+nohup.out
+getnow.py
+prepare.py

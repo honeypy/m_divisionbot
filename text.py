@@ -1,10 +1,5 @@
 location_text = '''
- 
-<b>Завод им.Степана Разина</b>
-Курляндская ул. 48 (м. Нарвская). Вход с Курляндской улицы.
-
-<b>18+/Facecontrol</b>
-<b>Dresscode:</b> обязательно наличие маски
+http://telegra.ph/Kak-doehat-do-KvartaRiata-02-05
 '''
 
 
@@ -30,4 +25,97 @@ faq_text = '''
 
 <b>Подойдет ли грим вместо маски?</b>
 Это возможно, только, пожалуйста, без нечисти, мы не приветствуем образы банальных вампиров и зомби.
+'''
+
+timetable = '''
+<b>БЕТА</b>
+<b>23:00</b> Sarcomae LIVE
+<b>0:00</b> Ivan Logos
+<b>1:00</b> Ontal [Belgrad, Mord Records, Ad Noiseam, Inner Surface Music]
+<b>2:30</b> Perc [London, Perc Trax, Stroboscopic Artefacts]
+<b>4:30</b> Unbalance
+<b>5:30</b> PRCDRL LIVE
+<b>6:30</b> Kobba
+<b>7:30</b> m_special
+
+<b>КОЛОННЫЙ ЗАЛ (2 этаж)</b>
+<b>23:00</b> Eye Que b2b Naya
+<b>0:00</b> CultKitchen
+<b>1:30</b> Juras Lietus aka Anton Kubikov LIVE
+<b>2:30</b> Redshape LIVE [Berlin, Delsin, Styrax Leaves, Music Man, Present]
+<b>3:30</b> Mike Huckaby [Detroit, Tresor, Deep Transportation, Semantica]
+<b>5:30</b> Lena Popova
+<b>6:30</b> Alex Meshkov
+
+<b>КАБИНЕТ КРОНА</b>
+<b>23:00</b> Lidvall LIVE
+<b>0:00</b> Exponent
+<b>1:30</b> G Depot
+<b>3:00</b> Dub Ali LIVE
+<b>4:00</b> Blain
+<b>5:00</b> Criminal In Dance LIVE
+<b>6:00</b> Tennisist
+
+<b>ШТОЛЬНЯ</b>
+<b>23:00</b> Квантовый Оракул
+<b>0:30</b> Neonicle LIVE
+<b>1:30</b> Neuro
+<b>3:00</b> Prisheletz LIVE
+<b>4:00</b> Sirius C LIVE
+<b>5:00</b> Vs Vs
+<b>7:00</b> m_special
+'''
+
+text_early = '''
+Скоро начнем. 
+<b>БЕТА</b>
+<b>23:00</b> Sarcomae LIVE
+
+<b>КОЛОННЫЙ ЗАЛ (2 этаж)</b>
+<b>23:00</b> Eye Que b2b Naya
+
+<b>КАБИНЕТ КРОНА</b>
+<b>23:00</b> Lidvall LIVE
+
+<b>ШТОЛЬНЯ</b>
+<b>23:00</b> Квантовый Оракул
+'''
+
+token_text = '''
+<b>Токены</b>
+
+Токен - это пластиковый жетон с логотипом m_division, который гости приобретают в кассах токенов или в кассе при входе, также можно <a href='https://radario.ru/widgets/mobile/225805'>приобрести сразу 10 токенов в онлайн</a> и получить их в зоне контроля билетов. 
+
+Одна касса продажи токенов находится сразу после входной зоны, вторая касса расположена в конце длинного коридора на первом этаже, купить токены можно как за наличный, так и безналичный расчет, во избежании проблем с безналичным расчетом (проблемы на стороне банка или плохой сигнал) <b>рекомендуем иметь с собой наличные</b>.
+
+Стоимость 1 токена – 100 ₽.
+
+Обмен или возврат токенов в кассу невозможен. Вы можете докупать токены по мере необходимости в течение всего события.
+
+Наличные и банковские карты в барах приниматься не будут.
+'''
+
+lineup_text = '''
+<b>Белый зал</b>
+
+<b>22-00</b> Taras Mashtalir a/v live
+<b>22-45</b> Achterstag a/v live
+<b>23-30</b> Ivan logos 
+<b>1-00</b> Byetone a/v live
+<b>2-00</b> Stanislav Tolkachev hybrid live
+<b>3-30</b> Unbalance 
+<b>5-00</b> Prcdrl live
+<b>6-00</b> Cliche Morph 
+<b>7-30</b> Kobba 
+
+<b>Мансарда</b> 
+
+<b>22-00</b> Gedevaan aka Syberian 
+<b>23-30</b> Camin 
+<b>0-30</b> Slava Finist
+<b>2-00</b> Lena Popova 
+<b>3-30</b> Oira 
+<b>4-30</b> Cultkitchen
+<b>6-00</b> Exponent b2b G_depot
+<b>7-30</b> m_special
 '''

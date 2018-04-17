@@ -1,4 +1,5 @@
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler
+from telegram.ext import MessageHandler, Filters
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 import os
 import logging
@@ -6,11 +7,13 @@ import config
 import datetime
 import csv
 import os
+import time
 
 
-from text import location_text, faq_text
+from text import location_text, faq_text, timetable, text_early, token_text, lineup_text
 
 os.environ['TZ'] = 'Europe/Moscow'
+time.tzset()
 
 telegram_token = config.telegram_token
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level= logging.INFO)
@@ -19,18 +22,44 @@ PORT = int(os.environ.get('PORT', '5000'))
 updater = Updater(telegram_token)
 dispatcher = updater.dispatcher
 
-start_keyboard = ('МЕСТО ПРОВЕДЕНИЯ', 'FAQ', 'РАСПИСАНИЕ', 'ИГРАЮТ СЕЙЧАС', 'КАНАЛ', 'ЧАТ', 'ССЫЛКИ')
-links_keyboard = ('MYSTERY VK','MYSTERY FB','m_VK','m_INSTAGRAM','m_SOUNDCLOUD', '<< в начало')
+start_keyboard = ('КАК ДОБРАТЬСЯ', 'FAQ', 'РАСПИСАНИЕ', 'ХЕДЛАЙНЕРЫ', 'КАНАЛ', 'ЧАТ', 'ССЫЛКИ')
+links_keyboard = ('9 YEARS VK','9 YEARS FB','m_VK','m_INSTAGRAM','m_SOUNDCLOUD', '<< в начало')
+
+map_pic = 'map_pic.jpg'
 
 def start(bot, update):
     buttons_list = make_buttons_list(start_keyboard)
     menu = build_menu(buttons_list, 1)
     markup = InlineKeyboardMarkup(menu)
-    bot.sendMessage(text = 'Добро пожаловать на Mystery 2017', chat_id = update.message.chat.id, \
+    bot.sendMessage(text = 'Добро пожаловать на Квант', chat_id = update.message.chat.id, \
                     reply_markup=markup)
     record_user(user_id=update.message.chat.id)
     print(update.message.text)
     #botan.track(botan_token, update.message.chat.id,message=update.message.text)
+
+def send(bot, update):
+    print(1)
+    print()
+    if update.message.chat.id == 47303188 and update.message.text == '1':
+        user_ids = get_users()
+        buttons_list = make_buttons_list(start_keyboard)
+        menu = build_menu(buttons_list, 1)
+        markup = InlineKeyboardMarkup(menu)
+        print(user_ids)
+        for user in user_ids:
+            print(user)
+            try:
+                bot.sendMessage(text = '''Появилась информация о расписании. Ждем вас сегодня в Петергофе.''', chat_id = int(user), \
+                            reply_markup=markup)
+            except:
+                pass
+def get_users():
+    with open('users.csv') as csvfile:
+        csvreader = csv.reader(csvfile)
+        user_ids = set()
+        for row in csvreader:
+            user_ids.add(row[2])
+    return user_ids
 
 def build_menu(buttons,n_cols,):
     menu = [buttons[i:i + n_cols] for i in range(0, len(buttons), n_cols)]
@@ -40,7 +69,9 @@ def make_buttons_list(lst):
     buttons_list = []
     for a in lst:
         if a == 'FAQ':
-            button = InlineKeyboardButton(a, url='http://telegra.ph/FAQ-Mystery-2017-10-26')
+            button = InlineKeyboardButton(a, url='http://telegra.ph/FAQ-Kvant-04-15')
+        elif a == 'ХЕДЛАЙНЕРЫ':
+            button = InlineKeyboardButton(a, url='http://telegra.ph/Hedlajnery-Kvant-04-15')
         elif a == 'КАНАЛ':
             button = InlineKeyboardButton(a, url='https://t.me/m_division')
         elif a == 'ЧАТ':
@@ -49,10 +80,10 @@ def make_buttons_list(lst):
             button = InlineKeyboardButton(a, callback_data='back_music')
         elif a == '<< в начало':
             button = InlineKeyboardButton(a, callback_data='back_main')
-        elif a == 'MYSTERY VK':
-            button = InlineKeyboardButton(a, url='https://vk.com/m_mystery2017')
-        elif a == 'MYSTERY FB':
-            button = InlineKeyboardButton(a, url='https://www.facebook.com/events/768576016675791/')
+        elif a == '9 YEARS VK':
+            button = InlineKeyboardButton(a, url='https://vk.com/m_quantum')
+        elif a == '9 YEARS FB':
+            button = InlineKeyboardButton(a, url='https://www.facebook.com/events/363814224126602/')
         elif a == 'm_VK':
             button = InlineKeyboardButton(a, url='https://vk.com/mdivisiongroup')
         elif a == 'm_INSTAGRAM':
@@ -69,9 +100,9 @@ def make_buttons_list(lst):
 def button(bot, update):
     query = update.callback_query
     data = query.data
-    lat = '59.911079'
-    lng = '30.267228'
-    if data == 'МЕСТО ПРОВЕДЕНИЯ':
+    lat = '59.885366'
+    lng = '29.897472'
+    if data == 'КАК ДОБРАТЬСЯ':
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
         bot.sendLocation(chat_id=query.message.chat.id, latitude=lat, longitude=lng)
@@ -83,8 +114,17 @@ def button(bot, update):
         #markup = InlineKeyboardMarkup(menu)
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
-        bot.sendMessage(chat_id=query.message.chat.id, text='Информация скоро появится.', \
+        bot.sendMessage(chat_id=query.message.chat.id, text=lineup_text, \
                         parse_mode='HTML', reply_markup=markup)
+
+    elif data == 'ТОКЕНЫ':
+        # menu = build_menu(buttons_list, 1)
+        # markup = InlineKeyboardMarkup(menu)
+        keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
+        markup = InlineKeyboardMarkup(keyboard)
+        bot.sendMessage(chat_id=query.message.chat.id, text=token_text, \
+                        parse_mode='HTML', reply_markup=markup)
+
 
     elif data == 'FAQ':
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
@@ -93,19 +133,7 @@ def button(bot, update):
 
 
     elif data == 'ИГРАЮТ СЕЙЧАС':
-        keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
-        markup = InlineKeyboardMarkup(keyboard)
-        bot.sendMessage(chat_id=query.message.chat.id, text='Информация скоро появится.', parse_mode='HTML',
-                        reply_markup=markup)
-        #botan.track(botan_token, query.message.chat.id, message=query.message.text)
-
-    elif data == 'КАРТА':
-        keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
-        markup = InlineKeyboardMarkup(keyboard)
-        bot.sendPhoto(chat_id=query.from_user.id, photo=open(map_picture, 'rb'))
-        bot.sendPhoto(chat_id=query.from_user.id, photo=open(map_picture2, 'rb'))
-        bot.sendPhoto(chat_id=query.from_user.id, photo=open(map_picture3, 'rb'))
-        bot.sendMessage(chat_id=query.from_user.id, text='Расположение объектов', reply_markup=markup)
+            pass
 
     elif data == 'ССЫЛКИ':
         buttons_list = make_buttons_list(links_keyboard)
@@ -119,7 +147,7 @@ def button(bot, update):
         buttons_list = make_buttons_list(start_keyboard)
         menu = build_menu(buttons_list, 1)
         markup = InlineKeyboardMarkup(menu)
-        bot.sendMessage(text='Добро пожаловать на Mystery 2017', chat_id=query.message.chat.id, \
+        bot.sendMessage(text='Добро пожаловать на m_division 9 years', chat_id=query.message.chat.id, \
                         reply_markup=markup)
 
 
@@ -154,12 +182,16 @@ def record_user(user_id):
         csvwriter.writerow(['start', now, user_id])
 
 
+
+
 start_handler = CommandHandler('start', start)
 button_handler = CallbackQueryHandler(button)
+text_handler = MessageHandler(Filters.text, send)
+
 
 dispatcher.add_handler(start_handler)
 dispatcher.add_handler(button_handler)
-
+dispatcher.add_handler(text_handler)
 
 if __name__ == '__main__':
     updater.start_polling()
