@@ -96,26 +96,20 @@ token_text = '''
 '''
 
 lineup_text = '''
-<b>Белый зал</b>
+Sleeparchive (DE) (live)
+Voiski (FR) (live)
+Blush Response (DE) (live)
+Prcdrl (DE) (live)
+Ivan Logos
+Kobba
+Lena Popova
+Sestrica (live)
+Exponent
+Eye Que b2b naya
+Prisheletz
+Eostra
+Blain
+Oira
 
-<b>22-00</b> Taras Mashtalir a/v live
-<b>22-45</b> Achterstag a/v live
-<b>23-30</b> Ivan logos 
-<b>1-00</b> Byetone a/v live
-<b>2-00</b> Stanislav Tolkachev hybrid live
-<b>3-30</b> Unbalance 
-<b>5-00</b> Prcdrl live
-<b>6-00</b> Cliche Morph 
-<b>7-30</b> Kobba 
-
-<b>Мансарда</b> 
-
-<b>22-00</b> Gedevaan aka Syberian 
-<b>23-30</b> Camin 
-<b>0-30</b> Slava Finist
-<b>2-00</b> Lena Popova 
-<b>3-30</b> Oira 
-<b>4-30</b> Cultkitchen
-<b>6-00</b> Exponent b2b G_depot
-<b>7-30</b> m_special
+Расписание будет известно накануне.
 '''

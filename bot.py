@@ -22,7 +22,7 @@ PORT = int(os.environ.get('PORT', '5000'))
 updater = Updater(telegram_token)
 dispatcher = updater.dispatcher
 
-start_keyboard = ('КАК ДОБРАТЬСЯ', 'FAQ', 'РАСПИСАНИЕ', 'ХЕДЛАЙНЕРЫ', 'КАНАЛ', 'ЧАТ', 'ССЫЛКИ')
+start_keyboard = ('FAQ', 'ЛАЙНАП', 'ХЕДЛАЙНЕРЫ', 'КАНАЛ', 'ЧАТ', 'ССЫЛКИ')
 links_keyboard = ('9 YEARS VK','9 YEARS FB','m_VK','m_INSTAGRAM','m_SOUNDCLOUD', '<< в начало')
 
 map_pic = 'map_pic.jpg'
@@ -40,7 +40,7 @@ def start(bot, update):
 def send(bot, update):
     print(1)
     print()
-    if update.message.chat.id == 47303188 and update.message.text == '1':
+    if update.message.chxat.id == 47303188 and update.message.text == '1':
         user_ids = get_users()
         buttons_list = make_buttons_list(start_keyboard)
         menu = build_menu(buttons_list, 1)
@@ -49,7 +49,7 @@ def send(bot, update):
         for user in user_ids:
             print(user)
             try:
-                bot.sendMessage(text = '''Появилась информация о расписании. Ждем вас сегодня в Петергофе.''', chat_id = int(user), \
+                bot.sendMessage(text = '''Здесь вы найдете всю нужную информацию о Кванте. Расписание появится в субботу''', chat_id = int(user), \
                             reply_markup=markup)
             except:
                 pass
@@ -109,7 +109,7 @@ def button(bot, update):
         bot.sendMessage(chat_id=query.message.chat.id, text=location_text, parse_mode='HTML',
                         reply_markup=markup)
 
-    elif data == 'РАСПИСАНИЕ':
+    elif data == 'ЛАЙНАП':
         #menu = build_menu(buttons_list, 1)
         #markup = InlineKeyboardMarkup(menu)
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
