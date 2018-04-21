@@ -31,7 +31,7 @@ def start(bot, update):
     buttons_list = make_buttons_list(start_keyboard)
     menu = build_menu(buttons_list, 1)
     markup = InlineKeyboardMarkup(menu)
-    bot.sendMessage(text = 'Добро пожаловать на Квант. Начало в 22.00. Место — BLANK, Арсенальная набережная, 1', chat_id = update.message.chat.id, \
+    bot.sendMessage(text = 'Добро пожаловать на Квант. Начало в 22.00. Место — BLANK, Арсенальная набережная, 1.', chat_id = update.message.chat.id, \
                     reply_markup=markup)
     record_user(user_id=update.message.chat.id)
     print(update.message.text)
@@ -114,7 +114,7 @@ def button(bot, update):
         #markup = InlineKeyboardMarkup(menu)
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
-        bot.sendMessage(chat_id=query.message.chat.id, text=location_text, \
+        bot.sendMessage(chat_id=query.message.chat.id, text=timetable, \
                         parse_mode='HTML', reply_markup=markup)
 
     elif data == 'ТОКЕНЫ':
