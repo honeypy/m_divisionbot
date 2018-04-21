@@ -49,8 +49,7 @@ def send(bot, update):
         for user in user_ids:
             print(user)
             try:
-                bot.sendMessage(text = meet_text, chat_id = int(user), \
-                            reply_markup=markup)
+                bot.sendMessage(text = meet_text, chat_id = int(user), reply_markup=markup)
             except:
                 pass
 def get_users():
