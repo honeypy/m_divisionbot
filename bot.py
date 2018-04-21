@@ -40,7 +40,7 @@ def start(bot, update):
 def send(bot, update):
     print(1)
     print()
-    if update.message.chxat.id == 47303188 and update.message.text == '1':
+    if update.message.chat.id == 47303188 and update.message.text == '1':
         user_ids = get_users()
         buttons_list = make_buttons_list(start_keyboard)
         menu = build_menu(buttons_list, 1)
