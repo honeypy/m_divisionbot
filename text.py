@@ -1,5 +1,8 @@
-location_text = '''
-http://telegra.ph/Kak-doehat-do-KvartaRiata-02-05
+location_text = '''BLANK, Арсенальная набережная, 1, вход с набережной. Пожалуйста, не блокируйте движение на набережной автомобилями, иначе к нам приедут "гости".
+Мосты сегодня не разводят.
+'''
+
+meet_text = '''Здесь все, что нужно знать о Кванте. Не забывайте, что место проведения перенесли в BLANK, Арсенальная набережная, 1. Вход с набережной. Пожалуйста, не блокируйте движение на набережной автомобилями.
 '''
 
 
@@ -28,42 +31,29 @@ faq_text = '''
 '''
 
 timetable = '''
-<b>БЕТА</b>
-<b>23:00</b> Sarcomae LIVE
-<b>0:00</b> Ivan Logos
-<b>1:00</b> Ontal [Belgrad, Mord Records, Ad Noiseam, Inner Surface Music]
-<b>2:30</b> Perc [London, Perc Trax, Stroboscopic Artefacts]
-<b>4:30</b> Unbalance
-<b>5:30</b> PRCDRL LIVE
-<b>6:30</b> Kobba
-<b>7:30</b> m_special
+<b>КВАНТ</b>
+<b>22-00</b> Квантовый Оракул
+<b>23-00</b> Eye Que b2b naya
+<b>0-30</b> Ivan Logos
+<b>1-30</b> Sleeparchive (live)
+<b>3-00</b> Blush Response (live)
+<b>4-00</b> PRCDRL (live)
+<b>5-00</b> Sestrica (live)
+<b>6-00</b> Kobba
+<b>7-30</b> m_special
 
-<b>КОЛОННЫЙ ЗАЛ (2 этаж)</b>
-<b>23:00</b> Eye Que b2b Naya
-<b>0:00</b> CultKitchen
-<b>1:30</b> Juras Lietus aka Anton Kubikov LIVE
-<b>2:30</b> Redshape LIVE [Berlin, Delsin, Styrax Leaves, Music Man, Present]
-<b>3:30</b> Mike Huckaby [Detroit, Tresor, Deep Transportation, Semantica]
-<b>5:30</b> Lena Popova
-<b>6:30</b> Alex Meshkov
+<b>ФОТОН</b>:
+<b>23-00</b> Пришелец
+<b>0-30</b> Blain
+<b>1-30</b> Oira
+<b>2-30</b> Lena Popova
+<b>3-30</b> Exponent
+<b>4-30</b> Voiski (live)
+<b>6-00</b> Eostra
+<b>7-00</b> Ershov
+<b>8-00</b> Залетный
 
-<b>КАБИНЕТ КРОНА</b>
-<b>23:00</b> Lidvall LIVE
-<b>0:00</b> Exponent
-<b>1:30</b> G Depot
-<b>3:00</b> Dub Ali LIVE
-<b>4:00</b> Blain
-<b>5:00</b> Criminal In Dance LIVE
-<b>6:00</b> Tennisist
-
-<b>ШТОЛЬНЯ</b>
-<b>23:00</b> Квантовый Оракул
-<b>0:30</b> Neonicle LIVE
-<b>1:30</b> Neuro
-<b>3:00</b> Prisheletz LIVE
-<b>4:00</b> Sirius C LIVE
-<b>5:00</b> Vs Vs
-<b>7:00</b> m_special
+<b>12-00</b> the end
 '''
 
 text_early = '''

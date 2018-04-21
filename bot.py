@@ -10,7 +10,7 @@ import os
 import time
 
 
-from text import location_text, faq_text, timetable, text_early, token_text, lineup_text
+from text import location_text, faq_text, timetable, text_early, token_text, lineup_text, meet_text
 
 os.environ['TZ'] = 'Europe/Moscow'
 time.tzset()
@@ -22,8 +22,8 @@ PORT = int(os.environ.get('PORT', '5000'))
 updater = Updater(telegram_token)
 dispatcher = updater.dispatcher
 
-start_keyboard = ('FAQ', 'ЛАЙНАП', 'ХЕДЛАЙНЕРЫ', 'КАНАЛ', 'ЧАТ', 'ССЫЛКИ')
-links_keyboard = ('9 YEARS VK','9 YEARS FB','m_VK','m_INSTAGRAM','m_SOUNDCLOUD', '<< в начало')
+start_keyboard = ('МЕСТО', 'FAQ', 'РАСПИСАНИЕ', 'ХЕДЛАЙНЕРЫ', 'КАНАЛ', 'ЧАТ', 'ССЫЛКИ')
+links_keyboard = ('QUANTUM VK','QUANTUM FB','m_VK','m_INSTAGRAM','m_SOUNDCLOUD', '<< в начало')
 
 map_pic = 'map_pic.jpg'
 
@@ -31,7 +31,7 @@ def start(bot, update):
     buttons_list = make_buttons_list(start_keyboard)
     menu = build_menu(buttons_list, 1)
     markup = InlineKeyboardMarkup(menu)
-    bot.sendMessage(text = 'Добро пожаловать на Квант', chat_id = update.message.chat.id, \
+    bot.sendMessage(text = 'Добро пожаловать на Квант. Начало в 22.00. Место — BLANK, Арсенальная набережная, 1', chat_id = update.message.chat.id, \
                     reply_markup=markup)
     record_user(user_id=update.message.chat.id)
     print(update.message.text)
@@ -49,7 +49,7 @@ def send(bot, update):
         for user in user_ids:
             print(user)
             try:
-                bot.sendMessage(text = '''Здесь вы найдете всю нужную информацию о Кванте. Расписание появится в субботу''', chat_id = int(user), \
+                bot.sendMessage(text = meet_text, chat_id = int(user), \
                             reply_markup=markup)
             except:
                 pass
@@ -80,9 +80,9 @@ def make_buttons_list(lst):
             button = InlineKeyboardButton(a, callback_data='back_music')
         elif a == '<< в начало':
             button = InlineKeyboardButton(a, callback_data='back_main')
-        elif a == '9 YEARS VK':
+        elif a == 'QUANTUM VK':
             button = InlineKeyboardButton(a, url='https://vk.com/m_quantum')
-        elif a == '9 YEARS FB':
+        elif a == 'QUANTUM FB':
             button = InlineKeyboardButton(a, url='https://www.facebook.com/events/363814224126602/')
         elif a == 'm_VK':
             button = InlineKeyboardButton(a, url='https://vk.com/mdivisiongroup')
@@ -100,21 +100,21 @@ def make_buttons_list(lst):
 def button(bot, update):
     query = update.callback_query
     data = query.data
-    lat = '59.885366'
-    lng = '29.897472'
-    if data == 'КАК ДОБРАТЬСЯ':
+    lat = '59.954605'
+    lng = '30.372228'
+    if data == 'МЕСТО':
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
         bot.sendLocation(chat_id=query.message.chat.id, latitude=lat, longitude=lng)
         bot.sendMessage(chat_id=query.message.chat.id, text=location_text, parse_mode='HTML',
                         reply_markup=markup)
 
-    elif data == 'ЛАЙНАП':
+    elif data == 'РАСПИСАНИЕ':
         #menu = build_menu(buttons_list, 1)
         #markup = InlineKeyboardMarkup(menu)
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
-        bot.sendMessage(chat_id=query.message.chat.id, text=lineup_text, \
+        bot.sendMessage(chat_id=query.message.chat.id, text=location_text, \
                         parse_mode='HTML', reply_markup=markup)
 
     elif data == 'ТОКЕНЫ':
@@ -126,10 +126,10 @@ def button(bot, update):
                         parse_mode='HTML', reply_markup=markup)
 
 
-    elif data == 'FAQ':
-        keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
-        markup = InlineKeyboardMarkup(keyboard)
-        bot.sendMessage(chat_id=query.message.chat.id, text=faq_text, parse_mode='HTML',reply_markup=markup)
+    # elif data == 'FAQ':
+    #     keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
+    #     markup = InlineKeyboardMarkup(keyboard)
+    #     bot.sendMessage(chat_id=query.message.chat.id, text=faq_text, parse_mode='HTML',reply_markup=markup)
 
 
     elif data == 'ИГРАЮТ СЕЙЧАС':
