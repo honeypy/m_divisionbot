@@ -99,8 +99,8 @@ def make_buttons_list(lst):
 def button(bot, update):
     query = update.callback_query
     data = query.data
-    lat = '59.54402'
-    lng = '30.15590'
+    lat = '59.911202'
+    lng = '30.266454'
     if data == 'МЕСТО':
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
