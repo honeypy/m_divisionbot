@@ -10,7 +10,7 @@ import os
 import time
 
 
-from text import location_text, faq_text, timetable, text_early, token_text, lineup_text, meet_text
+from text import location_text, faq_text, timetable, text_early, token_text, lineup_text, meet_text, now_text
 
 os.environ['TZ'] = 'Europe/Moscow'
 time.tzset()
@@ -22,8 +22,8 @@ PORT = int(os.environ.get('PORT', '5000'))
 updater = Updater(telegram_token)
 dispatcher = updater.dispatcher
 
-start_keyboard = ('МЕСТО', 'FAQ', 'РАСПИСАНИЕ', 'ХЕДЛАЙНЕРЫ', 'КАНАЛ', 'ЧАТ', 'ССЫЛКИ')
-links_keyboard = ('QUANTUM VK','QUANTUM FB','m_VK','m_INSTAGRAM','m_SOUNDCLOUD', '<< в начало')
+start_keyboard = ('МЕСТО', 'FAQ', 'РАСПИСАНИЕ', 'ИГРАЮТ СЕЙЧАС', 'ХЕДЛАЙНЕРЫ', 'КАНАЛ', 'ЧАТ')
+links_keyboard = ('BETA VK','BETA FB','m_VK','m_INSTAGRAM','m_SOUNDCLOUD', '<< в начало')
 
 map_pic = 'map_pic.jpg'
 
@@ -31,7 +31,7 @@ def start(bot, update):
     buttons_list = make_buttons_list(start_keyboard)
     menu = build_menu(buttons_list, 1)
     markup = InlineKeyboardMarkup(menu)
-    bot.sendMessage(text = 'Добро пожаловать на Квант. Начало в 22.00. Место — BLANK, Арсенальная набережная, 1.', chat_id = update.message.chat.id, \
+    bot.sendMessage(text = 'Добро пожаловать на Beta.', chat_id = update.message.chat.id, \
                     reply_markup=markup)
     record_user(user_id=update.message.chat.id)
     print(update.message.text)
@@ -68,9 +68,9 @@ def make_buttons_list(lst):
     buttons_list = []
     for a in lst:
         if a == 'FAQ':
-            button = InlineKeyboardButton(a, url='http://telegra.ph/FAQ-Kvant-04-15')
+            button = InlineKeyboardButton(a, url='http://telegra.ph/FAQ-Beta-05-24')
         elif a == 'ХЕДЛАЙНЕРЫ':
-            button = InlineKeyboardButton(a, url='http://telegra.ph/Hedlajnery-Kvant-04-15')
+            button = InlineKeyboardButton(a, url='http://telegra.ph/Hedlajnery-Beta-05-24')
         elif a == 'КАНАЛ':
             button = InlineKeyboardButton(a, url='https://t.me/m_division')
         elif a == 'ЧАТ':
@@ -79,10 +79,10 @@ def make_buttons_list(lst):
             button = InlineKeyboardButton(a, callback_data='back_music')
         elif a == '<< в начало':
             button = InlineKeyboardButton(a, callback_data='back_main')
-        elif a == 'QUANTUM VK':
-            button = InlineKeyboardButton(a, url='https://vk.com/m_quantum')
-        elif a == 'QUANTUM FB':
-            button = InlineKeyboardButton(a, url='https://www.facebook.com/events/363814224126602/')
+        elif a == 'BETA VK':
+            button = InlineKeyboardButton(a, url='https://vk.com/m_beta')
+        elif a == 'BETA FB':
+            button = InlineKeyboardButton(a, url='https://www.facebook.com/events/189943455061905/')
         elif a == 'm_VK':
             button = InlineKeyboardButton(a, url='https://vk.com/mdivisiongroup')
         elif a == 'm_INSTAGRAM':
@@ -99,8 +99,8 @@ def make_buttons_list(lst):
 def button(bot, update):
     query = update.callback_query
     data = query.data
-    lat = '59.954605'
-    lng = '30.372228'
+    lat = '59.54402'
+    lng = '30.15590'
     if data == 'МЕСТО':
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
@@ -132,7 +132,10 @@ def button(bot, update):
 
 
     elif data == 'ИГРАЮТ СЕЙЧАС':
-            pass
+        keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
+        markup = InlineKeyboardMarkup(keyboard)
+        bot.sendMessage(chat_id=query.message.chat.id, text=now_text, \
+                        parse_mode='HTML', reply_markup=markup)
 
     elif data == 'ССЫЛКИ':
         buttons_list = make_buttons_list(links_keyboard)
