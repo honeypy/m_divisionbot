@@ -3,3 +3,4 @@ venv
 nohup.out
 getnow.py
 prepare.py
+users.csv
