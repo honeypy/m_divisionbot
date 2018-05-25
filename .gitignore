@@ -11,3 +11,6 @@ data/
 map.jpg
 map_pic.jpg
 pics/
+.venv/
+__pycache__/
+
