@@ -1,13 +1,4 @@
-from telegram.ext import Updater, CommandHandler, CallbackQueryHandler
-from telegram.ext import MessageHandler, Filters
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup
-import os
-import logging
-import config
-import datetime
-import csv
-import os
-import time
+
 import logging
 import datetime
 import time
@@ -15,181 +6,12 @@ import os
 import csv
 import glob
 
-
 from text import *
 
 os.environ['TZ'] = 'Europe/Moscow'
 time.tzset()
 
-telegram_token = config.telegram_token
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level= logging.INFO)
-
-PORT = int(os.environ.get('PORT', '5000'))
-updater = Updater(telegram_token)
-dispatcher = updater.dispatcher
-
-start_keyboard = ('МЕСТО', 'FAQ', 'РАСПИСАНИЕ', 'ИГРАЮТ СЕЙЧАС', 'ХЕДЛАЙНЕРЫ', 'КАНАЛ', 'ЧАТ')
-links_keyboard = ('BETA VK','BETA FB','m_VK','m_INSTAGRAM','m_SOUNDCLOUD', '<< в начало')
-
-map_pic = 'map_pic.jpg'
-
-def start(bot, update):
-    buttons_list = make_buttons_list(start_keyboard)
-    menu = build_menu(buttons_list, 1)
-    markup = InlineKeyboardMarkup(menu)
-    bot.sendMessage(text = 'Добро пожаловать на Beta.', chat_id = update.message.chat.id, \
-                    reply_markup=markup)
-    record_user(user_id=update.message.chat.id)
-    print(update.message.text)
-    #botan.track(botan_token, update.message.chat.id,message=update.message.text)
-
-def send(bot, update):
-    print(1)
-    print()
-    if update.message.chat.id == 47303188 and update.message.text == '1':
-        user_ids = get_users()
-        buttons_list = make_buttons_list(start_keyboard)
-        menu = build_menu(buttons_list, 1)
-        markup = InlineKeyboardMarkup(menu)
-        print(user_ids)
-        for user in user_ids:
-            print(user)
-            try:
-                bot.sendMessage(text = meet_text, chat_id = int(user), reply_markup=markup)
-            except:
-                pass
-def get_users():
-    with open('users.csv') as csvfile:
-        csvreader = csv.reader(csvfile)
-        user_ids = set()
-        for row in csvreader:
-            user_ids.add(row[2])
-    return user_ids
-
-def build_menu(buttons,n_cols,):
-    menu = [buttons[i:i + n_cols] for i in range(0, len(buttons), n_cols)]
-    return menu
-
-def make_buttons_list(lst):
-    buttons_list = []
-    for a in lst:
-        if a == 'FAQ':
-            button = InlineKeyboardButton(a, url='http://telegra.ph/FAQ-Beta-05-24')
-        elif a == 'ХЕДЛАЙНЕРЫ':
-            button = InlineKeyboardButton(a, url='http://telegra.ph/Hedlajnery-Beta-05-24')
-        elif a == 'КАНАЛ':
-            button = InlineKeyboardButton(a, url='https://t.me/m_division')
-        elif a == 'ЧАТ':
-            button = InlineKeyboardButton(a, url='https://t.me/m_divisionchat')
-        elif a == '<< назад':
-            button = InlineKeyboardButton(a, callback_data='back_music')
-        elif a == '<< в начало':
-            button = InlineKeyboardButton(a, callback_data='back_main')
-        elif a == 'BETA VK':
-            button = InlineKeyboardButton(a, url='https://vk.com/m_beta')
-        elif a == 'BETA FB':
-            button = InlineKeyboardButton(a, url='https://www.facebook.com/events/189943455061905/')
-        elif a == 'm_VK':
-            button = InlineKeyboardButton(a, url='https://vk.com/mdivisiongroup')
-        elif a == 'm_INSTAGRAM':
-            button = InlineKeyboardButton(a, url='https://www.instagram.com/m_division/')
-        elif a == 'm_SOUNDCLOUD':
-            button = InlineKeyboardButton(a, url='https://soundcloud.com/mdivision/')
-        else:
-            button = InlineKeyboardButton(a,callback_data=a)
-        buttons_list.append(button)
-
-    return buttons_list
-
-
-def button(bot, update):
-    query = update.callback_query
-    data = query.data
-    lat = '59.911202'
-    lng = '30.266454'
-    if data == 'МЕСТО':
-        keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
-        markup = InlineKeyboardMarkup(keyboard)
-        bot.sendLocation(chat_id=query.message.chat.id, latitude=lat, longitude=lng)
-        bot.sendMessage(chat_id=query.message.chat.id, text=location_text, parse_mode='HTML',
-                        reply_markup=markup)
-
-    elif data == 'РАСПИСАНИЕ':
-        #menu = build_menu(buttons_list, 1)
-        #markup = InlineKeyboardMarkup(menu)
-        keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
-        markup = InlineKeyboardMarkup(keyboard)
-        bot.sendMessage(chat_id=query.message.chat.id, text=timetable, \
-                        parse_mode='HTML', reply_markup=markup)
-
-    elif data == 'ТОКЕНЫ':
-        # menu = build_menu(buttons_list, 1)
-        # markup = InlineKeyboardMarkup(menu)
-        keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
-        markup = InlineKeyboardMarkup(keyboard)
-        bot.sendMessage(chat_id=query.message.chat.id, text=token_text, \
-                        parse_mode='HTML', reply_markup=markup)
-
-
-    # elif data == 'FAQ':
-    #     keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
-    #     markup = InlineKeyboardMarkup(keyboard)
-    #     bot.sendMessage(chat_id=query.message.chat.id, text=faq_text, parse_mode='HTML',reply_markup=markup)
-
-
-    elif data == 'ИГРАЮТ СЕЙЧАС':
-
-        keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
-        markup = InlineKeyboardMarkup(keyboard)
-        now_text = playing_now()
-        bot.sendMessage(chat_id=query.message.chat.id, text=now_text, \
-                        parse_mode='HTML', reply_markup=markup)
-
-    elif data == 'ССЫЛКИ':
-        buttons_list = make_buttons_list(links_keyboard)
-        menu = build_menu(buttons_list, 1)
-        markup = InlineKeyboardMarkup(menu)
-        bot.sendMessage(chat_id=query.message.chat.id, text='Выберите ресурс:', \
-                        parse_mode='HTML', reply_markup=markup)
-
-
-    elif data == 'back_main':
-        buttons_list = make_buttons_list(start_keyboard)
-        menu = build_menu(buttons_list, 1)
-        markup = InlineKeyboardMarkup(menu)
-        bot.sendMessage(text='Добро пожаловать на Beta.', chat_id=query.message.chat.id, \
-                        reply_markup=markup)
-
-
-def get_artists(data):
-    artists = []
-
-    with open('schedule.csv','r') as csvfile:
-        reader = csv.reader(csvfile, delimiter=',', quotechar='"')
-        for row in reader:
-            if row[0] == data:
-                artists.append(row)
-    return artists
-
-
-def make_text(artists):
-    text = ''
-    for artist in artists:
-        scene = '\n'+'<b>'+artist[1]+'</b>\n'
-        if scene not in text:
-            text += scene
-        text = text + '<b>' + artist[2] + '</b> '
-        text = text + artist[3]+'\n'
-        # text = text+ '('+artist[4] + ')'
-        # text += artist[5] + '\n'
-    return text
-
-
-def record_user(user_id):
-    now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
-    with open('users.csv', 'a') as csvfile:
-        csvwriter = csv.writer(csvfile)
-        csvwriter.writerow(['start', now, user_id])
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
 
 def format_date(datetime):
@@ -462,7 +284,36 @@ def playing_now():
     return playing_at(datetime.datetime.now())
 
 
+def start(bot, update):
+    chat_id = update.message.chat.id
 
+    buttons_list = make_buttons_list()
+    menu = build_menu(buttons_list, 1)
+    markup = InlineKeyboardMarkup(menu)
+    bot.sendMessage(text=playing_now(), chat_id=chat_id, reply_markup=markup)
+
+
+def build_menu(buttons, n_cols):
+    menu = [buttons[i:i + n_cols] for i in range(0, len(buttons), n_cols)]
+    return menu
+
+
+def make_buttons_list():
+    buttons_list = [InlineKeyboardButton("Обновить", callback_data='update')]
+
+    return buttons_list
+
+
+def button(bot, update):
+    query = update.callback_query
+    data = query.data
+    chat_id = query.message.chat.id
+
+    if data == 'update':
+        buttons_list = make_buttons_list()
+        menu = build_menu(buttons_list, 1)
+        markup = InlineKeyboardMarkup(menu)
+        bot.sendMessage(text=playing_now(), chat_id=query.message.chat.id, reply_markup=markup)
 
 
 def handle_message(bot, update):
@@ -474,24 +325,15 @@ def handle_message(bot, update):
     bot.sendMessage(text=test_suite(), chat_id=chat_id, reply_markup=markup)
 
 
-def play_command(bot, update):
-    keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
-    markup = InlineKeyboardMarkup(keyboard)
-    now_text = playing_now()
-    bot.sendMessage(chat_id=update.message.chat.id, text=now_text, \
-                    parse_mode='HTML', reply_markup=markup)
-
-
 start_handler = CommandHandler('start', start)
 button_handler = CallbackQueryHandler(button)
-text_handler = MessageHandler(Filters.text, send)
-now_handler = CommandHandler('now', play_command)
-
+text_handler = MessageHandler(Filters.text, handle_message)
+test_handler = CommandHandler('test', test, pass_args=True)
 
 dispatcher.add_handler(start_handler)
 dispatcher.add_handler(button_handler)
 dispatcher.add_handler(text_handler)
-dispatcher.add_handler(now_handler)
+dispatcher.add_handler(test_handler)
 
 if __name__ == '__main__':
     updater.start_polling()
