@@ -89,6 +89,37 @@ no_event_text = "Путешествие еще не началось."
 
 starting_soon_text = "Скоро начнём"
 
-playing_now_text = "Сейчас играют:"
+playing_now_text = ""
 
 over_text = "Путешествие закончилось"
+
+timetable_text = '''
+<b>Beta stage: 
+23-00 Munt Berry 
+0-30 Yuka
+2-00 Answer Code Request 
+4-00 Amotik
+5-30 Ivan Logos
+6-30 Unbalance 
+8-00 Kobba
+
+Bassiani stage:
+23-00 Exponent
+1-00 HVL
+3-00 NDRX
+5-00 Nick Höppner
+
+Sanctum stage:
+23-00 Alex Zender 
+0-00 Snezhana Reizen 
+1-00 EyeScream 
+2-00 Zvukofor 
+3-00 Abjective 
+4-00 Symphocat 
+5-00 Dekho 
+6-00 Creation VI
+
+m_special:
+7-00 Lena Popova 
+8-30 Slava Finist</b>
+'''

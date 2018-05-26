@@ -119,7 +119,7 @@ def button(bot, update):
         #markup = InlineKeyboardMarkup(menu)
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
-        bot.sendMessage(chat_id=query.message.chat.id, text=timetable, \
+        bot.sendMessage(chat_id=query.message.chat.id, text=timetable_text, \
                         parse_mode='HTML', reply_markup=markup)
 
     elif data == 'ТОКЕНЫ':
@@ -410,7 +410,7 @@ def playing_at(time):
     DAY_THRESHOLD = datetime.time(14, 0)
 
     # TODO: find out dynamically
-    STAGES_ORDER = ["beta stage", "gamma stage", "omega stage"]
+    STAGES_ORDER = ["Beta stage", "Bassiani stage", "Sanctum stage", "m_special"]
 
     started = False
     for scene in schedule:
@@ -427,6 +427,7 @@ def playing_at(time):
                 result += format_artist(first_entry[0], first_entry[1])
 
         result += "\n"
+        result += "\nНа основе официального расписания."
         return result
 
 
@@ -455,6 +456,7 @@ def playing_at(time):
         if result == playing_now_text + "\n":  # all the stages have finished
             result = over_text + "\n"
 
+        result += '\nНа основе официального расписания.'
         return result
 
 
