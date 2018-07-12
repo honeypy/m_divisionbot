@@ -58,6 +58,18 @@ def send(bot, update):
                 bot.sendMessage(text = meet_text, chat_id = int(user), reply_markup=markup)
             except:
                 pass
+    elif update.message.chat.id == 47303188 and update.message.text == '2':
+        user_ids = get_users()
+        buttons_list = make_buttons_list(start_keyboard)
+        menu = build_menu(buttons_list, 1)
+        markup = InlineKeyboardMarkup(menu)
+        print(user_ids)
+        for user in user_ids:
+            print(user)
+            try:
+                bot.sendMessage(text='Если «FAQ» и «Артисты» не открываются, нажмите снова /start', chat_id=int(user), reply_markup=markup)
+            except:
+                pass
 def get_users():
     with open('users.csv') as csvfile:
         csvreader = csv.reader(csvfile)
