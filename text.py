@@ -3,6 +3,8 @@ location_text = '''<b>19 июля:</b> концерт-открытие. Hauschka
 
 <b>20 — 21 июля:</b> GAMMA_PRO & MUTEK SHOWCASE 
 <a href='https://goo.gl/maps/FKE7gBgyG7U2'>киностудия ЛЕНФИЛЬМ, Каменноостровский пр., 10</a>
+<b>20 июля:</b> GAMMA_PRO Afterparty
+<a href='https://goo.gl/maps/D7CjrkjNjiS2'>клуб BLANK</a>
 
 <b>21 — 22 июля:</b> основная программа GAMMA
 <b>21.07</b> <a href='https://goo.gl/maps/YZzzjkUtBnm'>Завод им.Степана Разина, ул. Степана Разина, 8а</a>
