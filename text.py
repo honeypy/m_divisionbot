@@ -1,8 +1,17 @@
-location_text = '''Завод им. Степана Разина, Степана Разина ул. 8а. (10 минут от метро Нарвская), вход с ул.Курляндская.
-Парковка: вдоль Степана Разина и улицы Курляндской.
+location_text = '''<b>19 июля:</b> концерт-открытие. Hauschka (неоклассика, DE)
+<a href='https://goo.gl/maps/GnhNjfXDAwT2'>Дворец Белосельских-Белозерских, Невский пр., 41.</a>
+
+<b>20 — 21 июля:</b> GAMMA_PRO & MUTEK SHOWCASE 
+<a href='https://goo.gl/maps/FKE7gBgyG7U2'>киностудия ЛЕНФИЛЬМ, Каменноостровский пр., 10</a>
+
+<b>21 — 22 июля:</b> основная программа GAMMA
+<b>21.07</b> <a href='https://goo.gl/maps/YZzzjkUtBnm'>Завод им.Степана Разина, ул. Степана Разина, 8а</a>
+<b>22.07</b> <a href='https://goo.gl/maps/cekabpZ461v'>Загородная резиденция искусств и технологий Quartariata, Петергоф, Золотая 2—4</a>
+
 '''
 
-meet_text = '''Добро пожаловать на Beta. Начинаем через час.'''
+meet_text = '''До начала Gamma 2018 осталось 7 дней. 
+Здесь вы найдете всю необходимую информацию о фестивале.'''
 
 
 faq_text = '''
@@ -81,8 +90,10 @@ Oira
 Расписание будет известно накануне.
 '''
 
-now_text = '''Мероприятие еще не началось.'''
+now_text = '''Gamma начнется 19 июня <a href='http://gammafestival.ru/hauschka'>концертом-открытием</a> HAUSHKA (DE).
 
+Во время фестиваля жмите «Играют сейчас», чтобы знать, что где происходит (на основе расписания).
+'''
 
 no_event_text = "Путешествие еще не началось."
 
@@ -93,32 +104,7 @@ playing_now_text = ""
 over_text = "Путешествие закончилось"
 
 timetable_text = '''
-<b>Beta stage: 
-23-00 Munt Berry 
-0-30 Yuka
-2-00 Answer Code Request 
-4-00 Amotik
-5-30 Ivan Logos
-6-30 Unbalance 
-8-00 Kobba
+Точное расписание будет известно чуть позже.
 
-Bassiani stage:
-23-00 Exponent
-1-00 HVL
-3-00 NDRX
-5-00 Nick Höppner
-
-Sanctum stage:
-23-00 Alex Zender 
-0-00 Snezhana Reizen 
-1-00 EyeScream 
-2-00 Zvukofor 
-3-00 Abjective 
-4-00 Symphocat 
-5-00 Dekho 
-6-00 Creation VI
-
-m_special:
-7-00 Lena Popova 
-8-30 Slava Finist</b>
+Gamma начнется 19 июня <a href='http://gammafestival.ru/hauschka'>концертом-открытием</a> HAUSHKA (DE).
 '''

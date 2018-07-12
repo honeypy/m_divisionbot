@@ -28,8 +28,8 @@ PORT = int(os.environ.get('PORT', '5000'))
 updater = Updater(telegram_token)
 dispatcher = updater.dispatcher
 
-start_keyboard = ('МЕСТО', 'FAQ', 'РАСПИСАНИЕ', 'ИГРАЮТ СЕЙЧАС', 'ХЕДЛАЙНЕРЫ', 'КАНАЛ', 'ЧАТ')
-links_keyboard = ('BETA VK','BETA FB','m_VK','m_INSTAGRAM','m_SOUNDCLOUD', '<< в начало')
+start_keyboard = ('МЕСТО', 'FAQ', 'РАСПИСАНИЕ', 'ИГРАЮТ СЕЙЧАС', 'АРТИСТЫ', 'КАНАЛ', 'ЧАТ')
+links_keyboard = ('GAMMA VK','GAMMA FB','m_VK','m_INSTAGRAM','m_SOUNDCLOUD', '<< в начало')
 
 map_pic = 'map_pic.jpg'
 
@@ -37,7 +37,7 @@ def start(bot, update):
     buttons_list = make_buttons_list(start_keyboard)
     menu = build_menu(buttons_list, 1)
     markup = InlineKeyboardMarkup(menu)
-    bot.sendMessage(text = 'Добро пожаловать на Beta.', chat_id = update.message.chat.id, \
+    bot.sendMessage(text = 'Добро пожаловать на Gamma 2018', chat_id = update.message.chat.id, \
                     reply_markup=markup)
     record_user(user_id=update.message.chat.id)
     print(update.message.text)
@@ -74,9 +74,9 @@ def make_buttons_list(lst):
     buttons_list = []
     for a in lst:
         if a == 'FAQ':
-            button = InlineKeyboardButton(a, url='http://telegra.ph/FAQ-Beta-05-24')
-        elif a == 'ХЕДЛАЙНЕРЫ':
-            button = InlineKeyboardButton(a, url='http://telegra.ph/Hedlajnery-Beta-05-24')
+            button = InlineKeyboardButton(a, url='http://telegra.ph/FAQ-GAMMA-2018-07-08-3')
+        elif a == 'АРТИСТЫ':
+            button = InlineKeyboardButton(a, url='http://telegra.ph/Artisty-GAMMA-2018-07-07')
         elif a == 'КАНАЛ':
             button = InlineKeyboardButton(a, url='https://t.me/m_division')
         elif a == 'ЧАТ':
@@ -85,10 +85,10 @@ def make_buttons_list(lst):
             button = InlineKeyboardButton(a, callback_data='back_music')
         elif a == '<< в начало':
             button = InlineKeyboardButton(a, callback_data='back_main')
-        elif a == 'BETA VK':
-            button = InlineKeyboardButton(a, url='https://vk.com/m_beta')
-        elif a == 'BETA FB':
-            button = InlineKeyboardButton(a, url='https://www.facebook.com/events/189943455061905/')
+        elif a == 'GAMMA VK':
+            button = InlineKeyboardButton(a, url='https://vk.com/gammafestival2018')
+        elif a == 'GAMMA FB':
+            button = InlineKeyboardButton(a, url='https://www.facebook.com/gammaspb/')
         elif a == 'm_VK':
             button = InlineKeyboardButton(a, url='https://vk.com/mdivisiongroup')
         elif a == 'm_INSTAGRAM':
@@ -110,9 +110,9 @@ def button(bot, update):
     if data == 'МЕСТО':
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
-        bot.sendLocation(chat_id=query.message.chat.id, latitude=lat, longitude=lng)
+        #bot.sendLocation(chat_id=query.message.chat.id, latitude=lat, longitude=lng)
         bot.sendMessage(chat_id=query.message.chat.id, text=location_text, parse_mode='HTML',
-                        reply_markup=markup)
+                        reply_markup=markup, disable_web_page_preview=True)
 
     elif data == 'РАСПИСАНИЕ':
         #menu = build_menu(buttons_list, 1)
@@ -141,7 +141,7 @@ def button(bot, update):
 
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
-        now_text = playing_now()
+        #now_text = playing_now()
         bot.sendMessage(chat_id=query.message.chat.id, text=now_text, \
                         parse_mode='HTML', reply_markup=markup)
 
@@ -157,7 +157,7 @@ def button(bot, update):
         buttons_list = make_buttons_list(start_keyboard)
         menu = build_menu(buttons_list, 1)
         markup = InlineKeyboardMarkup(menu)
-        bot.sendMessage(text='Добро пожаловать на Beta.', chat_id=query.message.chat.id, \
+        bot.sendMessage(text='Добро пожаловать на Gamma 2018.', chat_id=query.message.chat.id, \
                         reply_markup=markup)
 
 
