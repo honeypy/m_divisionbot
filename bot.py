@@ -213,8 +213,10 @@ def format_datetime(datetime):
 
 
 def parse_time(time_string):
-    return datetime.datetime.strptime(time_string, "%H:%M").time()
-
+    try:
+        return datetime.datetime.strptime(time_string, "%H:%M").time()
+    except:
+        print("parse_time: wrond time " + time_string)
 
 def parse_datetime(datetime_string):
     return datetime.datetime.strptime(datetime_string, "%Y.%m.%d %H:%M")
@@ -450,7 +452,7 @@ def playing_at(time):
             if stage in schedule:
                 first_entry = schedule[stage][0]
                 if first_entry[0] > time:
-                    result += "\n\n" + stage + ":\n"
+                    result += "\n\n<b>" + stage + "</b>\n"
                     result += format_artist(first_entry[0], first_entry[1])
                 else:
                     current_entry = first_entry
@@ -459,6 +461,10 @@ def playing_at(time):
                             result += "\n\n<b>" + stage + "</b>\n"
                             result += format_artist(current_entry[0], current_entry[1]) + "\n"
                             result += format_artist(next_entry[0], next_entry[1])
+                            if next_entry[1] == "перерыв":
+                                i = schedule[stage][1:].index(next_entry)
+                                after_break_entry = schedule[stage][1:][i+1]
+                                result += "\n" + format_artist(after_break_entry[0], after_break_entry[1])
 
                             break
 

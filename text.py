@@ -185,7 +185,7 @@ starting_soon_text = "Скоро начнём."
 
 playing_now_text = ""
 
-over_text = "На сегодня все."
+over_text = "На сегодня всё."
 
 # timetable_text = '''
 # Точное расписание будет известно чуть позже.
