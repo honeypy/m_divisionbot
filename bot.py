@@ -225,9 +225,19 @@ def parse_datetime(datetime_string):
 def scene_name(file_name):
     return file_name.split("-")[2][:-4].strip()
 
+"""
+(time, artist, [description])
+"""
+def format_artist(entry):
+    time = entry[0]
+    artist = entry[1]
+    description = entry[2]
+    
+    text = time.strftime("<b>%H:%M</b> - " + artist)
+    if description != "":
+        text += "\n\n" + description
 
-def format_artist(time, artist):
-    return time.strftime("<b>%H:%M</b> - " + artist)
+    return text
 
 
 def test_suite():
@@ -390,7 +400,11 @@ def playing_at(time):
 
                 current_date = today_date if reached_today else yesterday_date
                 event_datetime = datetime.datetime.combine(current_date, event_time)
-                schedule[scene].append((event_datetime, event_name))
+                event_description = ""
+                if len(row) > 2:
+                    event_description = row[2]
+                
+                schedule[scene].append((event_datetime, event_name, event_description))
 
                 previous_time = event_time
 
@@ -414,7 +428,11 @@ def playing_at(time):
 
                 current_date = tomorrow_date if reached_tomorrow else today_date
                 event_datetime = datetime.datetime.combine(current_date, event_time)
-                schedule[scene].append((event_datetime, event_name))
+                event_description = ""
+                if len(row) > 2:
+                    event_description = row[2]
+                
+                schedule[scene].append((event_datetime, event_name, event_description))
 
                 previous_time = event_time
 
@@ -438,7 +456,7 @@ def playing_at(time):
             if stage in schedule:
                 first_entry = schedule[stage][0]
                 result += "\n\n<b>" + stage + "</b>\n"
-                result += format_artist(first_entry[0], first_entry[1])
+                result += format_artist(first_entry)
 
         if today_string != "2018.07.19":
             result += "\n"
@@ -453,18 +471,18 @@ def playing_at(time):
                 first_entry = schedule[stage][0]
                 if first_entry[0] > time:
                     result += "\n\n<b>" + stage + "</b>\n"
-                    result += format_artist(first_entry[0], first_entry[1])
+                    result += format_artist(first_entry)
                 else:
                     current_entry = first_entry
                     for next_entry in schedule[stage][1:]:
                         if next_entry[0] >= time:
                             result += "\n\n<b>" + stage + "</b>\n"
-                            result += format_artist(current_entry[0], current_entry[1]) + "\n"
-                            result += format_artist(next_entry[0], next_entry[1])
+                            result += format_artist(current_entry) + "\n"
+                            result += format_artist(next_entry)
                             if next_entry[1] == "перерыв":
                                 i = schedule[stage][1:].index(next_entry)
                                 after_break_entry = schedule[stage][1:][i+1]
-                                result += "\n" + format_artist(after_break_entry[0], after_break_entry[1])
+                                result += "\n" + format_artist(after_break_entry)
 
                             break
 
