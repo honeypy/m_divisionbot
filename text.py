@@ -127,7 +127,7 @@ Zaletny
 '''
 
 text_early = '''
-Скоро начнем. 
+Скоро начнём. 
 <b>БЕТА</b>
 <b>23:00</b> Sarcomae LIVE
 
@@ -181,7 +181,7 @@ now_text = '''Gamma начнется 19 июля <a href='http://gammafestival.r
 
 no_event_text = "Путешествие еще не началось."
 
-starting_soon_text = "Скоро начнём"
+starting_soon_text = "Скоро начнём."
 
 playing_now_text = ""
 

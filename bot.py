@@ -153,7 +153,7 @@ def button(bot, update):
 
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
-        #now_text = playing_now()
+        now_text = playing_now()
         bot.sendMessage(chat_id=query.message.chat.id, text=now_text, \
                         parse_mode='HTML', reply_markup=markup)
 
@@ -225,7 +225,7 @@ def scene_name(file_name):
 
 
 def format_artist(time, artist):
-    return time.strftime("%H:%M - " + artist)
+    return time.strftime("<b>%H:%M</b> - " + artist)
 
 
 def test_suite():
@@ -346,7 +346,7 @@ def test(bot, update, args):
         time = ' '.join(args)
         report = "Playing at " + time + "\n"
         report += playing_at(parse_datetime(time))
-        bot.sendMessage(text=report, chat_id=chat_id)
+        bot.sendMessage(text=report, chat_id=chat_id, parse_mode='HTML')
 
 
 def playing_at(time):
@@ -422,7 +422,7 @@ def playing_at(time):
     DAY_THRESHOLD = datetime.time(14, 0)
 
     # TODO: find out dynamically
-    STAGES_ORDER = ["Beta stage", "Bassiani stage", "Sanctum stage", "m_special"]
+    STAGES_ORDER = ["ОТКРЫТИЕ", "GAMMA_PRO", "MAIN", "TERRACE"]
 
     started = False
     for scene in schedule:
@@ -435,11 +435,12 @@ def playing_at(time):
         for stage in STAGES_ORDER:
             if stage in schedule:
                 first_entry = schedule[stage][0]
-                result += "\n\n" + stage + ":\n"
+                result += "\n\n<b>" + stage + "</b>\n"
                 result += format_artist(first_entry[0], first_entry[1])
 
-        result += "\n"
-        result += "\nНа основе официального расписания."
+        if today_string != "2018.07.19":
+            result += "\n"
+            result += "\nНа основе официального расписания."
         return result
 
 
@@ -455,7 +456,7 @@ def playing_at(time):
                     current_entry = first_entry
                     for next_entry in schedule[stage][1:]:
                         if next_entry[0] >= time:
-                            result += "\n\n" + stage + ":\n"
+                            result += "\n\n<b>" + stage + "</b>\n"
                             result += format_artist(current_entry[0], current_entry[1]) + "\n"
                             result += format_artist(next_entry[0], next_entry[1])
 
@@ -468,7 +469,8 @@ def playing_at(time):
         if result == playing_now_text + "\n":  # all the stages have finished
             result = over_text + "\n"
 
-        result += '\nНа основе официального расписания.'
+        if today_string != "2018.07.19":
+            result += '\nНа основе официального расписания.'
         return result
 
 
