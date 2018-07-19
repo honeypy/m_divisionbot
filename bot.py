@@ -121,13 +121,13 @@ def make_buttons_list(lst):
         elif a == 'm_SOUNDCLOUD':
             button = InlineKeyboardButton(a, url='https://soundcloud.com/mdivision/')
         elif a == 'm_19Jul':
-            button = InlineKeyboardButton("19 июля", url='https://google.com?q=19+JUL')
+            button = InlineKeyboardButton("19 июля", url='http://bit.ly/gamma_july19')
         elif a == 'm_20Jul':
-            button = InlineKeyboardButton("20 июля", url='https://google.com?q=20+JUL')
+            button = InlineKeyboardButton("20 июля", url='http://bit.ly/gamma_july20')
         elif a == 'm_21Jul':
-            button = InlineKeyboardButton("21 июля", url='https://google.com?q=21+JUL')
+            button = InlineKeyboardButton("21 июля", url='http://bit.ly/gamma_july21')
         elif a == 'm_22Jul':
-            button = InlineKeyboardButton("22 июля", url='https://google.com?q=22+JUL')
+            button = InlineKeyboardButton("22 июля", url='http://bit.ly/gamma_july22')
         else:
             button = InlineKeyboardButton(a,callback_data=a)
         buttons_list.append(button)
