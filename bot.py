@@ -99,9 +99,9 @@ def make_buttons_list(lst):
     buttons_list = []
     for a in lst:
         if a == 'FAQ':
-            button = InlineKeyboardButton(a, url='https://zen.yandex.ru/media/id/5b473690bbc36f00a8b583b7/faq-gamma-2018-5b47369d3d0e9500a9a83328')
+            button = InlineKeyboardButton(a, url='http://bit.ly/gamma_faq')
         elif a == 'АРТИСТЫ':
-            button = InlineKeyboardButton(a, url='https://zen.yandex.ru/media/id/5b473690bbc36f00a8b583b7/artisty-gamma-2018-5b473824a4dd5400a75237e9')
+            button = InlineKeyboardButton(a, url='http://bit.ly/gamma_artists')
         elif a == 'КАНАЛ':
             button = InlineKeyboardButton(a, url='https://t.me/m_division')
         elif a == 'ЧАТ':
