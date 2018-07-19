@@ -14,6 +14,7 @@ import time
 import os
 import csv
 import glob
+import chatbase
 
 
 from text import *
@@ -33,7 +34,18 @@ links_keyboard = ('GAMMA VK','GAMMA FB','m_VK','m_INSTAGRAM','m_SOUNDCLOUD', '<<
 
 map_pic = 'map_pic.jpg'
 
+def chatbase_log(chat_id, message, intent):
+    chat_id_key = 18223618210808258664 # a 64-bit random number
+    chat_id ^= chat_id_key
+    chatbase_message = chatbase.Message(api_key=config.chatbase_token,
+                                        platform="telegram",
+                                        user_id=str(chat_id),
+                                        message=message,
+                                        intent=intent)
+    chatbase_message.send()
+
 def start(bot, update):
+    chatbase_log(update.message.chat.id, "/start", "START")
     buttons_list = make_buttons_list(start_keyboard)
     menu = build_menu(buttons_list, 1)
     markup = InlineKeyboardMarkup(menu)
@@ -117,9 +129,11 @@ def make_buttons_list(lst):
 def button(bot, update):
     query = update.callback_query
     data = query.data
+    chat_id = query.message.chat.id
     lat = '59.911202'
     lng = '30.266454'
     if data == 'МЕСТО':
+        chatbase_log(chat_id, "МЕСТО", "PLACE")
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
         #bot.sendLocation(chat_id=query.message.chat.id, latitude=lat, longitude=lng)
@@ -127,6 +141,7 @@ def button(bot, update):
                         reply_markup=markup, disable_web_page_preview=True)
 
     elif data == 'РАСПИСАНИЕ':
+        chatbase_log(chat_id, "РАСПИСАНИЕ", "SCHEDULE")
         #menu = build_menu(buttons_list, 1)
         #markup = InlineKeyboardMarkup(menu)
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
@@ -135,6 +150,7 @@ def button(bot, update):
                         parse_mode='HTML', reply_markup=markup)
 
     elif data == 'ТОКЕНЫ':
+        chatbase_log(chat_id, "ТОКЕНЫ", "TOKENS")
         # menu = build_menu(buttons_list, 1)
         # markup = InlineKeyboardMarkup(menu)
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
@@ -150,7 +166,7 @@ def button(bot, update):
 
 
     elif data == 'ИГРАЮТ СЕЙЧАС' or data == 'ВЫСТУПАЮТ СЕЙЧАС':
-
+        chatbase_log(chat_id, "ВЫСТУПАЮТ СЕЙЧАС", "PLAYING NOW")
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
         now_text = playing_now()
@@ -158,6 +174,7 @@ def button(bot, update):
                         parse_mode='HTML', reply_markup=markup)
 
     elif data == 'ССЫЛКИ':
+        chatbase_log(chat_id, "ССЫЛКИ", "LINKS")
         buttons_list = make_buttons_list(links_keyboard)
         menu = build_menu(buttons_list, 1)
         markup = InlineKeyboardMarkup(menu)
@@ -166,6 +183,7 @@ def button(bot, update):
 
 
     elif data == 'back_main':
+        chatbase_log(chat_id, "В НАЧАЛО", "START")
         buttons_list = make_buttons_list(start_keyboard)
         menu = build_menu(buttons_list, 1)
         markup = InlineKeyboardMarkup(menu)
@@ -515,10 +533,12 @@ def handle_message(bot, update):
 
 
 def play_command(bot, update):
+    chat_id = update.message.chat.id
+    chatbase_log(chat_id, "/now", "PLAYING NOW")
     keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
     markup = InlineKeyboardMarkup(keyboard)
     now_text = playing_now()
-    bot.sendMessage(chat_id=update.message.chat.id, text=now_text, \
+    bot.sendMessage(chat_id=chat_id, text=now_text, \
                     parse_mode='HTML', reply_markup=markup)
 
 
