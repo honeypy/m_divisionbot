@@ -31,6 +31,7 @@ dispatcher = updater.dispatcher
 
 start_keyboard = ('МЕСТО', 'FAQ', 'РАСПИСАНИЕ', 'ВЫСТУПАЮТ СЕЙЧАС', 'АРТИСТЫ', 'КАНАЛ', 'ЧАТ')
 links_keyboard = ('GAMMA VK','GAMMA FB','m_VK','m_INSTAGRAM','m_SOUNDCLOUD', '<< в начало')
+links_schedule = ('m_19Jul', 'm_20Jul', 'm_21Jul', 'm_22Jul', '<< в начало')
 
 map_pic = 'map_pic.jpg'
 
@@ -119,6 +120,14 @@ def make_buttons_list(lst):
             button = InlineKeyboardButton(a, url='https://www.instagram.com/m_division/')
         elif a == 'm_SOUNDCLOUD':
             button = InlineKeyboardButton(a, url='https://soundcloud.com/mdivision/')
+        elif a == 'm_19Jul':
+            button = InlineKeyboardButton("19 июля", url='https://google.com?q=19+JUL')
+        elif a == 'm_20Jul':
+            button = InlineKeyboardButton("20 июля", url='https://google.com?q=20+JUL')
+        elif a == 'm_21Jul':
+            button = InlineKeyboardButton("21 июля", url='https://google.com?q=21+JUL')
+        elif a == 'm_22Jul':
+            button = InlineKeyboardButton("22 июля", url='https://google.com?q=22+JUL')
         else:
             button = InlineKeyboardButton(a,callback_data=a)
         buttons_list.append(button)
@@ -142,10 +151,9 @@ def button(bot, update):
 
     elif data == 'РАСПИСАНИЕ':
         chatbase_log(chat_id, "РАСПИСАНИЕ", "SCHEDULE")
-        #menu = build_menu(buttons_list, 1)
-        #markup = InlineKeyboardMarkup(menu)
-        keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
-        markup = InlineKeyboardMarkup(keyboard)
+        buttons_list = make_buttons_list(links_schedule)
+        menu = build_menu(buttons_list, 1)
+        markup = InlineKeyboardMarkup(menu)
         bot.sendMessage(chat_id=query.message.chat.id, text=timetable_text, \
                         parse_mode='HTML', reply_markup=markup)
 
