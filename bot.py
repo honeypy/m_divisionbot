@@ -28,7 +28,7 @@ PORT = int(os.environ.get('PORT', '5000'))
 updater = Updater(telegram_token)
 dispatcher = updater.dispatcher
 
-start_keyboard = ('МЕСТО', 'FAQ', 'РАСПИСАНИЕ', 'ИГРАЮТ СЕЙЧАС', 'АРТИСТЫ', 'КАНАЛ', 'ЧАТ')
+start_keyboard = ('МЕСТО', 'FAQ', 'РАСПИСАНИЕ', 'ВЫСТУПАЮТ СЕЙЧАС', 'АРТИСТЫ', 'КАНАЛ', 'ЧАТ')
 links_keyboard = ('GAMMA VK','GAMMA FB','m_VK','m_INSTAGRAM','m_SOUNDCLOUD', '<< в начало')
 
 map_pic = 'map_pic.jpg'
@@ -149,7 +149,7 @@ def button(bot, update):
     #     bot.sendMessage(chat_id=query.message.chat.id, text=faq_text, parse_mode='HTML',reply_markup=markup)
 
 
-    elif data == 'ИГРАЮТ СЕЙЧАС':
+    elif data == 'ИГРАЮТ СЕЙЧАС' or data == 'ВЫСТУПАЮТ СЕЙЧАС':
 
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
