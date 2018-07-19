@@ -99,9 +99,9 @@ def make_buttons_list(lst):
     buttons_list = []
     for a in lst:
         if a == 'FAQ':
-            button = InlineKeyboardButton(a, url='http://bit.ly/gamma_faq')
+            button = InlineKeyboardButton(a, url='https://zen.yandex.ru/media/id/5b473690bbc36f00a8b583b7/faq-gamma-2018-5b47369d3d0e9500a9a83328')
         elif a == 'АРТИСТЫ':
-            button = InlineKeyboardButton(a, url='http://bit.ly/gamma_artists')
+            button = InlineKeyboardButton(a, url='https://zen.yandex.ru/media/id/5b473690bbc36f00a8b583b7/artisty-gamma-2018-5b473824a4dd5400a75237e9')
         elif a == 'КАНАЛ':
             button = InlineKeyboardButton(a, url='https://t.me/m_division')
         elif a == 'ЧАТ':
@@ -121,13 +121,13 @@ def make_buttons_list(lst):
         elif a == 'm_SOUNDCLOUD':
             button = InlineKeyboardButton(a, url='https://soundcloud.com/mdivision/')
         elif a == 'm_19Jul':
-            button = InlineKeyboardButton("19 июля", url='http://bit.ly/gamma_july19')
+            button = InlineKeyboardButton("19 июля", url='https://zen.yandex.ru/media/id/5b473690bbc36f00a8b583b7/gamma-19-iiulia-5b5029495e976b00ae5824de')
         elif a == 'm_20Jul':
-            button = InlineKeyboardButton("20 июля", url='http://bit.ly/gamma_july20')
+            button = InlineKeyboardButton("20 июля", url='https://zen.yandex.ru/media/id/5b473690bbc36f00a8b583b7/gamma-20-iiulia-5b502aab7438af00a991f291')
         elif a == 'm_21Jul':
-            button = InlineKeyboardButton("21 июля", url='http://bit.ly/gamma_july21')
+            button = InlineKeyboardButton("21 июля", url='https://zen.yandex.ru/media/id/5b473690bbc36f00a8b583b7/gamma-21-iiulia-5b50301483eab200ac4941b9')
         elif a == 'm_22Jul':
-            button = InlineKeyboardButton("22 июля", url='http://bit.ly/gamma_july22')
+            button = InlineKeyboardButton("22 июля", url='https://zen.yandex.ru/media/id/5b473690bbc36f00a8b583b7/gamma-22-iiulia-5b5032db86603300a9cca63d')
         else:
             button = InlineKeyboardButton(a,callback_data=a)
         buttons_list.append(button)

@@ -8,7 +8,7 @@ location_text = '''<b>19 июля:</b> концерт-открытие. Hauschka
 
 <b>21 — 22 июля:</b> основная программа GAMMA
 <b>21.07</b> <a href='https://goo.gl/maps/YZzzjkUtBnm'>Завод им.Степана Разина, ул. Степана Разина, 8а</a>
-<b>22.07</b> <a href='http://bit.ly/quartariata'>Загородная резиденция искусств и технологий Quartariata, Петергоф, Золотая 2—4</a>
+<b>22.07</b> <a href='https://zen.yandex.ru/media/id/5b473690bbc36f00a8b583b7/kak-dobratsia-do-quartariata-5b503fbc83eab200ac49429c'>Загородная резиденция искусств и технологий Quartariata, Петергоф, Золотая 2—4</a>
 
 '''
 
