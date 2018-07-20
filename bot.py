@@ -468,7 +468,7 @@ def playing_at(time):
     DAY_THRESHOLD = datetime.time(14, 0)
 
     # TODO: find out dynamically
-    STAGES_ORDER = ["ОТКРЫТИЕ", "GAMMA_PRO", "GAMMA_PRO AFTEPARTY MAIN", "GAMMA_PRO AFTERPARTY TERRACE"]
+    STAGES_ORDER = ["ОТКРЫТИЕ", "GAMMA_PRO", "GAMMA_PRO AFTERPARTY MAIN", "GAMMA_PRO AFTERPARTY TERRACE"]
 
     started = False
     for scene in schedule:
