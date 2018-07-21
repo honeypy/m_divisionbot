@@ -263,7 +263,7 @@ def parse_datetime(datetime_string):
 
 
 def scene_name(file_name):
-    return file_name.split("-")[2][:-4].strip()
+    return file_name.split("+")[2][:-4].strip()
 
 """
 (time, artist, [description])
