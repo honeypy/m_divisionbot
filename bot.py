@@ -523,7 +523,7 @@ def playing_at(time):
             result = over_text + "\n"
 
         if today_string != "2018.07.19":
-            result += '\nНа основе официального расписания.'
+            result += '\n'
         return result
 
 
