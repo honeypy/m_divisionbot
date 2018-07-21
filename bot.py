@@ -259,9 +259,9 @@ def format_artist(entry):
     artist = entry[1]
     description = entry[2]
     
-    text = time.strftime("<b>%H:%M</b> - " + artist)
+    text = time.strftime("<b>%H:%M - " + artist + "</b>")
     if description != "":
-        text += "\n\n" + description
+        text += "\n" + description
 
     return text
 
