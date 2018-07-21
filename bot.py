@@ -449,7 +449,6 @@ def playing_at(time):
                 event_time = parse_time(row[0])
                 event_name = row[1]
 
-                print(event_time)
                 if event_time < previous_time:
                     reached_tomorrow = True
 
