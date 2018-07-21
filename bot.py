@@ -29,11 +29,14 @@ PORT = int(os.environ.get('PORT', '5000'))
 updater = Updater(telegram_token)
 dispatcher = updater.dispatcher
 
-start_keyboard = ('МЕСТО', 'FAQ', 'РАСПИСАНИЕ', 'ВЫСТУПАЮТ СЕЙЧАС', 'АРТИСТЫ', 'КАНАЛ', 'ЧАТ')
+start_keyboard = ('МЕСТО', 'FAQ', 'КАРТА GAMMA_MAIN','РАСПИСАНИЕ', 'ВЫСТУПАЮТ СЕЙЧАС', 'АРТИСТЫ', 'КАНАЛ', 'ЧАТ')
 links_keyboard = ('GAMMA VK','GAMMA FB','m_VK','m_INSTAGRAM','m_SOUNDCLOUD', '<< в начало')
 links_schedule = ('m_19Jul', 'm_20Jul', 'm_21Jul', 'm_22Jul', '<< в начало')
 
 map_pic = 'map_pic.jpg'
+map_picture = 'map_picture.jpg'
+map_picture2 = 'map_picture2.jpg'
+map_picture3 = 'map_picture3.jpg'
 
 def chatbase_log(chat_id, message, intent):
     chat_id_key = 18223618210808258664 # a 64-bit random number
@@ -100,6 +103,8 @@ def make_buttons_list(lst):
     for a in lst:
         if a == 'FAQ':
             button = InlineKeyboardButton(a, url='https://zen.yandex.ru/media/id/5b473690bbc36f00a8b583b7/faq-gamma-2018-5b47369d3d0e9500a9a83328')
+        elif a == 'КАРТА GAMMA_MAIN':
+            button = InlineKeyboardButton(a, callback_data='map')
         elif a == 'АРТИСТЫ':
             button = InlineKeyboardButton(a, url='https://zen.yandex.ru/media/id/5b473690bbc36f00a8b583b7/artisty-gamma-2018-5b473824a4dd5400a75237e9')
         elif a == 'КАНАЛ':
@@ -189,6 +194,15 @@ def button(bot, update):
         bot.sendMessage(chat_id=query.message.chat.id, text='Выберите ресурс:', \
                         parse_mode='HTML', reply_markup=markup)
 
+    elif data == 'map':
+        keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
+        markup = InlineKeyboardMarkup(keyboard)
+        bot.sendPhoto(chat_id=query.from_user.id, photo=open(map_picture, 'rb'))
+        bot.sendPhoto(chat_id=query.from_user.id, photo=open(map_picture2, 'rb'))
+        bot.sendPhoto(chat_id=query.from_user.id, photo=open(map_picture3, 'rb'))
+        map_text='''Здание А расположено по центру территории фестиваля.
+Здание B расположено слева от центрального здания, это то здание, где вы были в мае на BETA или в декабре на  DELTA'''
+        bot.sendMessage(chat_id=query.from_user.id, text=map_text, reply_markup=markup)
 
     elif data == 'back_main':
         chatbase_log(chat_id, "В НАЧАЛО", "START")
