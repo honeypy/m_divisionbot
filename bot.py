@@ -485,7 +485,8 @@ def playing_at(time):
     STAGES_ORDER = ["GAMMA_PRO БОЛЬШАЯ СЦЕНА", "GAMMA_PRO МАЛАЯ СЦЕНА", "GAMMA_MAIN Здание B [1-й этаж]",
                     "GAMMA_MAIN Здание B [2-й этаж, BETA_STAGE]", "GAMMA_MAIN Здание B [3-й этаж, DELTA_STAGE]",
                     "GAMMA_MAIN Здание A [1-й этаж, GAMMA_STAGE]", "GAMMA_MAIN Здание A [4-й этаж, SYGMA_STAGE]",
-                    "GAMMA_MAIN Здание A [4-й этаж, ARMA_STAGE]","GAMMA_MAIN Улица [YARD_STAGE] 22 июля"]
+                    "GAMMA_MAIN Здание A [4-й этаж, ARMA_STAGE]","GAMMA_MAIN Улица [YARD_STAGE] 22 июля",
+                    "GAMMA AFTERPARTY TERRACE","GAMMA AFTERPARTY WHITE HALL"]
 
     started = False
     for scene in schedule:
