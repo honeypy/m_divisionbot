@@ -12,10 +12,46 @@ location_text = '''<b>19 июля:</b> концерт-открытие. Hauschka
 
 '''
 
-meet_text = '''Вся необходимая информация здесь. Появилось расписание основной программы Gamma 21 июля.'''
+meet_text = '''Добро пожаловать на Raster Electric Campfire. Начало в 17:00.'''
 
 
-timetable_text = '''Выберите дату
+timetable_text = '''<b>TERRACE
+
+17:00 Fedor Morkin (live)
+18:00 Shell XV (Zll') (live)
+19:00 Sander Shifter (live)
+20:00 Grigory Gromov (live)
+21:00 Peter Kirn (DE) (live)
+22:00 Andrey Svibovitch (live)
+
+WHITE HALL
+
+22:00 Abjective (a/v live)
+23:00 Franz Pomassl (AT) (live)
+0:00 Grischa Lichtenberger (DE) (a/v live)
+1:00 Frank Bretschneider (DE) (a/v live)
+2:00 Ivan Logos
+3:00 Atomic (Byetone b2b Robert Lippok) (DE)
+4:30 Mieko Suzuki (DE/JP)
+5:30 Roma Zuckerman
+6:30 PRCDRL (DE) (live)
+7:30 Kobba
+8:30 m_special
+
+Q CAFE
+
+22:00 Blain
+1:00 Oira
+3:00 Boris Belenki
+
+
+Media Installations:
+
+Tonoptik
+Bela Bender (DE)
+Andrey Svibovitch
+Konstantin Dovzhik
+
 '''
 
 

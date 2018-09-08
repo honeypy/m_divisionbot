@@ -29,8 +29,8 @@ PORT = int(os.environ.get('PORT', '5000'))
 updater = Updater(telegram_token)
 dispatcher = updater.dispatcher
 
-start_keyboard = ('МЕСТО', 'FAQ', 'КАРТА GAMMA_MAIN','РАСПИСАНИЕ', 'ВЫСТУПАЮТ СЕЙЧАС', 'АРТИСТЫ', 'КАНАЛ', 'ЧАТ')
-links_keyboard = ('GAMMA VK','GAMMA FB','m_VK','m_INSTAGRAM','m_SOUNDCLOUD', '<< в начало')
+start_keyboard = ('КАК ДОБРАТЬСЯ','РАСПИСАНИЕ', 'ВЫСТУПАЮТ СЕЙЧАС', 'АРТИСТЫ', 'КАНАЛ', 'ЧАТ')
+links_keyboard = ('VK EVENT','FB EVENT','m_VK','m_INSTAGRAM','m_SOUNDCLOUD', '<< в начало')
 links_schedule = ('m_19Jul', 'm_20Jul', 'm_21Jul', 'm_22Jul', '<< в начало')
 
 map_pic = 'map_pic.jpg'
@@ -53,7 +53,7 @@ def start(bot, update):
     buttons_list = make_buttons_list(start_keyboard)
     menu = build_menu(buttons_list, 1)
     markup = InlineKeyboardMarkup(menu)
-    bot.sendMessage(text = 'Добро пожаловать на Gamma 2018', chat_id = update.message.chat.id, \
+    bot.sendMessage(text = 'Добро пожаловать на Raster Electric Campfire 2018', chat_id = update.message.chat.id, \
                     reply_markup=markup)
     record_user(user_id=update.message.chat.id)
     print(update.message.text)
@@ -105,8 +105,10 @@ def make_buttons_list(lst):
             button = InlineKeyboardButton(a, url='https://zen.yandex.ru/media/id/5b473690bbc36f00a8b583b7/faq-gamma-2018-5b47369d3d0e9500a9a83328')
         elif a == 'КАРТА GAMMA_MAIN':
             button = InlineKeyboardButton(a, callback_data='map')
+        elif a == 'КАК ДОБРАТЬСЯ':
+            button = InlineKeyboardButton(a, url='https://zen.yandex.ru/media/id/5b93817aef22f400aa2cd778/kak-dobratsia-do-quartariata-5b9382f9c4ee7000a945bf10')
         elif a == 'АРТИСТЫ':
-            button = InlineKeyboardButton(a, url='https://zen.yandex.ru/media/id/5b473690bbc36f00a8b583b7/artisty-gamma-2018-5b473824a4dd5400a75237e9')
+            button = InlineKeyboardButton(a, url='https://zen.yandex.ru/media/id/5b93817aef22f400aa2cd778/artisty-raster-electric-campfire-2018-5b938338f3ce7200aad88759')
         elif a == 'КАНАЛ':
             button = InlineKeyboardButton(a, url='https://t.me/m_division')
         elif a == 'ЧАТ':
@@ -115,10 +117,10 @@ def make_buttons_list(lst):
             button = InlineKeyboardButton(a, callback_data='back_music')
         elif a == '<< в начало':
             button = InlineKeyboardButton(a, callback_data='back_main')
-        elif a == 'GAMMA VK':
-            button = InlineKeyboardButton(a, url='https://vk.com/gammafestival2018')
-        elif a == 'GAMMA FB':
-            button = InlineKeyboardButton(a, url='https://www.facebook.com/gammaspb/')
+        elif a == 'VK EVENT':
+            button = InlineKeyboardButton(a, url='https://vk.com/rastercampfire')
+        elif a == 'FB EVENT':
+            button = InlineKeyboardButton(a, url='https://www.facebook.com/events/255408148612373/')
         elif a == 'm_VK':
             button = InlineKeyboardButton(a, url='https://vk.com/mdivisiongroup')
         elif a == 'm_INSTAGRAM':
@@ -146,17 +148,17 @@ def button(bot, update):
     chat_id = query.message.chat.id
     lat = '59.911202'
     lng = '30.266454'
-    if data == 'МЕСТО':
-        chatbase_log(chat_id, "МЕСТО", "PLACE")
-        keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
-        markup = InlineKeyboardMarkup(keyboard)
-        #bot.sendLocation(chat_id=query.message.chat.id, latitude=lat, longitude=lng)
-        bot.sendMessage(chat_id=query.message.chat.id, text=location_text, parse_mode='HTML',
-                        reply_markup=markup, disable_web_page_preview=True)
+    # if data == 'МЕСТО':
+    #     chatbase_log(chat_id, "МЕСТО", "PLACE")
+    #     keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
+    #     markup = InlineKeyboardMarkup(keyboard)
+    #     #bot.sendLocation(chat_id=query.message.chat.id, latitude=lat, longitude=lng)
+    #     bot.sendMessage(chat_id=query.message.chat.id, text=location_text, parse_mode='HTML',
+    #                     reply_markup=markup, disable_web_page_preview=True)
 
-    elif data == 'РАСПИСАНИЕ':
+    if data == 'РАСПИСАНИЕ':
         chatbase_log(chat_id, "РАСПИСАНИЕ", "SCHEDULE")
-        buttons_list = make_buttons_list(links_schedule)
+        buttons_list = make_buttons_list('<< в начало')
         menu = build_menu(buttons_list, 1)
         markup = InlineKeyboardMarkup(menu)
         bot.sendMessage(chat_id=query.message.chat.id, text=timetable_text, \
@@ -209,7 +211,7 @@ def button(bot, update):
         buttons_list = make_buttons_list(start_keyboard)
         menu = build_menu(buttons_list, 1)
         markup = InlineKeyboardMarkup(menu)
-        bot.sendMessage(text='Добро пожаловать на Gamma 2018.', chat_id=query.message.chat.id, \
+        bot.sendMessage(text='Добро пожаловать на Raster Electric Campfire 2018', chat_id=query.message.chat.id, \
                         reply_markup=markup)
 
 
@@ -482,11 +484,7 @@ def playing_at(time):
     DAY_THRESHOLD = datetime.time(14, 0)
 
     # TODO: find out dynamically
-    STAGES_ORDER = ["GAMMA_PRO БОЛЬШАЯ СЦЕНА", "GAMMA_PRO МАЛАЯ СЦЕНА", "GAMMA_MAIN Здание B [1-й этаж]",
-                    "GAMMA_MAIN Здание B [2-й этаж, BETA_STAGE]", "GAMMA_MAIN Здание B [3-й этаж, DELTA_STAGE]",
-                    "GAMMA_MAIN Здание A [1-й этаж, GAMMA_STAGE]", "GAMMA_MAIN Здание A [4-й этаж, SYGMA_STAGE]",
-                    "GAMMA_MAIN Здание A [4-й этаж, ARMA_STAGE]","GAMMA_MAIN Улица [YARD_STAGE] 22 июля",
-                    "GAMMA AFTERPARTY TERRACE","GAMMA AFTERPARTY WHITE HALL"]
+    STAGES_ORDER = ["TERRACE", "WHITE HALL", "Q CAFE"]
 
     started = False
     for scene in schedule:
