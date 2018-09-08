@@ -158,9 +158,8 @@ def button(bot, update):
 
     if data == 'РАСПИСАНИЕ':
         chatbase_log(chat_id, "РАСПИСАНИЕ", "SCHEDULE")
-        buttons_list = make_buttons_list('<< в начало')
-        menu = build_menu(buttons_list, 1)
-        markup = InlineKeyboardMarkup(menu)
+        keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
+        markup = InlineKeyboardMarkup(keyboard)
         bot.sendMessage(chat_id=query.message.chat.id, text=timetable_text, \
                         parse_mode='HTML', reply_markup=markup)
 
