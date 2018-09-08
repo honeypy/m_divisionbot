@@ -12,7 +12,7 @@ location_text = '''<b>19 июля:</b> концерт-открытие. Hauschka
 
 '''
 
-meet_text = '''Добро пожаловать на Raster Electric Campfire. Начало в 17:00.'''
+meet_text = '''Добро пожаловать на Raster Electric Campfire. Начало в 17:00. Обратите внимание, расписание на основной сцене изменено'''
 
 
 timetable_text = '''<b>TERRACE
