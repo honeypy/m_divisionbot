@@ -53,8 +53,7 @@ def start(bot, update):
     buttons_list = make_buttons_list(start_keyboard)
     menu = build_menu(buttons_list, 1)
     markup = InlineKeyboardMarkup(menu)
-    bot.sendMessage(text = 'Добро пожаловать на Raster Electric Campfire 2018', chat_id = update.message.chat.id, \
-                    reply_markup=markup)
+    bot.sendMessage(text = 'Ближайшее событие — Delta, 17 ноября. Подробности в @m_division', chat_id = update.message.chat.id)
     record_user(user_id=update.message.chat.id)
     print(update.message.text)
     #botan.track(botan_token, update.message.chat.id,message=update.message.text)
@@ -83,7 +82,8 @@ def send(bot, update):
         for user in user_ids:
             print(user)
             try:
-                bot.sendMessage(text='Если «FAQ» и «Артисты» не открываются, нажмите снова /start', chat_id=int(user), reply_markup=markup)
+                bot.sendMessage(text='Если «FAQ» и «Артисты» не открываются, нажмите снова /start', chat_id=int(user),
+                                reply_markup=markup)
             except:
                 pass
 def get_users():
@@ -555,7 +555,7 @@ def handle_message(bot, update):
     bot.sendMessage(text=test_suite(), chat_id=chat_id, reply_markup=markup)
 
 
-def play_command(bot, update):
+def now_command(bot, update):
     chat_id = update.message.chat.id
     chatbase_log(chat_id, "/now", "PLAYING NOW")
     keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
@@ -568,13 +568,13 @@ def play_command(bot, update):
 start_handler = CommandHandler('start', start)
 button_handler = CallbackQueryHandler(button)
 text_handler = MessageHandler(Filters.text, send)
-now_handler = CommandHandler('now', play_command)
+#now_handler = CommandHandler('now', now_command)
 
 
 dispatcher.add_handler(start_handler)
 dispatcher.add_handler(button_handler)
 dispatcher.add_handler(text_handler)
-dispatcher.add_handler(now_handler)
+#dispatcher.add_handler(now_handler)
 
 if __name__ == '__main__':
     updater.start_polling()
