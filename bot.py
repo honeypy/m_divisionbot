@@ -402,6 +402,17 @@ def test(bot, update, args):
         bot.sendMessage(text=report, chat_id=chat_id, parse_mode='HTML')
 
 
+def stage_order():
+    schedule_files = sorted(glob.glob("data/*.csv"))
+    stage_order = []
+    for file in schedule_files:
+        stage = file.split("+")[-1][:-4].strip()
+        stage_order.append(stage)
+
+    stage_order = [x for i, x in enumerate(stage_order) if stage_order.index(x) == i]
+    return stage_order
+
+
 def playing_at(time):
     today_string = format_date(time)
     today_files = glob.glob("data/*" + today_string + "*.csv")
@@ -482,9 +493,7 @@ def playing_at(time):
 
     DAY_THRESHOLD = datetime.time(14, 0)
 
-    # TODO: find out dynamically
-    STAGES_ORDER = ["TERRACE", "WHITE HALL", "Q CAFE"]
-
+    STAGES_ORDER = stage_order()
     started = False
     for scene in schedule:
         if time >= schedule[scene][0][0]:
