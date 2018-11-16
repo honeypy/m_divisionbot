@@ -577,13 +577,13 @@ def now_command(bot, update):
 start_handler = CommandHandler('start', start)
 button_handler = CallbackQueryHandler(button)
 text_handler = MessageHandler(Filters.text, send)
-#now_handler = CommandHandler('now', now_command)
+now_handler = CommandHandler('now', now_command)
 
 
 dispatcher.add_handler(start_handler)
 dispatcher.add_handler(button_handler)
 dispatcher.add_handler(text_handler)
-#dispatcher.add_handler(now_handler)
+dispatcher.add_handler(now_handler)
 
 if __name__ == '__main__':
     updater.start_polling()
