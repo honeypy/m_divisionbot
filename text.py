@@ -14,7 +14,9 @@ location_text = '''2 сцены, 16 метров от пола до потолк
 meet_text = '''Добро пожаловать на Delta. Начало в 23:00.'''
 
 
-timetable_text = '''Пока известен только лайн-ап:
+timetable_text = '''Начинаем в 23:00.
+Пока известен только лайн-ап:
+
 <b>Main:</b>
 
 Alien Rain aka Milton Bradley (live) [DE]

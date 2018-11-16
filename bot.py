@@ -112,7 +112,7 @@ def make_buttons_list(lst):
         elif a == 'КАНАЛ':
             button = InlineKeyboardButton(a, url='https://t.me/m_division')
         elif a == 'ЧАТ':
-            button = InlineKeyboardButton(a, url='https://t.me/m_divisionchat')
+            button = InlineKeyboardButton(a, url='https://t.me/joinchat/AtHKFEQZJqg0s0rqdoW_tQ')
         elif a == '<< назад':
             button = InlineKeyboardButton(a, callback_data='back_music')
         elif a == '<< в начало':
