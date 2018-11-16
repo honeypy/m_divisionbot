@@ -53,7 +53,7 @@ def start(bot, update):
     buttons_list = make_buttons_list(start_keyboard)
     menu = build_menu(buttons_list, 1)
     markup = InlineKeyboardMarkup(menu)
-    bot.sendMessage(text = 'Добро пожаловать на Delta.', chat_id = update.message.chat.id)
+    bot.sendMessage(text = 'Добро пожаловать на Delta 2018', chat_id = update.message.chat.id, reply_markup=markup)
     record_user(user_id=update.message.chat.id)
     print(update.message.text)
     #botan.track(botan_token, update.message.chat.id,message=update.message.text)
@@ -183,7 +183,7 @@ def button(bot, update):
         chatbase_log(chat_id, "ВЫСТУПАЮТ СЕЙЧАС", "PLAYING NOW")
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
-        now_text = playing_now()
+        now_text = 'Расписание пока неизвестно. Следите за обновлениями'
         bot.sendMessage(chat_id=query.message.chat.id, text=now_text, \
                         parse_mode='HTML', reply_markup=markup)
 
