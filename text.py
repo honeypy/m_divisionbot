@@ -1,58 +1,40 @@
-location_text = '''<b>19 июля:</b> концерт-открытие. Hauschka (неоклассика, DE)
-<a href='https://goo.gl/maps/GnhNjfXDAwT2'>Дворец Белосельских-Белозерских, Невский пр., 41.</a>
+location_text = '''2 сцены, 16 метров от пола до потолка, балкон и терраса, для создания ночи Delta, для создания места силы.
 
-<b>20 — 21 июля:</b> GAMMA_PRO & MUTEK SHOWCASE 
-<a href='https://goo.gl/maps/FKE7gBgyG7U2'>киностудия ЛЕНФИЛЬМ, Каменноостровский пр., 10</a>
-<b>20 июля:</b> GAMMA_PRO Afterparty
-<a href='https://goo.gl/maps/D7CjrkjNjiS2'>клуб BLANK, Арсенальная набережная, 1</a>
-
-<b>21 — 22 июля:</b> основная программа GAMMA
-<b>21.07</b> <a href='https://goo.gl/maps/UzpVP1n8nE12'>Завод им.Степана Разина, набережная Обводного канала, 228</a>
-<b>22.07</b> <a href='https://zen.yandex.ru/media/id/5b473690bbc36f00a8b583b7/kak-dobratsia-do-quartariata-5b503fbc83eab200ac49429c'>Загородная резиденция искусств и технологий Quartariata, Петергоф, Золотая 2—4</a>
+<a href='https://blankclub.ru'>BLANK</a> располагается в одном из зданий бывшего завода «Арсенал» на Арсенальной набережной 1. \
+Когда-то, в этих стенах, построенных более полутора веков назад по проекту архитектора \
+Александра Петровича Гемилиана, гремело оборонно-промышленное производство, а сегодня здесь звучит музыка\
+ и это лучшее настоящее для этих величественных стен и арочных сводов. Команда m_division для ночи Delta\
+  переосмысливает пространство, добавляет своё видение и готовит впечатляющую лазерную инсталляцию, это \
+  своеобразная эволюция зеркальной инсталляции, которая была представлена на Delta 2017 - художественный \
+объект, выражающий собой процесс протекания реакции взаимодействующих между собой световых импульсов \
+  в точке максимальной концентрации. 
 
 '''
 
-meet_text = '''Добро пожаловать на Raster Electric Campfire. Начало в 17:00. Обратите внимание, расписание на основной сцене изменено'''
+meet_text = '''Добро пожаловать на Delta. Начало в 23:00.'''
 
 
-timetable_text = '''<b>TERRACE
+timetable_text = '''Пока известен только лайн-ап:
+<b>Main:</b>
 
-17:00 Fedor Morkin (live)
-18:00 Shell XV (Zll') (live)
-19:00 Sander Shifter (live)
-20:00 Grigory Gromov (live)
-21:00 Peter Kirn (DE) (live)
-22:00 Andrey Svibovitch (live)
+Alien Rain aka Milton Bradley (live) [DE]
+Steve Bicknell [UK]
+Irshad Hussein [AZ]
+Ivan Logos
+Unbalance [msk]
+Eye Que
+Gemüt [msk]
 
-WHITE HALL
+<b>Sanctum:</b>
 
-22:00 Abjective (a/v live)
-23:00 Franz Pomassl (AT) (live)
-0:00 Grischa Lichtenberger (DE) (a/v live)
-1:00 Frank Bretschneider (DE) (a/v live)
-2:00 Mieko Suzuki (JP / DE)
-3:00 PRCDRL (a/v live)
-4:00 Atomic - Byetone b2b Robert Lippok (DE)
-5:00 Raster - импровизация
-5:30 Ivan Logos
-6:30 Roma Zuckerman
-7:30 Kobba
-8:30 m_special
-
-Q CAFE
-
-22:00 Blain
-1:00 Oira
-3:00 Boris Belenki
-
-
-Media Installations:
-
-Tonoptik
-Bela Bender (DE)
-Andrey Svibovitch
-Konstantin Dovzhik
-</b>
+Mick Wills [DE]
+Oira
+Symbol (live) [msk]
+Bionoid (live)
+Module Werk
+Exponent
+Blain
+m_special
 '''
 
 

@@ -29,7 +29,7 @@ PORT = int(os.environ.get('PORT', '5000'))
 updater = Updater(telegram_token)
 dispatcher = updater.dispatcher
 
-start_keyboard = ('КАК ДОБРАТЬСЯ','РАСПИСАНИЕ', 'ВЫСТУПАЮТ СЕЙЧАС', 'АРТИСТЫ', 'КАНАЛ', 'ЧАТ')
+start_keyboard = ('МЕСТО','РАСПИСАНИЕ', 'ВЫСТУПАЮТ СЕЙЧАС', 'АРТИСТЫ', 'КАНАЛ', 'ЧАТ')
 links_keyboard = ('VK EVENT','FB EVENT','m_VK','m_INSTAGRAM','m_SOUNDCLOUD', '<< в начало')
 links_schedule = ('m_19Jul', 'm_20Jul', 'm_21Jul', 'm_22Jul', '<< в начало')
 
@@ -53,7 +53,7 @@ def start(bot, update):
     buttons_list = make_buttons_list(start_keyboard)
     menu = build_menu(buttons_list, 1)
     markup = InlineKeyboardMarkup(menu)
-    bot.sendMessage(text = 'Ближайшее событие — Delta, 17 ноября. Подробности в @m_division', chat_id = update.message.chat.id)
+    bot.sendMessage(text = 'Добро пожаловать на Delta.', chat_id = update.message.chat.id)
     record_user(user_id=update.message.chat.id)
     print(update.message.text)
     #botan.track(botan_token, update.message.chat.id,message=update.message.text)
@@ -105,10 +105,10 @@ def make_buttons_list(lst):
             button = InlineKeyboardButton(a, url='https://zen.yandex.ru/media/id/5b473690bbc36f00a8b583b7/faq-gamma-2018-5b47369d3d0e9500a9a83328')
         elif a == 'КАРТА GAMMA_MAIN':
             button = InlineKeyboardButton(a, callback_data='map')
-        elif a == 'КАК ДОБРАТЬСЯ':
+        elif a == 'МЕСТО':
             button = InlineKeyboardButton(a, url='https://zen.yandex.ru/media/id/5b93817aef22f400aa2cd778/kak-dobratsia-do-quartariata-5b9382f9c4ee7000a945bf10')
         elif a == 'АРТИСТЫ':
-            button = InlineKeyboardButton(a, url='https://zen.yandex.ru/media/id/5b93817aef22f400aa2cd778/artisty-raster-electric-campfire-2018-5b938338f3ce7200aad88759')
+            button = InlineKeyboardButton(a, url='https://zen.yandex.ru/media/id/5b93817aef22f400aa2cd778/artisty-delta-2018-5beee9b906d73200aa28f031')
         elif a == 'КАНАЛ':
             button = InlineKeyboardButton(a, url='https://t.me/m_division')
         elif a == 'ЧАТ':
@@ -118,9 +118,9 @@ def make_buttons_list(lst):
         elif a == '<< в начало':
             button = InlineKeyboardButton(a, callback_data='back_main')
         elif a == 'VK EVENT':
-            button = InlineKeyboardButton(a, url='https://vk.com/rastercampfire')
+            button = InlineKeyboardButton(a, url='https://vk.com/m_delta2018')
         elif a == 'FB EVENT':
-            button = InlineKeyboardButton(a, url='https://www.facebook.com/events/255408148612373/')
+            button = InlineKeyboardButton(a, url='https://www.facebook.com/events/1096458277179372/')
         elif a == 'm_VK':
             button = InlineKeyboardButton(a, url='https://vk.com/mdivisiongroup')
         elif a == 'm_INSTAGRAM':
@@ -146,15 +146,15 @@ def button(bot, update):
     query = update.callback_query
     data = query.data
     chat_id = query.message.chat.id
-    lat = '59.911202'
-    lng = '30.266454'
-    # if data == 'МЕСТО':
-    #     chatbase_log(chat_id, "МЕСТО", "PLACE")
-    #     keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
-    #     markup = InlineKeyboardMarkup(keyboard)
-    #     #bot.sendLocation(chat_id=query.message.chat.id, latitude=lat, longitude=lng)
-    #     bot.sendMessage(chat_id=query.message.chat.id, text=location_text, parse_mode='HTML',
-    #                     reply_markup=markup, disable_web_page_preview=True)
+    lat = '59.954688'
+    lng = '30.372135'
+    if data == 'МЕСТО':
+        chatbase_log(chat_id, "МЕСТО", "PLACE")
+        keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
+        markup = InlineKeyboardMarkup(keyboard)
+        bot.sendLocation(chat_id=query.message.chat.id, latitude=lat, longitude=lng)
+        bot.sendMessage(chat_id=query.message.chat.id, text=location_text, parse_mode='HTML',
+                        reply_markup=markup, disable_web_page_preview=True)
 
     if data == 'РАСПИСАНИЕ':
         chatbase_log(chat_id, "РАСПИСАНИЕ", "SCHEDULE")
