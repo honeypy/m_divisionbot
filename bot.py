@@ -106,7 +106,7 @@ def make_buttons_list(lst):
         elif a == 'КАРТА GAMMA_MAIN':
             button = InlineKeyboardButton(a, callback_data='map')
         elif a == 'МЕСТО':
-            button = InlineKeyboardButton(a, url='https://zen.yandex.ru/media/id/5b93817aef22f400aa2cd778/kak-dobratsia-do-quartariata-5b9382f9c4ee7000a945bf10')
+            button = InlineKeyboardButton(a, callback_data='МЕСТО')
         elif a == 'АРТИСТЫ':
             button = InlineKeyboardButton(a, url='https://zen.yandex.ru/media/id/5b93817aef22f400aa2cd778/artisty-delta-2018-5beee9b906d73200aa28f031')
         elif a == 'КАНАЛ':
@@ -183,7 +183,7 @@ def button(bot, update):
         chatbase_log(chat_id, "ВЫСТУПАЮТ СЕЙЧАС", "PLAYING NOW")
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
-        now_text = 'Расписание пока неизвестно. Следите за обновлениями'
+        now_text = 'Начинаем 17 ноября в 23:00. Расписание пока неизвестно'
         bot.sendMessage(chat_id=query.message.chat.id, text=now_text, \
                         parse_mode='HTML', reply_markup=markup)
 
