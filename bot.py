@@ -210,7 +210,7 @@ def button(bot, update):
         buttons_list = make_buttons_list(start_keyboard)
         menu = build_menu(buttons_list, 1)
         markup = InlineKeyboardMarkup(menu)
-        bot.sendMessage(text='Добро пожаловать на Raster Electric Campfire 2018', chat_id=query.message.chat.id, \
+        bot.sendMessage(text='Добро пожаловать на Delta 2018', chat_id=query.message.chat.id, \
                         reply_markup=markup)
 
 
