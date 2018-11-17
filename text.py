@@ -1,4 +1,4 @@
-location_text = '''2 сцены, 16 метров от пола до потолка, балкон и терраса, для создания ночи Delta, для создания места силы.
+location_text = '''2 сцены, 10 метров от пола до потолка, балкон и терраса, для создания ночи Delta, для создания места силы.
 
 <a href='https://t.me/blankclub'>BLANK</a> располагается в одном из зданий бывшего завода «Арсенал» на Арсенальной набережной 1. \
 Когда-то, в этих стенах, построенных более полутора веков назад по проекту архитектора \
@@ -14,29 +14,28 @@ location_text = '''2 сцены, 16 метров от пола до потолк
 meet_text = '''Добро пожаловать на Delta. Начало в 23:00.'''
 
 
-timetable_text = '''Начинаем в 23:00.
-Пока известен только лайн-ап:
+timetable_text = '''<b>Main:
 
-<b>Main:</b>
+23:00 Gemüt 
+0:30 Ivan Logos 
+2:00 Alien Rain [live] 
+3:00 Steve Bicknell 
+5:00 Unbalance 
+6:30 Irshad Hussein 
+8:00 Eye Que 
 
-Alien Rain aka Milton Bradley (live) [DE]
-Steve Bicknell [UK]
-Irshad Hussein [AZ]
-Ivan Logos
-Unbalance [msk]
-Eye Que
-Gemüt [msk]
 
-<b>Sanctum:</b>
+Sanctum:
 
-Mick Wills [DE]
-Oira
-Symbol (live) [msk]
-Bionoid (live)
-Module Werk
-Exponent
-Blain
-m_special
+23:00 Oira 
+1:00 Blain 
+2:30 Bionoid live
+3:30 Symbol live 
+5:00 Mick Wills 
+7:00 Module Werk
+8:30 Exponent 
+10:00 m_special 
+13:00 the end</b>
 '''
 
 
@@ -78,9 +77,17 @@ now_text = '''Gamma начнется 19 июля <a href='http://gammafestival.r
 Во время фестиваля жмите «Играют сейчас», чтобы знать, что где происходит (на основе расписания).
 '''
 
-no_event_text = "Начинаем 17 ноября в 23:00. Расписание пока неизвестно"
+no_event_text = '''<b>Main:
+23:00 Gemüt
 
-starting_soon_text = "Скоро начнём"
+Sanctum:
+23:00 Oira</b>'''
+
+starting_soon_text = '''<b>Main:
+23:00 Gemüt
+
+Sanctum:
+23:00 Oira</b>'''
 
 playing_now_text = ""
 

@@ -183,7 +183,11 @@ def button(bot, update):
         chatbase_log(chat_id, "ВЫСТУПАЮТ СЕЙЧАС", "PLAYING NOW")
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
-        now_text = 'Начинаем 17 ноября в 23:00. Расписание пока неизвестно'
+        now_text = '''<b>Main:
+23:00 Gemüt
+
+Sanctum:
+23:00 Oira</b>'''
         bot.sendMessage(chat_id=query.message.chat.id, text=now_text, \
                         parse_mode='HTML', reply_markup=markup)
 
