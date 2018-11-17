@@ -232,7 +232,7 @@ def playing_at(time):
     DAY_THRESHOLD = datetime.time(14, 0)
 
     # TODO: find out dynamically
-    STAGES_ORDER = ["beta stage", "gamma stage", "omega stage"]
+    STAGES_ORDER = ["MAIN", "SANCTUM"]
 
     started = False
     for scene in schedule:
