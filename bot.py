@@ -29,7 +29,7 @@ PORT = int(os.environ.get('PORT', '5000'))
 updater = Updater(telegram_token)
 dispatcher = updater.dispatcher
 
-start_keyboard = ('МЕСТО','РАСПИСАНИЕ', 'ВЫСТУПАЮТ СЕЙЧАС', 'АРТИСТЫ', 'КАНАЛ', 'ЧАТ')
+start_keyboard = ('МЕСТО', 'FAQ', 'РАСПИСАНИЕ', 'ВЫСТУПАЮТ СЕЙЧАС', 'АРТИСТЫ', 'КАНАЛ', 'ЧАТ')
 links_keyboard = ('VK EVENT','FB EVENT','m_VK','m_INSTAGRAM','m_SOUNDCLOUD', '<< в начало')
 links_schedule = ('m_19Jul', 'm_20Jul', 'm_21Jul', 'm_22Jul', '<< в начало')
 
@@ -102,7 +102,7 @@ def make_buttons_list(lst):
     buttons_list = []
     for a in lst:
         if a == 'FAQ':
-            button = InlineKeyboardButton(a, url='https://zen.yandex.ru/media/id/5b473690bbc36f00a8b583b7/faq-gamma-2018-5b47369d3d0e9500a9a83328')
+            button = InlineKeyboardButton(a, url='https://zen.yandex.ru/media/id/5b93817aef22f400aa2cd778/kratkaia-instrukciia-po-vyjivaniiu-na-blank-new-year-w-mdivision--3112-i-0101-5c2a15fe33986100a95ea02a')
         elif a == 'КАРТА GAMMA_MAIN':
             button = InlineKeyboardButton(a, callback_data='map')
         elif a == 'МЕСТО':
