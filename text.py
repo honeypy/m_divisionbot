@@ -11,31 +11,10 @@ location_text = '''2 сцены, 10 метров от пола до потолк
 
 '''
 
-meet_text = '''Добро пожаловать на Delta. Начало в 23:00.'''
+meet_text = '''Добро пожаловать на Blank Year 2019. Начало в 23:00.'''
 
 
-timetable_text = '''<b>Main:
-
-23:00 Gemüt 
-0:30 Ivan Logos 
-2:00 Alien Rain [live] 
-3:00 Steve Bicknell 
-5:00 Unbalance 
-6:30 Irshad Hussein 
-8:00 Eye Que 
-
-
-Sanctum:
-
-23:00 Oira 
-1:00 Blain 
-2:30 Bionoid live
-3:30 Symbol live 
-5:00 Mick Wills 
-7:00 Module Werk
-8:30 Exponent 
-10:00 m_special 
-13:00 the end</b>
+timetable_text = '''Расписание скоро будет известно. Терпение
 '''
 
 
@@ -77,21 +56,13 @@ now_text = '''Gamma начнется 19 июля <a href='http://gammafestival.r
 Во время фестиваля жмите «Играют сейчас», чтобы знать, что где происходит (на основе расписания).
 '''
 
-no_event_text = '''<b>Main:
-23:00 Gemüt
+no_event_text = '''Пока не началось'''
 
-Sanctum:
-23:00 Oira</b>'''
-
-starting_soon_text = '''<b>Main:
-23:00 Gemüt
-
-Sanctum:
-23:00 Oira</b>'''
+starting_soon_text = '''Скоро начнем'''
 
 playing_now_text = ""
 
-over_text = "Пока все отдыхают."
+over_text = "Вечеринка окончена. Хорошего настроения, держитесь."
 
 # timetable_text = '''
 # Точное расписание будет известно чуть позже.

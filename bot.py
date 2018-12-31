@@ -53,7 +53,7 @@ def start(bot, update):
     buttons_list = make_buttons_list(start_keyboard)
     menu = build_menu(buttons_list, 1)
     markup = InlineKeyboardMarkup(menu)
-    bot.sendMessage(text = 'Добро пожаловать на Delta 2018', chat_id = update.message.chat.id, reply_markup=markup)
+    bot.sendMessage(text = 'Добро пожаловать на Blank New Year.', chat_id = update.message.chat.id, reply_markup=markup)
     record_user(user_id=update.message.chat.id)
     print(update.message.text)
     #botan.track(botan_token, update.message.chat.id,message=update.message.text)
@@ -108,7 +108,7 @@ def make_buttons_list(lst):
         elif a == 'МЕСТО':
             button = InlineKeyboardButton(a, callback_data='МЕСТО')
         elif a == 'АРТИСТЫ':
-            button = InlineKeyboardButton(a, url='https://zen.yandex.ru/media/id/5b93817aef22f400aa2cd778/artisty-delta-2018-5beee9b906d73200aa28f031')
+            button = InlineKeyboardButton(a, url='https://zen.yandex.ru/media/id/5b93817aef22f400aa2cd778/artisty-blank-new-year-2019-5c29fa85cffc6400aaecb805')
         elif a == 'КАНАЛ':
             button = InlineKeyboardButton(a, url='https://t.me/m_division')
         elif a == 'ЧАТ':
@@ -118,9 +118,9 @@ def make_buttons_list(lst):
         elif a == '<< в начало':
             button = InlineKeyboardButton(a, callback_data='back_main')
         elif a == 'VK EVENT':
-            button = InlineKeyboardButton(a, url='https://vk.com/m_delta2018')
+            button = InlineKeyboardButton(a, url='https://vk.com/blankny')
         elif a == 'FB EVENT':
-            button = InlineKeyboardButton(a, url='https://www.facebook.com/events/1096458277179372/')
+            button = InlineKeyboardButton(a, url='https://www.facebook.com/events/2218977018427686/')
         elif a == 'm_VK':
             button = InlineKeyboardButton(a, url='https://vk.com/mdivisiongroup')
         elif a == 'm_INSTAGRAM':
@@ -210,7 +210,7 @@ def button(bot, update):
         buttons_list = make_buttons_list(start_keyboard)
         menu = build_menu(buttons_list, 1)
         markup = InlineKeyboardMarkup(menu)
-        bot.sendMessage(text='Добро пожаловать на Delta 2018', chat_id=query.message.chat.id, \
+        bot.sendMessage(text='Добро пожаловать на Blank New Year', chat_id=query.message.chat.id, \
                         reply_markup=markup)
 
 
