@@ -56,9 +56,9 @@ playing_now_text = ""
 over_text = "Вечеринка окончена. Хорошего настроения, держитесь."
 
 timetable_text = '''
-31 декабря, с 23:00 до 11:00
+<b>31 декабря, с 23:00 до 11:00
 
-<b>23:00 Blain
+23:00 Blain
 0:00 Perfomance
 0:05 Happy new m_special
 1:00 Lidvall live
