@@ -4,7 +4,7 @@ location_text = '''<a href='https://t.me/blankclub'>BLANK</a> располага
  и это лучшее настоящее для этих величественных стен и арочных сводов.
 '''
 
-meet_text = '''Добро пожаловать на Blank Year 2019. Начало в 23:00.'''
+meet_text = '''С Наступающим! Добро пожаловать на Blank Year 2019. Начало в 23:00.'''
 
 
 timetable_text = '''Расписание скоро будет известно. Терпение.
@@ -55,8 +55,34 @@ playing_now_text = ""
 
 over_text = "Вечеринка окончена. Хорошего настроения, держитесь."
 
-# timetable_text = '''
-# Точное расписание будет известно чуть позже.
-#
-# Gamma начнется 19 июня <a href='http://gammafestival.ru/hauschka'>концертом-открытием</a> HAUSHKA (DE).
-# '''
+timetable_text = '''
+31 декабря, с 23:00 до 11:00
+
+<b>23:00 Blain
+0:00 Perfomance
+0:05 Happy new m_special
+1:00 Lidvall live
+2:30 Ivan Logos
+4:00 Vril live
+5:00 PRCDRL live
+6:00 Unbalance
+7:30 Exponent
+
+0:30 Tolya Klepalov
+2:00 Kovalev
+3:30 TC80
+6:30 Module Werk
+8:00 Zaletny
+
+1 января
+c 22:00 до 8:00
+
+Anrilove
+Balu
+Shutta
+Koksharov
+Helfen
+Lbrnth live
+Eye Que
+Naya Oira</b>
+'''
