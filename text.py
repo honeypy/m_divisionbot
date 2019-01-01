@@ -7,9 +7,6 @@ location_text = '''<a href='https://t.me/blankclub'>BLANK</a> располага
 meet_text = '''С Наступающим! Добро пожаловать на Blank Year 2019 w/ m_division. Начало в 23:00.'''
 
 
-timetable_text = '''Расписание скоро будет известно. Терпение.
-'''
-
 
 token_text = '''
 <b>Токены</b>
@@ -56,33 +53,22 @@ playing_now_text = ""
 over_text = "Вечеринка окончена. Хорошего настроения, держитесь."
 
 timetable_text = '''
-<b>31 декабря, с 23:00 до 11:00
-
-23:00 Blain
-0:00 Perfomance
-0:05 Happy new m_special
-1:00 Lidvall live
-2:30 Ivan Logos
-4:00 Vril live
-5:00 PRCDRL live
-6:00 Unbalance
-7:30 Exponent
-
-0:30 Tolya Klepalov
-2:00 Kovalev
-3:30 TC80
-6:30 Module Werk
-8:00 Zaletny
-
-1 января
+<b>1 января
 c 22:00 до 8:00
 
-Anrilove
-Balu
-Shutta
-Koksharov
-Helfen
-Lbrnth live
-Eye Que
-Naya Oira</b>
+22:00 Oira
+23:00 Lbrnth live
+00:00 Naya
+01:00 Shutta
+02:00 Anrilov
+04:00 Balu
+06:00 Koksharov b2b Helfen
+
+23:00 Abjective live
+00:00 Ivan Logos
+01:00 Eye Que
+02:00 Naya
+04:00 Abjective & Symphocat live
+05:00 Symphocat live
+</b>
 '''
