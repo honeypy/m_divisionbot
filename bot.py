@@ -65,7 +65,7 @@ def send(bot, update):
     print()
     if update.message.chat.id == 47303188 and update.message.text == 'push':
         user_ids = get_users()
-        buttons_list = [InlineKeyboardButton('ПОДРОБНОСТИ', url='https://t.me/m_divisionbot'), ]
+        buttons_list = [InlineKeyboardButton('ПОДРОБНОСТИ', callback_data='back_main'), ]
         menu = build_menu(buttons_list, 1)
         markup = InlineKeyboardMarkup(menu)
         print(user_ids)
@@ -77,7 +77,7 @@ def send(bot, update):
                 pass
     elif update.message.chat.id == 47303188 and update.message.text == 'test':
         user_ids = [47303188]
-        buttons_list = [InlineKeyboardButton('ПОДРОБНОСТИ', url='https://t.me/m_divisionbot'),]
+        buttons_list = [InlineKeyboardButton('ПОДРОБНОСТИ', callback_data='back_main'),]
         menu = build_menu(buttons_list, 1)
         markup = InlineKeyboardMarkup(menu)
         print(user_ids)
