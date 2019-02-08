@@ -22,7 +22,8 @@ token_text = '''
 Наличные и банковские карты в барах приниматься не будут.
 '''
 
-lineup_text = '''
+lineup_text = '''Пока известен лайнап:
+
 Ansome LIVE [UK, MORD, Perc Trax]
 Zadig [FR, Construct Re-Form, Tresor]
 Umwelt [FR, Rave Or Die, New Flesh]
@@ -46,7 +47,7 @@ m_special
 now_text = '''Определенно, кто-то где-то сейчас играет.
 '''
 
-no_event_text = '''Пока не началось'''
+no_event_text = '''Расписание пока неизвестно.'''
 
 starting_soon_text = '''Скоро начнем'''
 

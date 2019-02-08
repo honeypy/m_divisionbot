@@ -215,7 +215,7 @@ def button(bot, update):
         menu = build_menu(buttons_list, 1)
         markup = InlineKeyboardMarkup(menu)
         bot.sendMessage(text='Добро пожаловать на m_family', chat_id=query.message.chat.id, \
-                        reply_markup=markup)
+                        reply_markup=markup, parse_mode='HTML')
 
 
 def get_artists(data):
