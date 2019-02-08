@@ -65,29 +65,36 @@ def send(bot, update):
     print()
     if update.message.chat.id == 47303188 and update.message.text == 'push':
         user_ids = get_users()
-        buttons_list = [InlineKeyboardButton('ПРОДОЛЖИТЬ', callback_data='back_main'), ]
+        buttons_list = [InlineKeyboardButton('ПРОДОЛЖИТЬ', callback_data='back_main'),]
         menu = build_menu(buttons_list, 1)
         markup = InlineKeyboardMarkup(menu)
         print(user_ids)
+        count = 0
         for user in user_ids:
             print(user)
             try:
-                bot.sendMessage(text = push, chat_id = int(user), reply_markup=markup)
+                bot.sendMessage(text = push, chat_id = int(user), parse_mode='HTML', reply_markup=markup)
+                count+=1
             except:
                 pass
+        print(count)
     elif update.message.chat.id == 47303188 and update.message.text == 'test':
         user_ids = [47303188]
         buttons_list = [InlineKeyboardButton('ПРОДОЛЖИТЬ', callback_data='back_main'),]
         menu = build_menu(buttons_list, 1)
         markup = InlineKeyboardMarkup(menu)
         print(user_ids)
+        count = 0
         for user in user_ids:
             print(user)
             try:
                 bot.sendMessage(text=push, chat_id=int(user),  parse_mode='HTML',
                                 reply_markup=markup)
+                count += 1
             except:
                 pass
+        print(count)
+
 def get_users():
     with open('users.csv') as csvfile:
         csvreader = csv.reader(csvfile)
