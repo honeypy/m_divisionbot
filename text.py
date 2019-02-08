@@ -23,22 +23,24 @@ token_text = '''
 '''
 
 lineup_text = '''
-Sleeparchive (DE) (live)
-Voiski (FR) (live)
-Blush Response (DE) (live)
-Prcdrl (DE) (live)
-Ivan Logos
-Kobba
-Lena Popova
-Sestrica (live)
-Exponent
-Eye Que b2b naya
-Prisheletz
-Eostra
-Blain
-Oira
+Ansome LIVE [UK, MORD, Perc Trax]
+Zadig [FR, Construct Re-Form, Tresor]
+Umwelt [FR, Rave Or Die, New Flesh]
+Shadowax hibryd LIVE [RU, ТРИП, Rassvet]
+Prcdrl LIVE [Berlin, m_division]
+Yuka [Moscow, Fullpanda, m_division]
+Lena Popova [m_division]
+Ivan Logos [m_division]
+Slava Finist [Moscow]
+Anna Kurosawa live [debut]
+Torn [Samurai Music]
+Eye Que [Subspace]
+Blain [Test FM]
+Camin' [Dirty Tapes]
+Napirelly
+m_special 
 
-Расписание будет известно накануне.
+Расписание будет известно в день мероприятия.
 '''
 
 now_text = '''Определенно, кто-то где-то сейчас играет.
@@ -71,4 +73,12 @@ c 22:00 до 8:00
 04:00 Abjective & Symphocat live
 05:00 Symphocat live
 </b>
+'''
+
+push = '''
+Завтра мы начинаем наш 10-й год с новой серии событий <b>m_family</b>.
+
+Вход по картам m_friends равен цене Early Birds — 800р. Количество билетов ограничено, только 1500 шт. Предупреждаем, что на 2 предыдущих событиях был SOLD OUT.
+
+Билеты в каждом релизе ограничены: <a href='https://www.mdivisionpromo.com/mfamily'>www.mdivisionpromo.com/mfamily</a>
 '''

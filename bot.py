@@ -29,7 +29,7 @@ PORT = int(os.environ.get('PORT', '5000'))
 updater = Updater(telegram_token)
 dispatcher = updater.dispatcher
 
-start_keyboard = ('МЕСТО', 'FAQ', 'РАСПИСАНИЕ', 'АРТИСТЫ', 'КАНАЛ', 'ЧАТ')
+start_keyboard = ('МЕСТО', 'ИГРАЮТ СЕЙЧАС', 'РАСПИСАНИЕ', 'АРТИСТЫ', 'КАНАЛ', 'ЧАТ')
 links_keyboard = ('VK EVENT','FB EVENT','m_VK','m_INSTAGRAM','m_SOUNDCLOUD', '<< в начало')
 links_schedule = ('m_19Jul', 'm_20Jul', 'm_21Jul', 'm_22Jul', '<< в начало')
 
@@ -53,7 +53,7 @@ def start(bot, update):
     buttons_list = make_buttons_list(start_keyboard)
     menu = build_menu(buttons_list, 1)
     markup = InlineKeyboardMarkup(menu)
-    bot.sendMessage(text = 'Добро пожаловать на Blank New Year w/ m_division. Начало в 23:00.', chat_id = update.message.chat.id, reply_markup=markup)
+    bot.sendMessage(text = 'Добро пожаловать на m_family. Начало 9 февраля в 23:00.', chat_id = update.message.chat.id, reply_markup=markup)
     record_user(user_id=update.message.chat.id)
     print(update.message.text)
     #botan.track(botan_token, update.message.chat.id,message=update.message.text)
@@ -61,7 +61,7 @@ def start(bot, update):
 def send(bot, update):
     print(1)
     print()
-    if update.message.chat.id == 47303188 and update.message.text == '1':
+    if update.message.chat.id == 47303188 and update.message.text == 'push':
         user_ids = get_users()
         buttons_list = make_buttons_list(start_keyboard)
         menu = build_menu(buttons_list, 1)
@@ -70,11 +70,11 @@ def send(bot, update):
         for user in user_ids:
             print(user)
             try:
-                bot.sendMessage(text = meet_text, chat_id = int(user), reply_markup=markup)
+                bot.sendMessage(text = push, chat_id = int(user), reply_markup=markup)
             except:
                 pass
-    elif update.message.chat.id == 47303188 and update.message.text == '2':
-        user_ids = get_users()
+    elif update.message.chat.id == 47303188 and update.message.text == 'test':
+        user_ids = [47303188]
         buttons_list = make_buttons_list(start_keyboard)
         menu = build_menu(buttons_list, 1)
         markup = InlineKeyboardMarkup(menu)
@@ -82,7 +82,7 @@ def send(bot, update):
         for user in user_ids:
             print(user)
             try:
-                bot.sendMessage(text='Если «FAQ» и «Артисты» не открываются, нажмите снова /start', chat_id=int(user),
+                bot.sendMessage(text=push, chat_id=int(user),
                                 reply_markup=markup)
             except:
                 pass
@@ -108,7 +108,7 @@ def make_buttons_list(lst):
         elif a == 'МЕСТО':
             button = InlineKeyboardButton(a, callback_data='МЕСТО')
         elif a == 'АРТИСТЫ':
-            button = InlineKeyboardButton(a, url='https://zen.yandex.ru/media/id/5b93817aef22f400aa2cd778/artisty-blank-new-year-2019-5c29fa85cffc6400aaecb805')
+            button = InlineKeyboardButton(a, url='https://zen.yandex.ru/media/id/5b93817aef22f400aa2cd778/artisty-mfamily-2019-5c5dae2664276e00ae3df7e7')
         elif a == 'КАНАЛ':
             button = InlineKeyboardButton(a, url='https://t.me/m_division')
         elif a == 'ЧАТ':
@@ -160,7 +160,7 @@ def button(bot, update):
         chatbase_log(chat_id, "РАСПИСАНИЕ", "SCHEDULE")
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
-        bot.sendMessage(chat_id=query.message.chat.id, text=timetable_text, \
+        bot.sendMessage(chat_id=query.message.chat.id, text=lineup_text, \
                         parse_mode='HTML', reply_markup=markup)
 
     elif data == 'ТОКЕНЫ':
@@ -210,7 +210,7 @@ def button(bot, update):
         buttons_list = make_buttons_list(start_keyboard)
         menu = build_menu(buttons_list, 1)
         markup = InlineKeyboardMarkup(menu)
-        bot.sendMessage(text='Добро пожаловать на Blank New Year w/ m_division', chat_id=query.message.chat.id, \
+        bot.sendMessage(text='Добро пожаловать на m_family', chat_id=query.message.chat.id, \
                         reply_markup=markup)
 
 
