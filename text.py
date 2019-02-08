@@ -76,10 +76,9 @@ c 22:00 до 8:00
 </b>
 '''
 
-push = '''
-Завтра мы начинаем наш 10-й год с новой серии событий <b>m_family</b>.
+push = '''Завтра мы начинаем наш 10-й год с новой серии событий <b>m_family</b>.
+Лайн и вся необходимая информация доступна в боте: @m_divisionbot.
 
 Вход по картам m_friends равен цене Early Birds — 800р. Количество билетов ограничено, только 1500 шт. Предупреждаем, что на 2 предыдущих событиях был SOLD OUT.
-
-Билеты в каждом релизе ограничены: <a href='https://www.mdivisionpromo.com/mfamily'>www.mdivisionpromo.com/mfamily</a>
+Последний релиз билетов доступен здесь: <a href='https://www.mdivisionpromo.com/mfamily'>www.mdivisionpromo.com/mfamily</a>
 '''
