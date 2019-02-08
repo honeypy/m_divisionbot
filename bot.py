@@ -30,7 +30,7 @@ updater = Updater(telegram_token)
 dispatcher = updater.dispatcher
 
 start_keyboard = ('МЕСТО', 'ИГРАЮТ СЕЙЧАС', 'РАСПИСАНИЕ', 'АРТИСТЫ', 'КАНАЛ', 'ЧАТ')
-onebutton_keyboard = ('ПОДРОБНОСТИ')
+onebutton_keyboard = ('ПРОДОЛЖИТЬ')
 links_keyboard = ('VK EVENT','FB EVENT','m_VK','m_INSTAGRAM','m_SOUNDCLOUD', '<< в начало')
 links_schedule = ('m_19Jul', 'm_20Jul', 'm_21Jul', 'm_22Jul', '<< в начало')
 
@@ -65,7 +65,7 @@ def send(bot, update):
     print()
     if update.message.chat.id == 47303188 and update.message.text == 'push':
         user_ids = get_users()
-        buttons_list = [InlineKeyboardButton('ПОДРОБНОСТИ', callback_data='back_main'), ]
+        buttons_list = [InlineKeyboardButton('ПРОДОЛЖИТЬ', callback_data='back_main'), ]
         menu = build_menu(buttons_list, 1)
         markup = InlineKeyboardMarkup(menu)
         print(user_ids)
@@ -77,7 +77,7 @@ def send(bot, update):
                 pass
     elif update.message.chat.id == 47303188 and update.message.text == 'test':
         user_ids = [47303188]
-        buttons_list = [InlineKeyboardButton('ПОДРОБНОСТИ', callback_data='back_main'),]
+        buttons_list = [InlineKeyboardButton('ПРОДОЛЖИТЬ', callback_data='back_main'),]
         menu = build_menu(buttons_list, 1)
         markup = InlineKeyboardMarkup(menu)
         print(user_ids)
@@ -119,7 +119,7 @@ def make_buttons_list(lst):
             button = InlineKeyboardButton(a, callback_data='back_music')
         elif a == '<< в начало':
             button = InlineKeyboardButton(a, callback_data='back_main')
-        elif a == 'ПОДРОБНОСТИ':
+        elif a == 'ПРОДОЛЖИТЬ':
             button = InlineKeyboardButton(a, url='https://t.me/m_divisionbot')
         elif a == 'VK EVENT':
             button = InlineKeyboardButton(a, url='https://vk.com/blankny')
