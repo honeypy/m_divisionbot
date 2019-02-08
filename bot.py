@@ -214,7 +214,7 @@ def button(bot, update):
         buttons_list = make_buttons_list(start_keyboard)
         menu = build_menu(buttons_list, 1)
         markup = InlineKeyboardMarkup(menu)
-        bot.sendMessage(text='Добро пожаловать на m_family', chat_id=query.message.chat.id, \
+        bot.sendMessage(text='Добро пожаловать на <b>m_family</b>.', chat_id=query.message.chat.id, \
                         reply_markup=markup, parse_mode='HTML')
 
 
