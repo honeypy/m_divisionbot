@@ -78,7 +78,7 @@ def send(bot, update):
     elif update.message.chat.id == 47303188 and update.message.text == 'test':
         user_ids = [47303188]
         buttons_list = [InlineKeyboardButton('ПОДРОБНОСТИ', url='https://t.me/m_divisionbot'),]
-        menu = build_menu(buttons_list)
+        menu = build_menu(buttons_list, 1)
         markup = InlineKeyboardMarkup(menu)
         print(user_ids)
         for user in user_ids:
