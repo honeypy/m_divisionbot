@@ -30,6 +30,7 @@ updater = Updater(telegram_token)
 dispatcher = updater.dispatcher
 
 start_keyboard = ('МЕСТО', 'ИГРАЮТ СЕЙЧАС', 'РАСПИСАНИЕ', 'АРТИСТЫ', 'КАНАЛ', 'ЧАТ')
+onebutton_keyboard = ('ПОДРОБНОСТИ')
 links_keyboard = ('VK EVENT','FB EVENT','m_VK','m_INSTAGRAM','m_SOUNDCLOUD', '<< в начало')
 links_schedule = ('m_19Jul', 'm_20Jul', 'm_21Jul', 'm_22Jul', '<< в начало')
 
@@ -53,7 +54,8 @@ def start(bot, update):
     buttons_list = make_buttons_list(start_keyboard)
     menu = build_menu(buttons_list, 1)
     markup = InlineKeyboardMarkup(menu)
-    bot.sendMessage(text = 'Добро пожаловать на m_family. Начало 9 февраля в 23:00.', chat_id = update.message.chat.id, reply_markup=markup)
+    bot.sendMessage(text = 'Добро пожаловать на <b>m_family</b>. Начало 9 февраля в 23:00.', chat_id = update.message.chat.id,
+                    parse_mode='HTML', reply_markup=markup)
     record_user(user_id=update.message.chat.id)
     print(update.message.text)
     #botan.track(botan_token, update.message.chat.id,message=update.message.text)
@@ -63,7 +65,7 @@ def send(bot, update):
     print()
     if update.message.chat.id == 47303188 and update.message.text == 'push':
         user_ids = get_users()
-        buttons_list = make_buttons_list(start_keyboard)
+        buttons_list = make_buttons_list(onebutton_keyboard)
         menu = build_menu(buttons_list, 1)
         markup = InlineKeyboardMarkup(menu)
         print(user_ids)
@@ -75,14 +77,14 @@ def send(bot, update):
                 pass
     elif update.message.chat.id == 47303188 and update.message.text == 'test':
         user_ids = [47303188]
-        buttons_list = make_buttons_list(start_keyboard)
+        buttons_list = make_buttons_list(onebutton_keyboard)
         menu = build_menu(buttons_list, 1)
         markup = InlineKeyboardMarkup(menu)
         print(user_ids)
         for user in user_ids:
             print(user)
             try:
-                bot.sendMessage(text=push, chat_id=int(user),
+                bot.sendMessage(text=push, chat_id=int(user),  parse_mode='HTML',
                                 reply_markup=markup)
             except:
                 pass
@@ -117,6 +119,8 @@ def make_buttons_list(lst):
             button = InlineKeyboardButton(a, callback_data='back_music')
         elif a == '<< в начало':
             button = InlineKeyboardButton(a, callback_data='back_main')
+        elif a == 'ПОДРОБНОСТИ':
+            button = InlineKeyboardButton(a, url='https://t.me/m_divisionbot')
         elif a == 'VK EVENT':
             button = InlineKeyboardButton(a, url='https://vk.com/blankny')
         elif a == 'FB EVENT':
