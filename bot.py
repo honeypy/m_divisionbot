@@ -171,7 +171,7 @@ def button(bot, update):
         chatbase_log(chat_id, "РАСПИСАНИЕ", "SCHEDULE")
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
-        bot.sendMessage(chat_id=query.message.chat.id, text=lineup_text, \
+        bot.sendMessage(chat_id=query.message.chat.id, text=timetable_text, \
                         parse_mode='HTML', reply_markup=markup)
 
     elif data == 'ТОКЕНЫ':

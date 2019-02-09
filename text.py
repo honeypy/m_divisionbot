@@ -47,7 +47,13 @@ m_special
 now_text = '''Определенно, кто-то где-то сейчас играет.
 '''
 
-no_event_text = '''Расписание пока неизвестно.'''
+no_event_text = '''<b>Скоро начнем:
+MAIN
+23:00 Anna Kurosawa live
+
+ЗОЛОТОЙ
+23:00 Blain</b>
+'''
 
 starting_soon_text = '''Скоро начнем'''
 
@@ -56,23 +62,25 @@ playing_now_text = ""
 over_text = "Вечеринка окончена. Хорошего настроения, держитесь."
 
 timetable_text = '''
-<b>1 января
-c 22:00 до 8:00
+<b>MAIN
+23:00 Anna Kurosawa live
+0:00 Eye Que
+1:00 Ivan Logos
+2:00 Zadig
+4:00 Ansome live
+5:00 Yuka 
+7:00 Slava Finist
 
-22:00 Oira
-23:00 Lbrnth live
-00:00 Naya
-01:00 Shutta
-02:00 Anrilov
-04:00 Balu
-06:00 Koksharov b2b Helfen
-
-23:00 Abjective live
-00:00 Ivan Logos
-01:00 Eye Que
-02:00 Naya
-04:00 Abjective & Symphocat live
-05:00 Symphocat live
+ЗОЛОТОЙ
+23:00 Blain
+0:00 Camin' 
+1:00 Shadowax live
+2:00 Lena Popova
+3:30 Umwelt 
+5:30 PRCDRL live
+6:30 Torn 
+7:30 Napirelly
+9:00 m_special
 </b>
 '''
 
