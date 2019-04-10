@@ -54,7 +54,7 @@ def start(bot, update):
     buttons_list = make_buttons_list(start_keyboard)
     menu = build_menu(buttons_list, 1)
     markup = InlineKeyboardMarkup(menu)
-    bot.sendMessage(text = 'Добро пожаловать на <b>m_family</b>. Начало 9 февраля в 23:00.', chat_id = update.message.chat.id,
+    bot.sendMessage(text = meet_text, chat_id = update.message.chat.id,
                     parse_mode='HTML', reply_markup=markup)
     record_user(user_id=update.message.chat.id)
     print(update.message.text)
@@ -117,7 +117,7 @@ def make_buttons_list(lst):
         elif a == 'МЕСТО':
             button = InlineKeyboardButton(a, callback_data='МЕСТО')
         elif a == 'АРТИСТЫ':
-            button = InlineKeyboardButton(a, url='https://zen.yandex.ru/media/id/5b93817aef22f400aa2cd778/artisty-mfamily-2019-5c5dae2664276e00ae3df7e7')
+            button = InlineKeyboardButton(a, url='https://zen.yandex.ru/media/id/5b93817aef22f400aa2cd778/artisty-mfamily-aprel-2019-5cad6abc643d2800af1349b4')
         elif a == 'КАНАЛ':
             button = InlineKeyboardButton(a, url='https://t.me/m_division')
         elif a == 'ЧАТ':
@@ -129,9 +129,9 @@ def make_buttons_list(lst):
         elif a == 'ПРОДОЛЖИТЬ':
             button = InlineKeyboardButton(a, url='https://t.me/m_divisionbot')
         elif a == 'VK EVENT':
-            button = InlineKeyboardButton(a, url='https://vk.com/blankny')
+            button = InlineKeyboardButton(a, url='https://vk.com/m_family2')
         elif a == 'FB EVENT':
-            button = InlineKeyboardButton(a, url='https://www.facebook.com/events/2218977018427686/')
+            button = InlineKeyboardButton(a, url='https://www.facebook.com/mdivisionevents/')
         elif a == 'm_VK':
             button = InlineKeyboardButton(a, url='https://vk.com/mdivisiongroup')
         elif a == 'm_INSTAGRAM':
