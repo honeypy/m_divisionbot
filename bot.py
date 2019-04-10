@@ -195,7 +195,7 @@ def button(bot, update):
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
         now_text = playing_now()
-        bot.sendMessage(chat_id=query.message.chat.id, text=now_text, \
+        bot.sendMessage(chat_id=query.message.chat.id, text='Начинаем в субботу в 23:00. Расписание появится накануне.', \
                         parse_mode='HTML', reply_markup=markup)
 
     elif data == 'ССЫЛКИ':
