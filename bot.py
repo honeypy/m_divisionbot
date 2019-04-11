@@ -183,7 +183,7 @@ def button(bot, update):
 
     elif data == 'tickets':
         chatbase_log(chat_id, 'tickets', 'TICKETS')
-        buttons_list = [[InlineKeyboardButton('<< в начало', callback_data='back_main'), InlineKeyboardButton('УСПЕТЬ КУПИТЬ', url='https://radario.ru/widgets/mobile/385838')]]
+        buttons_list = [[InlineKeyboardButton('<< в начало', callback_data='back_main'), InlineKeyboardButton('КУПИТЬ', url='https://radario.ru/widgets/mobile/385838')]]
 
         markup = InlineKeyboardMarkup(buttons_list)
         print(markup)
