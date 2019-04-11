@@ -87,9 +87,12 @@ def send(bot, update):
         count = 0
         for user in user_ids:
             print(user)
-            bot.sendMessage(text=tickets_push_text, chat_id=int(user),  parse_mode='HTML', reply_markup=markup)
-            count += 1
-
+            try:
+                bot.sendMessage(text=push, chat_id=int(user),  parse_mode='HTML',
+                                reply_markup=markup)
+                count += 1
+            except:
+                pass
         print(count)
 
 def get_users():
