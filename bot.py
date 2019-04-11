@@ -93,7 +93,7 @@ def send(bot, update):
                                 reply_markup=markup)
                 count += 1
             except:
-                pass
+                print(Exception)
         print(count)
 
 def get_users():
