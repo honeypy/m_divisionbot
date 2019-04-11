@@ -29,7 +29,7 @@ PORT = int(os.environ.get('PORT', '5000'))
 updater = Updater(telegram_token)
 dispatcher = updater.dispatcher
 
-start_keyboard = ('МЕСТО', 'ИГРАЮТ СЕЙЧАС', 'РАСПИСАНИЕ', 'АРТИСТЫ', 'КАНАЛ', 'ЧАТ')
+start_keyboard = ('БИЛЕТЫ','МЕСТО', 'ИГРАЮТ СЕЙЧАС', 'РАСПИСАНИЕ', 'АРТИСТЫ', 'КАНАЛ', 'ЧАТ')
 onebutton_keyboard = ('ПРОДОЛЖИТЬ')
 links_keyboard = ('VK EVENT','FB EVENT','m_VK','m_INSTAGRAM','m_SOUNDCLOUD', '<< в начало')
 links_schedule = ('m_19Jul', 'm_20Jul', 'm_21Jul', 'm_22Jul', '<< в начало')
@@ -112,6 +112,8 @@ def make_buttons_list(lst):
     for a in lst:
         if a == 'FAQ':
             button = InlineKeyboardButton(a, url='https://zen.yandex.ru/media/id/5b93817aef22f400aa2cd778/kratkaia-instrukciia-po-vyjivaniiu-na-blank-new-year-w-mdivision--3112-i-0101-5c2a15fe33986100a95ea02a')
+        elif a == 'БИЛЕТЫ':
+            button = InlineKeyboardButton(a, callback_data='tickets')
         elif a == 'КАРТА GAMMA_MAIN':
             button = InlineKeyboardButton(a, callback_data='map')
         elif a == 'МЕСТО':
@@ -181,6 +183,15 @@ def button(bot, update):
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
         bot.sendMessage(chat_id=query.message.chat.id, text=token_text, \
+                        parse_mode='HTML', reply_markup=markup)
+
+    elif data == 'tickets':
+        chatbase_log(chat_id, 'tickets', 'TICKETS')
+        keyboard = [[InlineKeyboardButton('УСПЕТЬ КУПИТЬ', url='https://radario.ru/widgets/mobile/385838'), \
+                     InlineKeyboardButton('<< в начало', callback_data='back_main')]]
+
+        markup = InlineKeyboardMarkup(keyboard)
+        bot.sendMessage(chat_id=query.message.chat.id, text=tickets_text, \
                         parse_mode='HTML', reply_markup=markup)
 
 
