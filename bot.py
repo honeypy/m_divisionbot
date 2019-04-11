@@ -80,16 +80,14 @@ def send(bot, update):
         print(count)
     elif update.message.chat.id == 47303188 and update.message.text == 'test':
         user_ids = [47303188]
-        buttons_list = [[InlineKeyboardButton('УСПЕТЬ КУПИТЬ', url='https://radario.ru/widgets/mobile/385838')],\
-                       [InlineKeyboardButton('ПРОДОЛЖИТЬ', callback_data='back_main')],]
+        buttons_list = [InlineKeyboardButton('ПРОДОЛЖИТЬ', callback_data='back_main'),]
         menu = build_menu(buttons_list, 1)
         markup = InlineKeyboardMarkup(menu)
         print(user_ids)
         count = 0
         for user in user_ids:
             print(user)
-            bot.sendMessage(text=tickets_push_text, chat_id=int(user),  parse_mode='HTML',
-                            reply_markup=markup)
+            bot.sendMessage(text=tickets_push_text, chat_id=int(user),  parse_mode='HTML', reply_markup=markup)
             count += 1
 
         print(count)
