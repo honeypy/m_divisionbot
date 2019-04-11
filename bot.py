@@ -95,6 +95,7 @@ def send(bot, update):
             print(markup)
             bot.sendMessage(chat_id=int(user), text=tickets_text, parse_mode='HTML', reply_markup=markup)
 
+
 def get_users():
     with open('users.csv') as csvfile:
         csvreader = csv.reader(csvfile)
@@ -188,8 +189,8 @@ def button(bot, update):
     elif data == 'tickets':
         chatbase_log(chat_id, 'tickets', 'TICKETS')
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main'), InlineKeyboardButton('УСПЕТЬ КУПИТЬ', url='https://radario.ru/widgets/mobile/385838')]]
-
-        markup = InlineKeyboardMarkup(keyboard)
+        menu = build_menu(keyboard, 1)
+        markup = InlineKeyboardMarkup(menu)
         print(markup)
         bot.sendMessage(chat_id=query.message.chat.id, text=tickets_text, parse_mode='HTML', reply_markup=markup)
 
