@@ -80,18 +80,16 @@ def send(bot, update):
         print(count)
     elif update.message.chat.id == 47303188 and update.message.text == 'test':
         user_ids = [47303188]
-        buttons_list = [[InlineKeyboardButton('МЕНЮ', callback_data='back_main'), \
-                         InlineKeyboardButton('УСПЕТЬ КУПИТЬ', url='https://radario.ru/widgets/mobile/385838')]]
-        keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main'), \
-                     InlineKeyboardButton('УСПЕТЬ КУПИТЬ', url='https://radario.ru/widgets/mobile/385838')]]
+        buttons_list = [[InlineKeyboardButton('МЕНЮ', callback_data='back_main'), InlineKeyboardButton('УСПЕТЬ КУПИТЬ', url='https://radario.ru/widgets/mobile/385838')]]
+        keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main'), InlineKeyboardButton('УСПЕТЬ КУПИТЬ', url='https://radario.ru/widgets/mobile/385838')]]
         menu = build_menu(keyboard, 1)
         markup = InlineKeyboardMarkup(menu)
         print(user_ids)
         count = 0
         for user in user_ids:
             print(user)
-            bot.sendMessage(text=push, chat_id=int(user),  parse_mode='HTML',
-                            reply_markup=markup)
+            print(markup)
+            bot.sendMessage(text=push, chat_id=int(user), parse_mode='HTML', reply_markup=markup)
             count += 1
         print(count)
 
@@ -191,6 +189,7 @@ def button(bot, update):
                      InlineKeyboardButton('УСПЕТЬ КУПИТЬ', url='https://radario.ru/widgets/mobile/385838')]]
 
         markup = InlineKeyboardMarkup(keyboard)
+        print(markup)
         bot.sendMessage(chat_id=query.message.chat.id, text=tickets_text, \
                         parse_mode='HTML', reply_markup=markup)
 
