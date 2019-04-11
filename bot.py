@@ -65,15 +65,13 @@ def send(bot, update):
     print()
     if update.message.chat.id == 47303188 and update.message.text == 'push':
         user_ids = get_users()
-        buttons_list = [InlineKeyboardButton('ПРОДОЛЖИТЬ', callback_data='back_main'),]
-        menu = build_menu(buttons_list, 1)
-        markup = InlineKeyboardMarkup(menu)
+        markup = {'inline_keyboard': [[{'callback_data': 'back_main', 'text': '<< В МЕНЮ'}, {'text': 'КУПИТЬ', 'url': 'https://radario.ru/widgets/mobile/385838'}]]}
         print(user_ids)
         count = 0
         for user in user_ids:
             print(user)
             try:
-                bot.sendMessage(text = push, chat_id = int(user), parse_mode='HTML', reply_markup=markup)
+                bot.sendMessage(text = tickets_push_text, chat_id = int(user), parse_mode='HTML', reply_markup=markup)
                 count+=1
             except:
                 pass
@@ -86,11 +84,10 @@ def send(bot, update):
         # markup = InlineKeyboardMarkup(menu)
         # print(markup)
         # print(user_ids)
+        markup = {'inline_keyboard': [[{'callback_data': 'back_main', 'text': '<< В МЕНЮ'}, {'text': 'КУПИТЬ', 'url': 'https://radario.ru/widgets/mobile/385838'}]]}
         count = 0
         for user in user_ids:
             # buttons_list = [[InlineKeyboardButton('<< в начало', callback_data='back_main'), InlineKeyboardButton('УСПЕТЬ КУПИТЬ', url='https://radario.ru/widgets/mobile/385838')]]
-            markup = {'inline_keyboard': [[{'callback_data': 'back_main', 'text': '<< В МЕНЮ'}, {'text': 'КУПИТЬ', 'url': 'https://radario.ru/widgets/mobile/385838'}]]}
-
             # print(markup)
             bot.sendMessage(chat_id=int(user), text=tickets_push_text, parse_mode='HTML',reply_markup=markup)
 
