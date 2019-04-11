@@ -84,11 +84,12 @@ def send(bot, update):
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main'), InlineKeyboardButton('УСПЕТЬ КУПИТЬ', url='https://radario.ru/widgets/mobile/385838')]]
         menu = build_menu(keyboard, 1)
         markup = InlineKeyboardMarkup(menu)
+        print(markup)
         print(user_ids)
         count = 0
         for user in user_ids:
             print(user)
-            print(markup)
+
             bot.sendMessage(text=push, chat_id=int(user), parse_mode='HTML', reply_markup=markup)
             count += 1
         print(count)
