@@ -88,10 +88,10 @@ def send(bot, update):
         print(user_ids)
         count = 0
         for user in user_ids:
-            buttons_list = [[InlineKeyboardButton('<< в начало', callback_data='back_main'), InlineKeyboardButton('УСПЕТЬ КУПИТЬ', url='https://radario.ru/widgets/mobile/385838')]]
-            markup = InlineKeyboardMarkup(buttons_list)
+            # buttons_list = [[InlineKeyboardButton('<< в начало', callback_data='back_main'), InlineKeyboardButton('УСПЕТЬ КУПИТЬ', url='https://radario.ru/widgets/mobile/385838')]]
+            # markup = InlineKeyboardMarkup(buttons_list)
             print(markup)
-            bot.sendMessage(chat_id=int(user), text=tickets_text, parse_mode='HTML', reply_markup=markup)
+            bot.sendMessage(chat_id=int(user), text=tickets_text, parse_mode='HTML')
 
 def get_users():
     with open('users.csv') as csvfile:
