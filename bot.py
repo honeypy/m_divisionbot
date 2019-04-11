@@ -79,7 +79,7 @@ def send(bot, update):
                 pass
         print(count)
     elif update.message.chat.id == 47303188 and update.message.text == 'test':
-        user_ids = [47303188]
+        user_ids = [47303188, ]
         buttons_list = [[InlineKeyboardButton('МЕНЮ', callback_data='back_main'), InlineKeyboardButton('УСПЕТЬ КУПИТЬ', url='https://radario.ru/widgets/mobile/385838')]]
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main'), InlineKeyboardButton('УСПЕТЬ КУПИТЬ', url='https://radario.ru/widgets/mobile/385838')]]
         menu = build_menu(keyboard, 1)
