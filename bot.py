@@ -80,7 +80,8 @@ def send(bot, update):
         print(count)
     elif update.message.chat.id == 47303188 and update.message.text == 'test':
         user_ids = [47303188]
-        buttons_list = [InlineKeyboardButton('ПРОДОЛЖИТЬ', callback_data='back_main'),]
+        buttons_list = [InlineKeyboardButton('УСПЕТЬ КУПИТЬ', url='https://radario.ru/widgets/mobile/385838'),\
+                       InlineKeyboardButton('ПРОДОЛЖИТЬ', callback_data='back_main'),]
         menu = build_menu(buttons_list, 1)
         markup = InlineKeyboardMarkup(menu)
         print(user_ids)
@@ -88,7 +89,7 @@ def send(bot, update):
         for user in user_ids:
             print(user)
             try:
-                bot.sendMessage(text=push, chat_id=int(user),  parse_mode='HTML',
+                bot.sendMessage(text=tickets_push_text, chat_id=int(user),  parse_mode='HTML',
                                 reply_markup=markup)
                 count += 1
             except:
@@ -187,8 +188,8 @@ def button(bot, update):
 
     elif data == 'tickets':
         chatbase_log(chat_id, 'tickets', 'TICKETS')
-        keyboard = [[InlineKeyboardButton('УСПЕТЬ КУПИТЬ', url='https://radario.ru/widgets/mobile/385838'), \
-                     InlineKeyboardButton('<< в начало', callback_data='back_main')]]
+        keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main'), \
+                     InlineKeyboardButton('УСПЕТЬ КУПИТЬ', url='https://radario.ru/widgets/mobile/385838')]]
 
         markup = InlineKeyboardMarkup(keyboard)
         bot.sendMessage(chat_id=query.message.chat.id, text=tickets_text, \
