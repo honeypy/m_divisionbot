@@ -73,21 +73,21 @@ over_text = "Вечеринка окончена. Хорошего настро�
 
 timetable_text = '''
 <b>main</b> 
-<b>23-00</b> Квантовый Оракул
-<b>0-00</b> Ivan Logos
-<b>1-00</b> SNTS hybrid live
-<b>2-30</b> Tommy Four Seven 
-<b>5-30</b> Unbalance
-<b>7-00</b> Eye Que b2b naya
+<b>23-00 Квантовый Оракул</b>
+<b>0-00 Ivan Logos</b>
+<b>1-00 SNTS hybrid live</b>
+<b>2-30 Tommy Four Seven</b> 
+<b>5-30 Unbalance</b>
+<b>7-00 Eye Que b2b naya</b>
 
-<b>second
-<b>23-00</b> Exponent b2b Zaletny 
-<b>2-00</b> Kovyazin D live
-<b>3-00</b> Yu Kawabata
-<b>4-30</b> Gunnar Haslam 
-<b>6-30</b> Melier Avenue live
-<b>8-00</b> m_special
-<b>11-00</b> the end
+<b>second</b>
+<b>23-00 Exponent b2b Zaletny</b>
+<b>2-00 Kovyazin D live</b>
+<b>3-00 Yu Kawabata</b>
+<b>4-30 Gunnar Haslam</b> 
+<b>6-30 Melier Avenue live</b>
+<b>8-00 m_special</b>
+<b>11-00 the end</b>
 '''
 
 push_text = '''Все готово, начинаем в 23 часа.
@@ -96,21 +96,21 @@ push_text = '''Все готово, начинаем в 23 часа.
 Timetable: 
 
 <b>main</b> 
-<b>23-00</b> Квантовый Оракул
-<b>0-00</b> Ivan Logos
-<b>1-00</b> SNTS hybrid live
-<b>2-30</b> Tommy Four Seven 
-<b>5-30</b> Unbalance
-<b>7-00</b> Eye Que b2b naya
+<b>23-00 Квантовый Оракул</b>
+<b>0-00 Ivan Logos</b>
+<b>1-00 SNTS hybrid live</b>
+<b>2-30 Tommy Four Seven</b> 
+<b>5-30 Unbalance</b>
+<b>7-00 Eye Que b2b naya</b>
 
 <b>second</b>
-<b>23-00</b> Exponent b2b Zaletny 
-<b>2-00</b> Kovyazin D live
-<b>3-00</b> Yu Kawabata
-<b>4-30</b> Gunnar Haslam 
-<b>6-30</b> Melier Avenue live
-<b>8-00</b> m_special
-<b>11-00</b> the end
+<b>23-00 Exponent b2b Zaletny</b>
+<b>2-00 Kovyazin D live</b>
+<b>3-00 Yu Kawabata</b>
+<b>4-30 Gunnar Haslam</b> 
+<b>6-30 Melier Avenue live</b>
+<b>8-00 m_special</b>
+<b>11-00 the end</b>
 
 p.s. не забывайте о мостах: https://razvodka-mostov.ru/
 '''
