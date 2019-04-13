@@ -58,19 +58,61 @@ MAIN
 
 starting_soon_text = '''Скоро начнем'''
 
-playing_now_text = ""
+playing_now_text = '''Начинаем в 23:00.
+<b>main</b> 
+<b>23-00</b> Квантовый Оракул
+
+<b>second</b>
+<b>23-00</b> Exponent b2b Zaletny
+'''
+
+
+
 
 over_text = "Вечеринка окончена. Хорошего настроения, держитесь."
 
 timetable_text = '''
-Начинаем в субботу в 23:00. Расписание появится накануне. Сделаем отдельное уведомление.
+<b>main</b> 
+<b>23-00</b> Квантовый Оракул
+<b>0-00</b> Ivan Logos
+<b>1-00</b> SNTS hybrid live
+<b>2-30</b> Tommy Four Seven 
+<b>5-30</b> Unbalance
+<b>7-00</b> Eye Que b2b naya
+
+<b>second
+<b>23-00</b> Exponent b2b Zaletny 
+<b>2-00</b> Kovyazin D live
+<b>3-00</b> Yu Kawabata
+<b>4-30</b> Gunnar Haslam 
+<b>6-30</b> Melier Avenue live
+<b>8-00</b> m_special
+<b>11-00</b> the end
 '''
 
-push = '''Завтра мы начинаем наш 10-й год с новой серии событий <b>m_family</b>.
-Лайнап и вся необходимая информация доступны в боте.
+push_text = '''Все готово, начинаем в 23 часа.
+Последние билеты по <a href='https://radario.ru/widgets/mobile/385838'>ссылке</a>.
 
-Вход по картам m_friends равен цене Early Birds — 800р. Количество билетов ограничено, только 1500 шт. Предупреждаем, что на 2 предыдущих событиях был SOLD OUT.
-Последний релиз билетов доступен здесь: <a href='https://www.mdivisionpromo.com/mfamily'>www.mdivisionpromo.com/mfamily</a>
+Timetable: 
+
+<b>main</b> 
+<b>23-00</b> Квантовый Оракул
+<b>0-00</b> Ivan Logos
+<b>1-00</b> SNTS hybrid live
+<b>2-30</b> Tommy Four Seven 
+<b>5-30</b> Unbalance
+<b>7-00</b> Eye Que b2b naya
+
+<b>second</b>
+<b>23-00</b> Exponent b2b Zaletny 
+<b>2-00</b> Kovyazin D live
+<b>3-00</b> Yu Kawabata
+<b>4-30</b> Gunnar Haslam 
+<b>6-30</b> Melier Avenue live
+<b>8-00</b> m_special
+<b>11-00</b> the end
+
+p.s. не забывайте о мостах: https://razvodka-mostov.ru/
 '''
 
 tickets_text = '''Предыдущие 3 события от m_division был объявлен sold out, так что билетов действительно может на всех не хватить, но обладатели карт m_friends могут не переживать, для вас всю ночь вход открыт и по цене early birds.

@@ -84,12 +84,12 @@ def send(bot, update):
         # markup = InlineKeyboardMarkup(menu)
         # print(markup)
         # print(user_ids)
-        markup = {'inline_keyboard': [[{'callback_data': 'back_main', 'text': '<< В МЕНЮ'}, {'text': 'КУПИТЬ', 'url': 'https://radario.ru/widgets/mobile/385838'}]]}
+        markup = {'inline_keyboard': [[{'callback_data': 'back_main', 'text': 'ПРОДОЛЖИТЬ'}]]}
         count = 0
         for user in user_ids:
             # buttons_list = [[InlineKeyboardButton('<< в начало', callback_data='back_main'), InlineKeyboardButton('УСПЕТЬ КУПИТЬ', url='https://radario.ru/widgets/mobile/385838')]]
             # print(markup)
-            bot.sendMessage(chat_id=int(user), text=tickets_push_text, parse_mode='HTML',reply_markup=markup)
+            bot.sendMessage(chat_id=int(user), text=push_text, parse_mode='HTML',reply_markup=markup)
 
 def get_users():
     with open('users.csv') as csvfile:
@@ -201,7 +201,7 @@ def button(bot, update):
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
         now_text = playing_now()
-        bot.sendMessage(chat_id=query.message.chat.id, text='Начинаем в субботу в 23:00. Расписание появится накануне.', \
+        bot.sendMessage(chat_id=query.message.chat.id, text=playing_now_text,
                         parse_mode='HTML', reply_markup=markup)
 
     elif data == 'ССЫЛКИ':
