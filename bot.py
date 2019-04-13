@@ -167,7 +167,7 @@ def button(bot, update):
 
     if data == 'РАСПИСАНИЕ':
         chatbase_log(chat_id, "РАСПИСАНИЕ", "SCHEDULE")
-        buttons_list = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
+        buttons_list = [[InlineKeyboardButton('<< в начало', callback_data='back_main'),]]
 
         markup = InlineKeyboardMarkup(buttons_list)
         bot.sendMessage(chat_id=query.message.chat.id, text=timetable_text, \
