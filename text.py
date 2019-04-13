@@ -58,7 +58,8 @@ MAIN
 
 starting_soon_text = '''Скоро начнем'''
 
-playing_now_text = '''Начинаем в 23:00.
+playing_now_text = '''Скоро начнем.
+
 <b>main</b> 
 <b>23-00</b> Квантовый Оракул
 
@@ -93,7 +94,7 @@ timetable_text = '''
 push_text = '''Все готово, начинаем в 23 часа.
 Последние билеты по <a href='https://radario.ru/widgets/mobile/385838'>ссылке</a>.
 
-Timetable: 
+<b>Timetable:</b> 
 
 <b>main</b> 
 <b>23-00 Квантовый Оракул</b>

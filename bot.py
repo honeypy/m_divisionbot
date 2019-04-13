@@ -65,13 +65,13 @@ def send(bot, update):
     print()
     if update.message.chat.id == 47303188 and update.message.text == 'push':
         user_ids = get_users()
-        markup = {'inline_keyboard': [[{'callback_data': 'back_main', 'text': '<< В МЕНЮ'}, {'text': 'КУПИТЬ', 'url': 'https://radario.ru/widgets/mobile/385838'}]]}
+        markup = {'inline_keyboard': [[{'callback_data': 'back_main', 'text': 'ПРОДОЛЖИТЬ'}]]}
         print(user_ids)
         count = 0
         for user in user_ids:
             print(user)
             try:
-                bot.sendMessage(text = tickets_push_text, chat_id = int(user), parse_mode='HTML', reply_markup=markup)
+                bot.sendMessage(text = push_text, chat_id = int(user), parse_mode='HTML', reply_markup=markup)
                 count+=1
             except:
                 pass
