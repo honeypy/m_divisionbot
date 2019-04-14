@@ -48,24 +48,12 @@ m_special
 now_text = '''Определенно, кто-то где-то сейчас играет.
 '''
 
-no_event_text = '''<b>Скоро начнем:
-MAIN
-23:00 Anna Kurosawa live
-
-ЗОЛОТОЙ
-23:00 Blain</b>
+no_event_text = '''
 '''
 
 starting_soon_text = '''Скоро начнем'''
 
-playing_now_text = '''Скоро начнем.
-
-<b>main</b> 
-<b>23-00</b> Квантовый Оракул
-
-<b>second</b>
-<b>23-00</b> Exponent b2b Zaletny
-'''
+playing_now_text = ''''''
 
 
 
