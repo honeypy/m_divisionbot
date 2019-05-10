@@ -140,7 +140,7 @@ def make_buttons_list(lst):
         elif a == 'm_SOUNDCLOUD':
             button = InlineKeyboardButton(a, url='https://soundcloud.com/mdivision/')
         elif a == 'RSVP':
-            button = InlineKeyboardButton(a, url='vk.cc/9mzE58')
+            button = InlineKeyboardButton(a, url='https://docs.google.com/forms/d/e/1FAIpQLSckYhvXDxlUiQfzUONzmyXDWuSg50z_R0VG8684PJ9oxgb-Eg/viewform')
         else:
             button = InlineKeyboardButton(a,callback_data=a)
         buttons_list.append(button)
@@ -173,7 +173,7 @@ def button(bot, update):
     elif data == 'ИНФОРМАЦИЯ':
         buttons_list = [[InlineKeyboardButton('<< в начало', callback_data='back_main'), ]]
         markup = InlineKeyboardMarkup(buttons_list)
-        bot.sendMessage(chat_id=query.message.chat.id, text=info_text, parse_mode='HTML', reply_markup=markup)
+        bot.sendMessage(chat_id=query.message.chat.id, text=info_text, parse_mode='HTML', reply_markup=markup, disable_web_page_preview=True)
 
     elif data == 'ТОКЕНЫ':
         chatbase_log(chat_id, "ТОКЕНЫ", "TOKENS")
