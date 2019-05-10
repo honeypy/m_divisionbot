@@ -38,6 +38,7 @@ map_pic = 'map_pic.jpg'
 map_picture = 'map_picture.jpg'
 map_picture2 = 'map_picture2.jpg'
 map_picture3 = 'map_picture3.jpg'
+inttech_pic = 'inttech2.jpg'
 
 def chatbase_log(chat_id, message, intent):
     chat_id_key = 18223618210808258664 # a 64-bit random number
@@ -165,6 +166,7 @@ def button(bot, update):
     elif data == 'ИНФОРМАЦИЯ':
         buttons_list = [[InlineKeyboardButton('<< в начало', callback_data='back_main'), ]]
         markup = InlineKeyboardMarkup(buttons_list)
+        bot.sendPhoto(chat_id=query.message.chat.id, photo=open(map_picture, 'rb'))
         bot.sendMessage(chat_id=query.message.chat.id, text=info_text, parse_mode='HTML', reply_markup=markup, disable_web_page_preview=True)
 
     elif data == 'ТОКЕНЫ':
