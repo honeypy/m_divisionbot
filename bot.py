@@ -166,7 +166,7 @@ def button(bot, update):
     elif data == 'ИНФОРМАЦИЯ':
         buttons_list = [[InlineKeyboardButton('<< в начало', callback_data='back_main'), ]]
         markup = InlineKeyboardMarkup(buttons_list)
-        bot.sendPhoto(chat_id=query.message.chat.id, photo=open(map_picture, 'rb'))
+        bot.sendPhoto(chat_id=query.message.chat.id, photo=open(inttech_pic, 'rb'))
         bot.sendMessage(chat_id=query.message.chat.id, text=info_text, parse_mode='HTML', reply_markup=markup, disable_web_page_preview=True)
 
     elif data == 'ТОКЕНЫ':
