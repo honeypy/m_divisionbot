@@ -84,7 +84,7 @@ def send(bot, update):
         # markup = InlineKeyboardMarkup(menu)
         # print(markup)
         # print(user_ids)
-        markup = {'inline_keyboard': [[{'callback_data': 'back_main', 'text': 'ПРОДОЛЖИТЬ'}]]}
+        markup = {'inline_keyboard': [[{'url': 'https://vk.cc/9mzE58', 'text': '🔴ЗАПОЛНИТЬ ФОРМУ🔴'}]]}
         count = 0
         for user in user_ids:
             # buttons_list = [[InlineKeyboardButton('<< в начало', callback_data='back_main'), InlineKeyboardButton('УСПЕТЬ КУПИТЬ', url='https://radario.ru/widgets/mobile/385838')]]
