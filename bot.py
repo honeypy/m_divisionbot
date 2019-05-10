@@ -78,11 +78,11 @@ def send(bot, update):
         print(count)
     elif update.message.chat.id == 47303188 and update.message.text == 'test':
         user_ids = [47303188, ]
-        buttons_list = [InlineKeyboardButton('МЕНЮ', callback_data='back_main'), InlineKeyboardButton('🔴 ЗАПОЛНИТЬ ФОРМУ 🔴', url='https://vk.cc/9mzE58')]
+        buttons_list = [InlineKeyboardButton('МЕНЮ', callback_data='back_main'), InlineKeyboardButton('🔴  ЗАПОЛНИТЬ ФОРМУ  🔴', url='https://vk.cc/9mzE58')]
         # keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main'), InlineKeyboardButton('УСПЕТЬ КУПИТЬ', url='https://radario.ru/widgets/mobile/385838')]]
         # menu = build_menu(buttons_list, n_cols=2)
         # markup = InlineKeyboardMarkup(menu)
-        markup = InlineKeyboardMarkup(build_menu(buttons_list, n_cols=2))
+        markup = InlineKeyboardMarkup(build_menu(buttons_list, n_cols=1))
         # print(markup)
         # print(user_ids)
         # markup = {'inline_keyboard': [[{'url': 'https://vk.cc/9mzE58', 'text': '🔴 ЗАПОЛНИТЬ ФОРМУ 🔴'}],[{'url': 'https://vk.cc/9mzE58', 'text': '🔴 ЗАПЬ ФОРМУ 🔴'}]]}
