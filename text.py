@@ -5,7 +5,7 @@ location_text = '''<a href='https://t.me/blankclub'>BLANK</a> располага
 Все, чтобы семья была довольна.
 '''
 
-meet_text = '''Добро пожаловать на <b>m_family</b>. Начало 13 aпреля в 23:00'''
+meet_text = '''Добро пожаловать на <b>Intelligent Techno</b>. Начало 11 мая в 23:55.'''
 
 
 
@@ -61,47 +61,43 @@ playing_now_text = ''''''
 over_text = "Вечеринка окончена. Хорошего настроения, держитесь."
 
 timetable_text = '''
-<b>main</b> 
-<b>23-00 Квантовый Оракул</b>
-<b>0-00 Ivan Logos</b>
-<b>1-00 SNTS hybrid live</b>
-<b>2-30 Tommy Four Seven</b> 
-<b>5-30 Unbalance</b>
-<b>7-00 Eye Que b2b naya</b>
-
-<b>second</b>
-<b>23-00 Exponent b2b Zaletny</b>
-<b>2-00 Kovyazin D live</b>
-<b>3-00 Yu Kawabata</b>
-<b>4-30 Gunnar Haslam</b> 
-<b>6-30 Melier Avenue live</b>
-<b>8-00 m_special</b>
-<b>11-00 the end</b>
+Расписание появится ближе к началу.
 '''
 
-push_text = '''Все готово, начинаем в 23 часа.
-Последние билеты по <a href='https://radario.ru/widgets/mobile/385838'>ссылке</a>.
+info_text = '''
+<b>11 мая</b> m_division запускает новую серию событий. Мы искренне любим техно-музыку и хотим показать всю ее многогранность, о которой многие стали забывать, основным форматом станет глубокое, эмоциональное и атмосферное техно, яркие звуковые пейзажи и едва уловимые текстуры, отправляющие наше сознание в самое интересное музыкальное путешествие. Наши масштабные события не всегда позволяют уделить должное внимание подобному формату, а мы так хотим вместе с вами, в уютной атмосфере новой летней террасы Бланка и соседнего "золотого" погружаться в звук, для которого не важны сиюминутные тренды.
 
-<b>Timetable:</b> 
+<b>Unbalance [m_division, Moscow]
+Ivan Logos [m_division, Spb]
+Lena Popova [m_division, Spb]
+Exponent [m_division, Spb]
+Blain [m_division, Spb]
+Lidvall [live]
+naya
+VTP</b>
 
-<b>main</b> 
-<b>23-00 Квантовый Оракул</b>
-<b>0-00 Ivan Logos</b>
-<b>1-00 SNTS hybrid live</b>
-<b>2-30 Tommy Four Seven</b> 
-<b>5-30 Unbalance</b>
-<b>7-00 Eye Que b2b naya</b>
+<b>Локация:</b> Blank, 2 сцены на террасе и золотом танцполе. Арсенальная Набережная, 1.
 
-<b>second</b>
-<b>23-00 Exponent b2b Zaletny</b>
-<b>2-00 Kovyazin D live</b>
-<b>3-00 Yu Kawabata</b>
-<b>4-30 Gunnar Haslam</b> 
-<b>6-30 Melier Avenue live</b>
-<b>8-00 m_special</b>
-<b>11-00 the end</b>
+<b>Вход по картам m_friends</b> — свободный до 1 ночи (необходимо заполнить форму ниже).
+<b>Вход по rsvp</b> — 300р, заполните <a href='https://vk.cc/9mzE58'>форму</a>. 
+без внимания — 500р.
+'''
 
-p.s. не забывайте о мостах: https://razvodka-mostov.ru/
+
+push_text = '''<b>11 мая</b> открытие новой серии <b>Intelligent Techno</b> пройдет на новой террасе Бланка и соседнем Золотом.
+
+<b>Вход по картам m_friends</b> — свободный до 1 ночи (необходимо заполнить форму ниже).
+<b>Вход по rsvp</b> — 300р, заполните <a href='https://vk.cc/9mzE58'>форму</a>. 
+без внимания — 500р.
+
+Unbalance [m_division, Moscow]
+Ivan Logos [m_division, Spb]
+Lena Popova [m_division, Spb]
+Exponent [m_division, Spb]
+Blain [m_division, Spb]
+Lidvall [live]
+naya
+VTP
 '''
 
 tickets_text = '''Предыдущие 3 события от m_division был объявлен sold out, так что билетов действительно может на всех не хватить, но обладатели карт m_friends могут не переживать, для вас всю ночь вход открыт и по цене early birds.

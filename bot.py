@@ -29,7 +29,7 @@ PORT = int(os.environ.get('PORT', '5000'))
 updater = Updater(telegram_token)
 dispatcher = updater.dispatcher
 
-start_keyboard = ('БИЛЕТЫ','МЕСТО', 'ИГРАЮТ СЕЙЧАС', 'РАСПИСАНИЕ', 'АРТИСТЫ', 'КАНАЛ', 'ЧАТ')
+start_keyboard = ('RSVP','ИНФОРМАЦИЯ','РАСПИСАНИЕ', 'КАНАЛ', 'ЧАТ')
 onebutton_keyboard = ('ПРОДОЛЖИТЬ')
 links_keyboard = ('VK EVENT','FB EVENT','m_VK','m_INSTAGRAM','m_SOUNDCLOUD', '<< в начало')
 links_schedule = ('m_19Jul', 'm_20Jul', 'm_21Jul', 'm_22Jul', '<< в начало')
@@ -114,6 +114,8 @@ def make_buttons_list(lst):
             button = InlineKeyboardButton(a, callback_data='map')
         elif a == 'МЕСТО':
             button = InlineKeyboardButton(a, callback_data='МЕСТО')
+        elif a == 'ИНФОРМАЦИЯ':
+            button = InlineKeyboardButton(a, callback_data='ИНФОРМАЦИЯ')
         elif a == 'АРТИСТЫ':
             button = InlineKeyboardButton(a, url='https://zen.yandex.ru/media/id/5b93817aef22f400aa2cd778/artisty-mfamily-aprel-2019-5cad6abc643d2800af1349b4')
         elif a == 'КАНАЛ':
@@ -136,14 +138,8 @@ def make_buttons_list(lst):
             button = InlineKeyboardButton(a, url='https://www.instagram.com/m_division/')
         elif a == 'm_SOUNDCLOUD':
             button = InlineKeyboardButton(a, url='https://soundcloud.com/mdivision/')
-        elif a == 'm_19Jul':
-            button = InlineKeyboardButton("19 июля", url='https://zen.yandex.ru/media/id/5b473690bbc36f00a8b583b7/gamma-19-iiulia-5b5029495e976b00ae5824de')
-        elif a == 'm_20Jul':
-            button = InlineKeyboardButton("20 июля", url='https://zen.yandex.ru/media/id/5b473690bbc36f00a8b583b7/gamma-20-iiulia-5b502aab7438af00a991f291')
-        elif a == 'm_21Jul':
-            button = InlineKeyboardButton("21 июля", url='https://zen.yandex.ru/media/id/5b473690bbc36f00a8b583b7/gamma-21-iiulia-5b50301483eab200ac4941b9')
-        elif a == 'm_22Jul':
-            button = InlineKeyboardButton("22 июля", url='https://zen.yandex.ru/media/id/5b473690bbc36f00a8b583b7/gamma-22-iiulia-5b5032db86603300a9cca63d')
+        elif a == 'RSVP':
+            button = InlineKeyboardButton(a, url='vk.cc/9mzE58')
         else:
             button = InlineKeyboardButton(a,callback_data=a)
         buttons_list.append(button)
@@ -172,6 +168,11 @@ def button(bot, update):
         markup = InlineKeyboardMarkup(buttons_list)
         bot.sendMessage(chat_id=query.message.chat.id, text=timetable_text, \
                         parse_mode='HTML', reply_markup=markup)
+
+    elif data == 'ИНФОРМАЦИЯ':
+        buttons_list = [[InlineKeyboardButton('<< в начало', callback_data='back_main'), ]]
+        markup = InlineKeyboardMarkup(buttons_list)
+        bot.sendMessage(chat_id=query.message.chat.id, text=info_text, parse_mode='HTML', reply_markup=markup)
 
     elif data == 'ТОКЕНЫ':
         chatbase_log(chat_id, "ТОКЕНЫ", "TOKENS")
@@ -228,7 +229,7 @@ def button(bot, update):
         buttons_list = make_buttons_list(start_keyboard)
         menu = build_menu(buttons_list, 1)
         markup = InlineKeyboardMarkup(menu)
-        bot.sendMessage(text='Добро пожаловать на <b>m_family</b>', chat_id=query.message.chat.id, \
+        bot.sendMessage(text='Добро пожаловать на <b>Intelligent Techno.</b>', chat_id=query.message.chat.id, \
                         reply_markup=markup, parse_mode='HTML')
 
 
