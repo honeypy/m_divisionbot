@@ -65,13 +65,14 @@ def send(bot, update):
     print()
     if update.message.chat.id == 47303188 and update.message.text == 'push':
         user_ids = get_users()
-        markup = {'inline_keyboard': [[{'callback_data': 'back_main', 'text': 'ПРОДОЛЖИТЬ'}]]}
+        buttons_list = [InlineKeyboardButton('МЕНЮ', callback_data='back_main'),
+                        InlineKeyboardButton('🔴  ЗАПОЛНИТЬ ФОРМУ  🔴', url='https://docs.google.com/forms/d/e/1FAIpQLSckYhvXDxlUiQfzUONzmyXDWuSg50z_R0VG8684PJ9oxgb-Eg/viewform')]
+        markup = InlineKeyboardMarkup(build_menu(buttons_list, n_cols=1))
         print(user_ids)
         count = 0
         for user in user_ids:
-            print(user)
             try:
-                bot.sendMessage(text = push_text, chat_id = int(user), parse_mode='HTML', reply_markup=markup)
+                bot.sendMessage(text = push_text, chat_id = int(user), parse_mode='HTML', reply_markup=markup, disable_web_page_preview=True)
                 count+=1
             except:
                 pass
@@ -79,18 +80,9 @@ def send(bot, update):
     elif update.message.chat.id == 47303188 and update.message.text == 'test':
         user_ids = [47303188, ]
         buttons_list = [InlineKeyboardButton('МЕНЮ', callback_data='back_main'), InlineKeyboardButton('🔴  ЗАПОЛНИТЬ ФОРМУ  🔴', url='https://docs.google.com/forms/d/e/1FAIpQLSckYhvXDxlUiQfzUONzmyXDWuSg50z_R0VG8684PJ9oxgb-Eg/viewform')]
-        # keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main'), InlineKeyboardButton('УСПЕТЬ КУПИТЬ', url='https://radario.ru/widgets/mobile/385838')]]
-        # menu = build_menu(buttons_list, n_cols=2)
-        # markup = InlineKeyboardMarkup(menu)
         markup = InlineKeyboardMarkup(build_menu(buttons_list, n_cols=1))
-        # print(markup)
-        # print(user_ids)
-        # markup = {'inline_keyboard': [[{'url': 'https://vk.cc/9mzE58', 'text': '🔴 ЗАПОЛНИТЬ ФОРМУ 🔴'}],[{'url': 'https://vk.cc/9mzE58', 'text': '🔴 ЗАПЬ ФОРМУ 🔴'}]]}
-        count = 0
         for user in user_ids:
-            # buttons_list = [[InlineKeyboardButton('<< в начало', callback_data='back_main'), InlineKeyboardButton('УСПЕТЬ КУПИТЬ', url='https://radario.ru/widgets/mobile/385838')]]
-            # print(markup)
-            bot.sendMessage(chat_id=int(user), text=push_text, parse_mode='HTML',reply_markup=markup)
+            bot.sendMessage(chat_id=int(user), text=push_text, parse_mode='HTML',reply_markup=markup, disable_web_page_preview=True)
 
 def get_users():
     with open('users.csv') as csvfile:
