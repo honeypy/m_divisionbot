@@ -79,12 +79,12 @@ def send(bot, update):
     elif update.message.chat.id == 47303188 and update.message.text == 'test':
         user_ids = [47303188, ]
         buttons_list = [[InlineKeyboardButton('МЕНЮ', callback_data='back_main'), InlineKeyboardButton('🔴 ЗАПОЛНИТЬ ФОРМУ 🔴', url='https://vk.cc/9mzE58')]]
-        keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main'), InlineKeyboardButton('УСПЕТЬ КУПИТЬ', url='https://radario.ru/widgets/mobile/385838')]]
-        menu = build_menu(buttons_list, 1)
-        markup = InlineKeyboardMarkup(menu)
+        # keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main'), InlineKeyboardButton('УСПЕТЬ КУПИТЬ', url='https://radario.ru/widgets/mobile/385838')]]
+        # menu = build_menu(keyboard, 1)
+        # markup = InlineKeyboardMarkup(menu)
         # print(markup)
         # print(user_ids)
-        #markup = {'inline_keyboard': [[{'url': 'https://vk.cc/9mzE58', 'text': '🔴 ЗАПОЛНИТЬ ФОРМУ 🔴'}]]}
+        markup = {'inline_keyboard': [[{'url': 'https://vk.cc/9mzE58', 'text': '🔴 ЗАПОЛНИТЬ ФОРМУ 🔴'}],[{'url': 'https://vk.cc/9mzE58', 'text': '🔴 ЗАПЬ ФОРМУ 🔴'}]]}
         count = 0
         for user in user_ids:
             # buttons_list = [[InlineKeyboardButton('<< в начало', callback_data='back_main'), InlineKeyboardButton('УСПЕТЬ КУПИТЬ', url='https://radario.ru/widgets/mobile/385838')]]
