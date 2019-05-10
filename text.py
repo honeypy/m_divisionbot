@@ -79,7 +79,7 @@ VTP</b>
 <b>Локация:</b> Blank, 2 сцены на террасе и золотом танцполе. Арсенальная Набережная, 1.
 
 <b>Вход по картам m_friends</b> — свободный до 1 ночи (необходимо заполнить форму ниже).
-<b>Вход по rsvp</b> — 300р, заполните <a href='https://vk.cc/9mzE58'>форму</a>. 
+<b>Вход по rsvp</b> — 300р, заполните <a href='https://docs.google.com/forms/d/e/1FAIpQLSckYhvXDxlUiQfzUONzmyXDWuSg50z_R0VG8684PJ9oxgb-Eg/viewform'>форму</a>. 
 <b>Без внимания</b> — 500р.
 '''
 
@@ -87,7 +87,7 @@ VTP</b>
 push_text = '''Завтра, <b>11 мая</b> открытие новой серии <b>Intelligent Techno</b> пройдет на новой террасе Бланка и соседнем Золотом.
 
 <b>Вход по картам m_friends</b> — свободный до 1 ночи (необходимо заполнить форму ниже).
-<b>Вход по rsvp</b> — 300р, заполните <a href='https://vk.cc/9mzE58'>форму</a>. 
+<b>Вход по rsvp</b> — 300р, заполните <a href='https://docs.google.com/forms/d/e/1FAIpQLSckYhvXDxlUiQfzUONzmyXDWuSg50z_R0VG8684PJ9oxgb-Eg/viewform'>форму</a>. 
 <b>Без внимания</b> — 500р.
 
 Unbalance [m_division, Moscow]
