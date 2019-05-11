@@ -67,23 +67,23 @@ def send(bot, update):
     if update.message.chat.id == 47303188 and update.message.text == 'push':
         user_ids = get_users()
         buttons_list = [InlineKeyboardButton('МЕНЮ', callback_data='back_main'),
-                        InlineKeyboardButton('🔴  ЗАПОЛНИТЬ ФОРМУ  🔴', url='https://docs.google.com/forms/d/e/1FAIpQLSckYhvXDxlUiQfzUONzmyXDWuSg50z_R0VG8684PJ9oxgb-Eg/viewform')]
+                        InlineKeyboardButton('🔴  RSVP  🔴', url='https://docs.google.com/forms/d/e/1FAIpQLSckYhvXDxlUiQfzUONzmyXDWuSg50z_R0VG8684PJ9oxgb-Eg/viewform')]
         markup = InlineKeyboardMarkup(build_menu(buttons_list, n_cols=1))
         print(user_ids)
         count = 0
         for user in user_ids:
             try:
-                bot.sendMessage(text = push_text, chat_id = int(user), parse_mode='HTML', reply_markup=markup, disable_web_page_preview=True)
+                bot.sendMessage(text = push_final_text, chat_id = int(user), parse_mode='HTML', reply_markup=markup, disable_web_page_preview=True)
                 count+=1
             except:
                 pass
         print(count)
     elif update.message.chat.id == 47303188 and update.message.text == 'test':
         user_ids = [47303188, ]
-        buttons_list = [InlineKeyboardButton('МЕНЮ', callback_data='back_main'), InlineKeyboardButton('🔴  ЗАПОЛНИТЬ ФОРМУ  🔴', url='https://docs.google.com/forms/d/e/1FAIpQLSckYhvXDxlUiQfzUONzmyXDWuSg50z_R0VG8684PJ9oxgb-Eg/viewform')]
+        buttons_list = [InlineKeyboardButton('МЕНЮ', callback_data='back_main'), InlineKeyboardButton('🔴  RSVP  🔴', url='https://docs.google.com/forms/d/e/1FAIpQLSckYhvXDxlUiQfzUONzmyXDWuSg50z_R0VG8684PJ9oxgb-Eg/viewform')]
         markup = InlineKeyboardMarkup(build_menu(buttons_list, n_cols=1))
         for user in user_ids:
-            bot.sendMessage(chat_id=int(user), text=push_text, parse_mode='HTML',reply_markup=markup, disable_web_page_preview=True)
+            bot.sendMessage(chat_id=int(user), text=push_final_text, parse_mode='HTML',reply_markup=markup, disable_web_page_preview=True)
 
 def get_users():
     with open('users.csv') as csvfile:
@@ -96,6 +96,7 @@ def get_users():
 def build_menu(buttons,n_cols,):
     menu = [buttons[i:i + n_cols] for i in range(0, len(buttons), n_cols)]
     return menu
+
 
 def make_buttons_list(lst):
     buttons_list = []
