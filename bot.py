@@ -75,8 +75,10 @@ def send(bot, update):
             try:
                 bot.sendMessage(text = push_final_text, chat_id = int(user), parse_mode='HTML', reply_markup=markup, disable_web_page_preview=True)
                 count+=1
+                print(user)
             except:
                 pass
+        print('sum')
         print(count)
     elif update.message.chat.id == 47303188 and update.message.text == 'test':
         user_ids = [47303188, ]
