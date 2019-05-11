@@ -38,7 +38,7 @@ map_pic = 'map_pic.jpg'
 map_picture = 'map_picture.jpg'
 map_picture2 = 'map_picture2.jpg'
 map_picture3 = 'map_picture3.jpg'
-inttech_pic = 'inttech2.jpg'
+inttech_pic = 'inttech.jpg'
 
 def chatbase_log(chat_id, message, intent):
     chat_id_key = 18223618210808258664 # a 64-bit random number
