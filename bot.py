@@ -64,16 +64,24 @@ def start(bot, update):
 def send(bot, update):
     print(1)
     print()
+    teaser_link = 'https://www.youtube.com/watch?v=53r-QmXe5_M'
+    buttons_list = [InlineKeyboardButton('БИЛЕТЫ', url='https://radario.ru/widgets/mobile/448679'),
+                    InlineKeyboardButton('МЕНЮ', callback_data='back_main')]
+    markup = InlineKeyboardMarkup(build_menu(buttons_list, n_cols=1))
+    text_to_push = tickets_text
+
     if update.message.chat.id == 47303188 and update.message.text == 'push':
         user_ids = get_users()
-        buttons_list = [InlineKeyboardButton('МЕНЮ', callback_data='back_main'),
-                        InlineKeyboardButton('🔴  RSVP  🔴', url='https://docs.google.com/forms/d/e/1FAIpQLSckYhvXDxlUiQfzUONzmyXDWuSg50z_R0VG8684PJ9oxgb-Eg/viewform')]
-        markup = InlineKeyboardMarkup(build_menu(buttons_list, n_cols=1))
+
         print(user_ids)
         count = 0
         for user in user_ids:
             try:
-                bot.sendMessage(text = push_final_text, chat_id = int(user), parse_mode='HTML', reply_markup=markup, disable_web_page_preview=True)
+                bot.sendMessage(chat_id=int(user), text=teaser_link, parse_mode='HTML')
+                bot.sendMessage(chat_id=int(user), text=text_to_push, parse_mode='HTML', reply_markup=markup,
+                                disable_web_page_preview=True)
+
+                #bot.sendMessage(text = push_final_text, chat_id = int(user), parse_mode='HTML', reply_markup=markup, disable_web_page_preview=True)
                 count+=1
                 print(user)
             except:
@@ -82,12 +90,11 @@ def send(bot, update):
         print(count)
     elif update.message.chat.id == 47303188 and update.message.text == 'test':
         user_ids = [47303188, ]
-        buttons_list = [InlineKeyboardButton('🔴  БИЛЕТЫ  🔴', url='https://radario.ru/widgets/mobile/448679'), InlineKeyboardButton('МЕНЮ', callback_data='back_main')]
-        markup = InlineKeyboardMarkup(build_menu(buttons_list, n_cols=1))
-        teaser_link = 'https://www.youtube.com/watch?v=53r-QmXe5_M'
+
+
         for user in user_ids:
             bot.sendMessage(chat_id=int(user), text=teaser_link, parse_mode='HTML')
-            bot.sendMessage(chat_id=int(user), text=tickets_text, parse_mode='HTML',reply_markup=markup, disable_web_page_preview=True)
+            bot.sendMessage(chat_id=int(user), text=text_to_push, parse_mode='HTML',reply_markup=markup, disable_web_page_preview=True)
 
 def get_users():
     with open('users.csv') as csvfile:
