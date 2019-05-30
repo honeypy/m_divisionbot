@@ -87,7 +87,7 @@ def send(bot, update):
         teaser_link = 'https://www.youtube.com/watch?v=53r-QmXe5_M'
         for user in user_ids:
             bot.sendMessage(chat_id=int(user), text=teaser_link, parse_mode='HTML')
-            bot.sendMessage(chat_id=int(user), text=tickets_text, parse_mode='HTML',reply_markup=markup, disable_web_page_preview=False)
+            bot.sendMessage(chat_id=int(user), text=tickets_text, parse_mode='HTML',reply_markup=markup, disable_web_page_preview=True)
 
 def get_users():
     with open('users.csv') as csvfile:
