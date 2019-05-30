@@ -66,6 +66,7 @@ def send(bot, update):
     print()
     teaser_link = 'https://www.youtube.com/watch?v=53r-QmXe5_M'
     buttons_list = [InlineKeyboardButton('БИЛЕТЫ', url='https://radario.ru/widgets/mobile/448679'),
+                    InlineKeyboardButton('САЙТ', url='https://gammafestival.ru/beta'),
                     InlineKeyboardButton('МЕНЮ', callback_data='back_main')]
     markup = InlineKeyboardMarkup(build_menu(buttons_list, n_cols=1))
     text_to_push = tickets_text
