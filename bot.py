@@ -85,7 +85,7 @@ def send(bot, update):
         buttons_list = [InlineKeyboardButton('МЕНЮ', callback_data='back_main'), InlineKeyboardButton('🔴  БИЛЕТЫ  🔴', url='https://radario.ru/widgets/mobile/448679')]
         markup = InlineKeyboardMarkup(build_menu(buttons_list, n_cols=1))
         for user in user_ids:
-            bot.sendMessage(chat_id=int(user), text=push_final_text, parse_mode='HTML',reply_markup=markup, disable_web_page_preview=True)
+            bot.sendMessage(chat_id=int(user), text=tickets_text, parse_mode='HTML',reply_markup=markup, disable_web_page_preview=True)
 
 def get_users():
     with open('users.csv') as csvfile:

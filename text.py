@@ -5,7 +5,7 @@ location_text = '''<a href='https://t.me/blankclub'>BLANK</a> располага
 Все, чтобы семья была довольна.
 '''
 
-meet_text = '''Добро пожаловать на <b>BETA 2019</b>. Начало 1 июня в 23:55.'''
+meet_text = '''Добро пожаловать на <b>BETA 2019</b>. Начало 1 июня в 23:00.'''
 
 
 
@@ -60,19 +60,7 @@ playing_now_text = ''''''
 
 over_text = "Вечеринка окончена. Хорошего настроения, держитесь."
 
-timetable_text = '''
-<b>MAIN
-0:00 naya
-1:30 Ivan Logos
-3:00 Lena Popova
-5:00 Unbalance
-7:00 m_special
-
-TERRACE
-0:00 Blain
-2:00 Exponent
-4:00 Lidvall (live)
-5:00 VTP</b>
+timetable_text = '''Расписание появится накануне. Как только появится — пришлем уведомление.
 '''
 
 info_text = '''
