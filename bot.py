@@ -29,7 +29,7 @@ PORT = int(os.environ.get('PORT', '5000'))
 updater = Updater(telegram_token)
 dispatcher = updater.dispatcher
 
-start_keyboard = ('RSVP','ИНФОРМАЦИЯ','РАСПИСАНИЕ', 'КАНАЛ', 'ЧАТ')
+start_keyboard = ('БИЛЕТЫ','АНОНС','РАСПИСАНИЕ', 'КАНАЛ', 'ЧАТ')
 onebutton_keyboard = ('ПРОДОЛЖИТЬ')
 links_keyboard = ('VK EVENT','FB EVENT','m_VK','m_INSTAGRAM','m_SOUNDCLOUD', '<< в начало')
 links_schedule = ('m_19Jul', 'm_20Jul', 'm_21Jul', 'm_22Jul', '<< в начало')
@@ -106,15 +106,15 @@ def make_buttons_list(lst):
         if a == 'FAQ':
             button = InlineKeyboardButton(a, url='https://zen.yandex.ru/media/id/5b93817aef22f400aa2cd778/kratkaia-instrukciia-po-vyjivaniiu-na-blank-new-year-w-mdivision--3112-i-0101-5c2a15fe33986100a95ea02a')
         elif a == 'БИЛЕТЫ':
-            button = InlineKeyboardButton(a, callback_data='tickets')
+            button = InlineKeyboardButton(a, url='https://radario.ru/widgets/mobile/448679')
         elif a == 'КАРТА GAMMA_MAIN':
             button = InlineKeyboardButton(a, callback_data='map')
         elif a == 'МЕСТО':
             button = InlineKeyboardButton(a, callback_data='МЕСТО')
         elif a == 'ИНФОРМАЦИЯ':
             button = InlineKeyboardButton(a, callback_data='ИНФОРМАЦИЯ')
-        elif a == 'АРТИСТЫ':
-            button = InlineKeyboardButton(a, url='https://zen.yandex.ru/media/id/5b93817aef22f400aa2cd778/artisty-mfamily-aprel-2019-5cad6abc643d2800af1349b4')
+        elif a == 'АНОНС':
+            button = InlineKeyboardButton(a, url='https://zen.yandex.ru/media/id/5b93817aef22f400aa2cd778/anons-beta-2019-5cf004d179fa5821ce9ec6e4')
         elif a == 'КАНАЛ':
             button = InlineKeyboardButton(a, url='https://t.me/m_division')
         elif a == 'ЧАТ':
