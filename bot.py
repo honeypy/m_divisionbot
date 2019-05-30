@@ -29,7 +29,7 @@ PORT = int(os.environ.get('PORT', '5000'))
 updater = Updater(telegram_token)
 dispatcher = updater.dispatcher
 
-start_keyboard = ('БИЛЕТЫ','АНОНС','РАСПИСАНИЕ', 'КАНАЛ', 'ЧАТ')
+start_keyboard = ('БИЛЕТЫ','АНОНС','РАСПИСАНИЕ', 'ИГРАЮТ СЕЙЧАС','КАНАЛ', 'ЧАТ')
 onebutton_keyboard = ('ПРОДОЛЖИТЬ')
 links_keyboard = ('VK EVENT','FB EVENT','m_VK','m_INSTAGRAM','m_SOUNDCLOUD', '<< в начало')
 links_schedule = ('m_19Jul', 'm_20Jul', 'm_21Jul', 'm_22Jul', '<< в начало')
@@ -82,7 +82,7 @@ def send(bot, update):
         print(count)
     elif update.message.chat.id == 47303188 and update.message.text == 'test':
         user_ids = [47303188, ]
-        buttons_list = [InlineKeyboardButton('МЕНЮ', callback_data='back_main'), InlineKeyboardButton('🔴  RSVP  🔴', url='https://docs.google.com/forms/d/e/1FAIpQLSckYhvXDxlUiQfzUONzmyXDWuSg50z_R0VG8684PJ9oxgb-Eg/viewform')]
+        buttons_list = [InlineKeyboardButton('МЕНЮ', callback_data='back_main'), InlineKeyboardButton('🔴  БИЛЕТЫ  🔴', url='https://radario.ru/widgets/mobile/448679')]
         markup = InlineKeyboardMarkup(build_menu(buttons_list, n_cols=1))
         for user in user_ids:
             bot.sendMessage(chat_id=int(user), text=push_final_text, parse_mode='HTML',reply_markup=markup, disable_web_page_preview=True)
@@ -200,8 +200,8 @@ def button(bot, update):
         chatbase_log(chat_id, "ВЫСТУПАЮТ СЕЙЧАС", "PLAYING NOW")
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
-        now_text = playing_now()
-        bot.sendMessage(chat_id=query.message.chat.id, text=playing_now(),
+        now_text = now_text
+        bot.sendMessage(chat_id=query.message.chat.id, text=now_text,
                         parse_mode='HTML', reply_markup=markup)
 
     elif data == 'ССЫЛКИ':
@@ -227,7 +227,7 @@ def button(bot, update):
         buttons_list = make_buttons_list(start_keyboard)
         menu = build_menu(buttons_list, 1)
         markup = InlineKeyboardMarkup(menu)
-        bot.sendMessage(text='Добро пожаловать на <b>Intelligent Techno.</b>', chat_id=query.message.chat.id, \
+        bot.sendMessage(text='Добро пожаловать на <b>BETA 2019</b>', chat_id=query.message.chat.id, \
                         reply_markup=markup, parse_mode='HTML')
 
 
