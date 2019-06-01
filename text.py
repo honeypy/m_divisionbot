@@ -23,26 +23,36 @@ token_text = '''
 Наличные и банковские карты в барах приниматься не будут.
 '''
 
-lineup_text = '''Пока известен лайнап:
+timetable_text = '''<b>1 июня, BLANK</b>
+<b>main</b>
 
-Ansome LIVE [UK, MORD, Perc Trax]
-Zadig [FR, Construct Re-Form, Tresor]
-Umwelt [FR, Rave Or Die, New Flesh]
-Shadowax hibryd LIVE [RU, ТРИП, Rassvet]
-Prcdrl LIVE [Berlin, m_division]
-Yuka [Moscow, Fullpanda, m_division]
-Lena Popova [m_division]
-Ivan Logos [m_division]
-Slava Finist [Moscow]
-Anna Kurosawa live [debut]
-Torn [Samurai Music]
-Eye Que [Subspace]
-Blain [Test FM]
-Camin' [Dirty Tapes]
-Napirelly
-m_special 
+23:00 Квантовый Оракул
+00:30 Ivan Logos
+2:00 Alexander Kowalski [DE] live
+3:00 Bass Mooy [NE]
+5:00 Unbalance
+7:00 Gasitel
+9:00 the end
 
-Расписание будет известно в день мероприятия.
+<b>gold</b>
+23:00 Kstcn
+00:30 Exponent
+1:30 Evigt Mörker live [SE]
+2:30 Gemut
+3:30 Reka [ES]
+5:30 Abelle
+7:30 m_special
+11:00 the end
+
+<b>terrace</b>
+23:00 Blain
+0:30 Ramilitich
+2:00 Lena Popova
+4:00 Prcdrl [DE] special live
+5:00 Dasha Rush [DE] special live
+7:00 Ryba [DE]
+11:00 the end
+
 '''
 
 now_text = '''Жмите во время мероприятия, чтобы знать, кто и на какой сцене играет в данный момент.
@@ -60,8 +70,6 @@ playing_now_text = ''''''
 
 over_text = "Вечеринка окончена. Хорошего настроения, держитесь."
 
-timetable_text = '''Расписание объявим в день мероприятия — пришлем уведомление.
-'''
 
 info_text = '''
 <b>11 мая</b> m_division запускает новую серию событий. Мы искренне любим техно-музыку и хотим показать всю ее многогранность, о которой многие стали забывать, основным форматом станет глубокое, эмоциональное и атмосферное техно, яркие звуковые пейзажи и едва уловимые текстуры, отправляющие наше сознание в самое интересное музыкальное путешествие. Наши масштабные события не всегда позволяют уделить должное внимание подобному формату, а мы так хотим вместе с вами, в уютной атмосфере новой летней террасы Бланка и соседнего "золотого" погружаться в звук, для которого не важны сиюминутные тренды.
