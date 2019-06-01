@@ -93,7 +93,7 @@ def send(bot, update):
 
 
         for user in user_ids:
-            bot.sendPhoto(chat_id=int(user), photo=open('pics/beta_timtable.jpg', 'rb'))
+            bot.sendPhoto(chat_id=int(user), photo=open('beta_timtable.jpg', 'rb'))
             bot.sendMessage(chat_id=int(user), text=push_final_text, parse_mode='HTML',reply_markup=markup, disable_web_page_preview=True)
 
 def get_users():
