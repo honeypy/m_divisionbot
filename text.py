@@ -115,18 +115,7 @@ tickets_text = '''<a href='https://gammafestival.ru/beta'>BETA 2019</a> стар
 tickets_push_text = '''
 Предыдущие 3 события от m_division был объявлен sold out, так что билетов действительно может на всех не хватить, но обладатели карт m_friends могут не переживать, для вас всю ночь вход открыт и по цене early birds.'''
 
-push_final_text = '''Начинаем в 0 часов.
+push_final_text = '''Сохраняем расписание. 
 
-<b>MAIN
-0:00 naya
-1:30 Ivan Logos
-3:00 Lena Popova
-5:00 Unbalance
-7:00 m_special
-
-TERRACE
-0:00 Blain
-2:00 Exponent
-4:00 Lidvall (live)
-5:00 VTP</b>
+Билеты здесь: https://gammafestival.ru/beta и на входе, 1300 до 1 ночи, после - 1500. Браслеты не снимать, по ним вход свободный на afterparty в raf25, которое начнется в воскресенье и закончится в понедельник утром.
 '''

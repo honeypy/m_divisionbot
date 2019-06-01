@@ -66,7 +66,6 @@ def send(bot, update):
     print()
     teaser_link = 'https://www.youtube.com/watch?v=53r-QmXe5_M'
     buttons_list = [InlineKeyboardButton('БИЛЕТЫ', url='https://radario.ru/widgets/mobile/448679'),
-                    InlineKeyboardButton('САЙТ', url='https://gammafestival.ru/beta'),
                     InlineKeyboardButton('МЕНЮ', callback_data='back_main')]
     markup = InlineKeyboardMarkup(build_menu(buttons_list, n_cols=1))
     text_to_push = tickets_text
@@ -78,8 +77,8 @@ def send(bot, update):
         count = 0
         for user in user_ids:
             try:
-                bot.sendMessage(chat_id=int(user), text=teaser_link, parse_mode='HTML')
-                bot.sendMessage(chat_id=int(user), text=text_to_push, parse_mode='HTML', reply_markup=markup,
+                bot.sendPhoto(chat_id=int(user), photo=open('beta_timetable.jpg', 'rb'))
+                bot.sendMessage(chat_id=int(user), text=push_final_text, parse_mode='HTML', reply_markup=markup,
                                 disable_web_page_preview=True)
 
                 #bot.sendMessage(text = push_final_text, chat_id = int(user), parse_mode='HTML', reply_markup=markup, disable_web_page_preview=True)
@@ -94,8 +93,8 @@ def send(bot, update):
 
 
         for user in user_ids:
-            bot.sendMessage(chat_id=int(user), text=teaser_link, parse_mode='HTML')
-            bot.sendMessage(chat_id=int(user), text=text_to_push, parse_mode='HTML',reply_markup=markup, disable_web_page_preview=True)
+            bot.sendPhoto(chat_id=int(user), photo=open('pics/beta_timtable.jpg', 'rb'))
+            bot.sendMessage(chat_id=int(user), text=push_final_text, parse_mode='HTML',reply_markup=markup, disable_web_page_preview=True)
 
 def get_users():
     with open('users.csv') as csvfile:
