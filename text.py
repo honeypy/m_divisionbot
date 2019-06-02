@@ -23,36 +23,27 @@ token_text = '''
 Наличные и банковские карты в барах приниматься не будут.
 '''
 
-timetable_text = '''<b>1 июня, BLANK</b>
-<b>main</b>
-
-23:00 Квантовый Оракул
+timetable_text = '''<b>2 июня, RAF25</b>
+<b>RAF25</b>
+08:00 Katsura b2b Serotonin Crisis 
+10:00 Wacky Kid
+13:00 Gasitel 
+16:00 Gemüt
+18:00 Draag
+20:00 Reka
+22:00 VTP
+23:30 Lidvall live
 00:30 Ivan Logos
-2:00 Alexander Kowalski [DE] live
-3:00 Bass Mooy [NE]
-5:00 Unbalance
-7:00 Gasitel
-9:00 the end
+01:30 Exponent 
+03:00 Eye Que
+05:00 Kyk b2b Regulaar 
 
-<b>gold</b>
-23:00 Kstcn
-00:30 Exponent
-1:30 Evigt Mörker live [SE]
-2:30 Gemut
-3:30 Reka [ES]
-5:30 Abelle
-7:30 m_special
-11:00 the end
-
-<b>terrace</b>
-23:00 Blain
-0:30 Ramilitich
-2:00 Lena Popova
-4:00 Prcdrl [DE] special live
-5:00 Dasha Rush [DE] special live
-7:00 Ryba [DE]
-11:00 the end
-
+<b>CHAMBER</b>
+17:00 U/K
+18:00 Ultima
+19:00 SNKT
+20:00 Abjective (live)
+21:00 Lena Popova
 '''
 
 now_text = '''Жмите во время мероприятия, чтобы знать, кто и на какой сцене играет в данный момент.
@@ -107,9 +98,15 @@ naya
 VTP
 '''
 
-tickets_text = '''<a href='https://gammafestival.ru/beta'>BETA 2019</a> стартует в эту субботу и продлится до утра понедельника. 
-Билеты доступны в ограниченном количестве. Успевайте.
-Ссылка для покупки по кнопке ниже.
+tickets_text = '''Регистрируйтесь на событие с помощью Resident Advisor, чтобы получить скидку на вход: https://www.residentadvisor.net/events/1271189
+
+По браслетам BETA: FREE
+Цена на входе: ₽500
+По спискам RA: ₽400
+
+Фото- и видеосъемка запрещена. 
+Doors & start 08:00
+X-rated | 21+
 '''
 
 tickets_push_text = '''
@@ -121,3 +118,15 @@ push_final_text = '''Сохраняем расписание. Начало в 23
  
 Браслеты не снимайте, по ним вход свободный на afterparty в raf25, которое начнется в воскресенье и закончится в понедельник утром.
 '''
+
+push_sunday_text = '''Расписание на сегодня в боте. Уже начали, заканчиваем в понедельник
+
+Регистрируйтесь на событие с помощью Resident Advisor, чтобы получить скидку на вход: https://www.residentadvisor.net/events/1271189
+
+По браслетам BETA: FREE
+Цена на входе: ₽500
+По спискам RA: ₽400
+
+Фото- и видеосъемка запрещена. 
+X-rated | 21+'''
+

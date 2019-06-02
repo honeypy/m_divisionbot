@@ -64,11 +64,11 @@ def start(bot, update):
 def send(bot, update):
     print(1)
     print()
-    teaser_link = 'https://www.youtube.com/watch?v=53r-QmXe5_M'
-    buttons_list = [InlineKeyboardButton('БИЛЕТЫ', url='https://radario.ru/widgets/mobile/448679'),
+
+    buttons_list = [InlineKeyboardButton('РАСПИСАНИЕ', callback_data='БИЛЕТЫ'),
                     InlineKeyboardButton('МЕНЮ', callback_data='back_main')]
     markup = InlineKeyboardMarkup(build_menu(buttons_list, n_cols=1))
-    text_to_push = tickets_text
+    text_to_push = push_sunday_text
 
     if update.message.chat.id == 47303188 and update.message.text == 'push':
         user_ids = get_users()
@@ -77,8 +77,7 @@ def send(bot, update):
         count = 0
         for user in user_ids:
             try:
-                bot.sendPhoto(chat_id=int(user), photo=open('beta_timetable.jpg', 'rb'))
-                bot.sendMessage(chat_id=int(user), text=push_final_text, parse_mode='HTML', reply_markup=markup,
+                bot.sendMessage(chat_id=int(user), text=text_to_push, parse_mode='HTML', reply_markup=markup,
                                 disable_web_page_preview=True)
 
                 #bot.sendMessage(text = push_final_text, chat_id = int(user), parse_mode='HTML', reply_markup=markup, disable_web_page_preview=True)
@@ -93,8 +92,7 @@ def send(bot, update):
 
 
         for user in user_ids:
-            bot.sendPhoto(chat_id=int(user), photo=open('beta_timetable.jpg', 'rb'))
-            bot.sendMessage(chat_id=int(user), text=push_final_text, parse_mode='HTML',reply_markup=markup, disable_web_page_preview=True)
+            bot.sendMessage(chat_id=int(user), text=text_to_push, parse_mode='HTML',reply_markup=markup, disable_web_page_preview=True)
 
 def get_users():
     with open('users.csv') as csvfile:
@@ -115,7 +113,7 @@ def make_buttons_list(lst):
         if a == 'FAQ':
             button = InlineKeyboardButton(a, url='https://zen.yandex.ru/media/id/5b93817aef22f400aa2cd778/kratkaia-instrukciia-po-vyjivaniiu-na-blank-new-year-w-mdivision--3112-i-0101-5c2a15fe33986100a95ea02a')
         elif a == 'БИЛЕТЫ':
-            button = InlineKeyboardButton(a, url='https://radario.ru/widgets/mobile/448679')
+            button = InlineKeyboardButton(a, callback_data='БИЛЕТЫ')
         elif a == 'КАРТА GAMMA_MAIN':
             button = InlineKeyboardButton(a, callback_data='map')
         elif a == 'МЕСТО':
@@ -167,12 +165,21 @@ def button(bot, update):
         bot.sendMessage(chat_id=query.message.chat.id, text=location_text, parse_mode='HTML',
                         reply_markup=markup, disable_web_page_preview=True)
 
-    if data == 'РАСПИСАНИЕ':
+    elif data == 'РАСПИСАНИЕ':
         chatbase_log(chat_id, "РАСПИСАНИЕ", "SCHEDULE")
         buttons_list = [[InlineKeyboardButton('<< в начало', callback_data='back_main'),]]
 
         markup = InlineKeyboardMarkup(buttons_list)
         bot.sendMessage(chat_id=query.message.chat.id, text=timetable_text, \
+                        parse_mode='HTML', reply_markup=markup)
+
+
+    elif data == 'БИЛЕТЫ':
+
+        buttons_list = [[InlineKeyboardButton('<< в начало', callback_data='back_main'),]]
+
+        markup = InlineKeyboardMarkup(buttons_list)
+        bot.sendMessage(chat_id=query.message.chat.id, text=tickets_text, \
                         parse_mode='HTML', reply_markup=markup)
 
     elif data == 'ИНФОРМАЦИЯ':
