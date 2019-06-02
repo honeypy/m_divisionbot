@@ -65,7 +65,7 @@ def send(bot, update):
     print(1)
     print()
 
-    buttons_list = [InlineKeyboardButton('БИЛЕТЫ', callback_data='БИЛЕТЫ'),
+    buttons_list = [InlineKeyboardButton('РАСПИСАНИЕ', callback_data='РАСПИСАНИЕ'),
                     InlineKeyboardButton('МЕНЮ', callback_data='back_main')]
     markup = InlineKeyboardMarkup(build_menu(buttons_list, n_cols=1))
     text_to_push = push_sunday_text
