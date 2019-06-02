@@ -98,15 +98,11 @@ naya
 VTP
 '''
 
-tickets_text = '''Регистрируйтесь на событие с помощью Resident Advisor, чтобы получить скидку на вход: https://www.residentadvisor.net/events/1271189
-
-По браслетам BETA: FREE
+tickets_text = '''По браслетам BETA: FREE
 Цена на входе: ₽500
 По спискам RA: ₽400
 
-Фото- и видеосъемка запрещена. 
-Doors & start 08:00
-X-rated | 21+
+https://www.residentadvisor.net/events/1271189
 '''
 
 tickets_push_text = '''
