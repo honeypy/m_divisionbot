@@ -29,8 +29,8 @@ PORT = int(os.environ.get('PORT', '5000'))
 updater = Updater(telegram_token)
 dispatcher = updater.dispatcher
 
-start_keyboard = ('БИЛЕТЫ','АНОНС','РАСПИСАНИЕ', 'ИГРАЮТ СЕЙЧАС','КАНАЛ', 'ЧАТ')
-onebutton_keyboard = ('ПРОДОЛЖИТЬ')
+start_keyboard = ('БИЛЕТЫ','РАСПИСАНИЕ','ВЫСТУПАЮТ СЕЙЧАС','АРТИСТЫ','ЛОКАЦИИ','КАНАЛ','ЧАТ')
+continue_keyboard = ('ПРОДОЛЖИТЬ')
 links_keyboard = ('VK EVENT','FB EVENT','m_VK','m_INSTAGRAM','m_SOUNDCLOUD', '<< в начало')
 links_schedule = ('m_19Jul', 'm_20Jul', 'm_21Jul', 'm_22Jul', '<< в начало')
 
@@ -61,7 +61,7 @@ def start(bot, update):
     print(update.message.text)
     #botan.track(botan_token, update.message.chat.id,message=update.message.text)
 
-def send(bot, update):
+def push(bot, update):
     print(1)
     print()
 
@@ -87,6 +87,7 @@ def send(bot, update):
                 pass
         print('sum')
         print(count)
+
     elif update.message.chat.id == 47303188 and update.message.text == 'test':
         user_ids = [47303188, ]
 
@@ -116,12 +117,12 @@ def make_buttons_list(lst):
             button = InlineKeyboardButton(a, callback_data='БИЛЕТЫ')
         elif a == 'КАРТА GAMMA_MAIN':
             button = InlineKeyboardButton(a, callback_data='map')
-        elif a == 'МЕСТО':
-            button = InlineKeyboardButton(a, callback_data='МЕСТО')
-        elif a == 'ИНФОРМАЦИЯ':
-            button = InlineKeyboardButton(a, callback_data='ИНФОРМАЦИЯ')
-        elif a == 'АНОНС':
-            button = InlineKeyboardButton(a, url='https://zen.yandex.ru/media/id/5b93817aef22f400aa2cd778/anons-beta-2019-5cf004d179fa5821ce9ec6e4')
+        elif a == 'ЛОКАЦИИ':
+            button = InlineKeyboardButton(a, url='https://telegra.ph/Lokacii-Gamma-2019-07-08')
+        elif a == 'РАСПИСАНИЕ':
+            button = InlineKeyboardButton(a, url='https://telegra.ph/Gamma-2019-07-08')
+        elif a == 'АРТИСТЫ':
+            button = InlineKeyboardButton(a, url='https://telegra.ph/Artisty-Gamma-2019-07-08')
         elif a == 'КАНАЛ':
             button = InlineKeyboardButton(a, url='https://t.me/m_division')
         elif a == 'ЧАТ':
@@ -176,9 +177,9 @@ def button(bot, update):
 
     elif data == 'БИЛЕТЫ':
 
-        buttons_list = [[InlineKeyboardButton('<< в начало', callback_data='back_main'),]]
-
-        markup = InlineKeyboardMarkup(buttons_list)
+        buttons_list = [InlineKeyboardButton('КУПИТЬ БИЛЕТ', url='https://gammafestival.ru/#registration'),
+                        InlineKeyboardButton('МЕНЮ', callback_data='back_main')]
+        markup = InlineKeyboardMarkup(build_menu(buttons_list, n_cols=1))
         bot.sendMessage(chat_id=query.message.chat.id, text=tickets_text, \
                         parse_mode='HTML', reply_markup=markup)
 
@@ -243,7 +244,7 @@ def button(bot, update):
         buttons_list = make_buttons_list(start_keyboard)
         menu = build_menu(buttons_list, 1)
         markup = InlineKeyboardMarkup(menu)
-        bot.sendMessage(text='Добро пожаловать на <b>BETA 2019</b>', chat_id=query.message.chat.id, \
+        bot.sendMessage(text='Добро пожаловать на <b>GAMMA 2019</b>', chat_id=query.message.chat.id, \
                         reply_markup=markup, parse_mode='HTML')
 
 
@@ -609,7 +610,7 @@ def now_command(bot, update):
 
 start_handler = CommandHandler('start', start)
 button_handler = CallbackQueryHandler(button)
-text_handler = MessageHandler(Filters.text, send)
+text_handler = MessageHandler(Filters.text, push)
 now_handler = CommandHandler('now', now_command)
 
 
