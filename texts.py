@@ -22,27 +22,26 @@ token_text = '''
 Наличные и банковские карты в барах приниматься не будут.
 '''
 
-timetable_text = '''<b>2 июня, RAF25</b>
-<b>RAF25</b>
-08:00 Katsura b2b Serotonin Crisis 
-10:00 Wacky Kid
-13:00 Gasitel 
-16:00 Gemüt
-18:00 Draag
-20:00 Reka
-22:00 VTP
-23:30 Lidvall live
-00:30 Ivan Logos
-01:30 Exponent 
-03:00 Eye Que
-05:00 Kyk b2b Regulaar 
+timetable_text = '''<b>РАСПИСАНИЕ</b>
 
-<b>CHAMBER</b>
-17:00 U/K
-18:00 Ultima
-19:00 SNKT
-20:00 Abjective (live)
-21:00 Lena Popova
+<b>11 ИЮЛЯ</b>
+13:00 — 20:30
+<a href='https://telegra.ph/Forum-Gamma-PRO-07-08'>Форум GAMMA_PRO День 1</a>
+
+21:00 — 22:00
+<a href='https://telegra.ph/Koncert-otkrytie-Gamma-07-08'>Концерт-открытие</a>
+
+<b>12 ИЮЛЯ</b>
+12:00 — 3:00
+<a href='https://telegra.ph/GAMMA-PRO-DEN-2--PYATNICA--12072019-07-11'>Форум GAMMA_PRO День 2</a>
+
+<b>13 ИЮЛЯ</b>
+20:00 — 12:00
+<a href='https://telegra.ph/Gamma-MAIN-07-08'>GAMMA_MAIN</a>
+
+<b>14 ИЮЛЯ</b>
+19:00 — 9:00
+<a href='https://telegra.ph/GAMMA-AFTERPARTY-07-08'>GAMMA_AFTERPARTY</a>
 '''
 
 now_text = '''Жмите во время мероприятия, чтобы знать, кто и на какой сцене играет в данный момент.
@@ -51,7 +50,7 @@ now_text = '''Жмите во время мероприятия, чтобы зн
 no_event_text = '''
 '''
 
-starting_soon_text = '''Скоро начнем'''
+starting_soon_text = '''Gamma скоро начнется.'''
 
 playing_now_text = ''''''
 
@@ -81,20 +80,19 @@ VTP</b>
 '''
 
 
-push_text = '''Завтра, <b>11 мая</b> открытие новой серии <b>Intelligent Techno</b> пройдет на новой террасе Бланка и соседнем Золотом.
+push_text = '''<b>Gamma началась</b>.
+Сегодня уже стартовал <a href='https://telegra.ph/Forum-Gamma-PRO-07-08'>Форум Gamma_PRO</a>, 
+а в 21:00 фестиваль откроют <a href='https://telegra.ph/Koncert-otkrytie-Gamma-07-08'>Kazuya Nagaya и Ali Demirel</a>.
 
-<b>Вход по картам m_friends</b> — свободный до 1 ночи (необходимо заполнить форму ниже).
-<b>Вход по rsvp</b> — 300р, заполните <a href='https://docs.google.com/forms/d/e/1FAIpQLSckYhvXDxlUiQfzUONzmyXDWuSg50z_R0VG8684PJ9oxgb-Eg/viewform'>форму</a>. 
-<b>Без внимания</b> — 500р.
+<b>В боте найдете расписание и прочее самое важное.</b>
+Команда /now ("Выступают сейчас") работает на основе официального расписания.
 
-Unbalance [m_division, Moscow]
-Ivan Logos [m_division, Spb]
-Lena Popova [m_division, Spb]
-Exponent [m_division, Spb]
-Blain [m_division, Spb]
-Lidvall [live]
-naya
-VTP
+<b>Бары будут работать по токенам.</b> 13 июля их можно получить:
+- в большой зоне, расположенной у входа;
+- на 4 этаже между сценами AV и Sigma.
+
+Полная информация <a href='https://gammafestival.ru'>на сайте</a>.
+Последние новости в <a href='https://t.me/m_division'>нашем канале</a>.
 '''
 
 tickets_text = '''<b>Доступны:<b>

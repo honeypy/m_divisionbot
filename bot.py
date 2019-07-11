@@ -17,7 +17,7 @@ import glob
 import chatbase
 
 
-from text import *
+from texts import *
 
 os.environ['TZ'] = 'Europe/Moscow'
 time.tzset()
@@ -29,7 +29,7 @@ PORT = int(os.environ.get('PORT', '5000'))
 updater = Updater(telegram_token)
 dispatcher = updater.dispatcher
 
-start_keyboard = ('БИЛЕТЫ','РАСПИСАНИЕ','ВЫСТУПАЮТ СЕЙЧАС','АРТИСТЫ','ЛОКАЦИИ','КАНАЛ','ЧАТ')
+start_keyboard = ('БИЛЕТЫ','РАСПИСАНИЕ','ВЫСТУПАЮТ СЕЙЧАС','АРТИСТЫ','ЛОКАЦИИ','ЧАТ','TELEGRA.PH ВЕРСИЯ')
 continue_keyboard = ('ПРОДОЛЖИТЬ')
 links_keyboard = ('VK EVENT','FB EVENT','m_VK','m_INSTAGRAM','m_SOUNDCLOUD', '<< в начало')
 links_schedule = ('m_19Jul', 'm_20Jul', 'm_21Jul', 'm_22Jul', '<< в начало')
@@ -40,8 +40,9 @@ map_picture2 = 'map_picture2.jpg'
 map_picture3 = 'map_picture3.jpg'
 inttech_pic = 'inttech.jpg'
 
+
 def chatbase_log(chat_id, message, intent):
-    chat_id_key = 18223618210808258664 # a 64-bit random number
+    chat_id_key = 18223618210808258664  # type: int # a 64-bit random number
     chat_id ^= chat_id_key
     chatbase_message = chatbase.Message(api_key=config.chatbase_token,
                                         platform="telegram",
@@ -65,8 +66,8 @@ def push(bot, update):
     print(1)
     print()
 
-    buttons_list = [InlineKeyboardButton('РАСПИСАНИЕ', callback_data='РАСПИСАНИЕ'),
-                    InlineKeyboardButton('МЕНЮ', callback_data='back_main')]
+    buttons_list = [InlineKeyboardButton('TELEGRA.PH-ВЕРСИЯ', url='https://telegra.ph/Gamma-2019-07-08'),
+                    InlineKeyboardButton('ПРОДОЛЖИТЬ', callback_data='back_main')]
     markup = InlineKeyboardMarkup(build_menu(buttons_list, n_cols=1))
     text_to_push = push_sunday_text
 
@@ -77,7 +78,7 @@ def push(bot, update):
         count = 0
         for user in user_ids:
             try:
-                bot.sendMessage(chat_id=int(user), text=text_to_push, parse_mode='HTML', reply_markup=markup,
+                bot.sendMessage(chat_id=int(user), text=push_text, parse_mode='HTML', reply_markup=markup,
                                 disable_web_page_preview=True)
 
                 #bot.sendMessage(text = push_final_text, chat_id = int(user), parse_mode='HTML', reply_markup=markup, disable_web_page_preview=True)
@@ -93,7 +94,7 @@ def push(bot, update):
 
 
         for user in user_ids:
-            bot.sendMessage(chat_id=int(user), text=text_to_push, parse_mode='HTML',reply_markup=markup, disable_web_page_preview=True)
+            bot.sendMessage(chat_id=int(user), text=push_text, parse_mode='HTML',reply_markup=markup, disable_web_page_preview=True)
 
 def get_users():
     with open('users.csv') as csvfile:
@@ -114,17 +115,17 @@ def make_buttons_list(lst):
         if a == 'FAQ':
             button = InlineKeyboardButton(a, url='https://zen.yandex.ru/media/id/5b93817aef22f400aa2cd778/kratkaia-instrukciia-po-vyjivaniiu-na-blank-new-year-w-mdivision--3112-i-0101-5c2a15fe33986100a95ea02a')
         elif a == 'БИЛЕТЫ':
-            button = InlineKeyboardButton(a, callback_data='БИЛЕТЫ')
+            button = InlineKeyboardButton(a, url='https://gammafestival.ru/#registration')
         elif a == 'КАРТА GAMMA_MAIN':
             button = InlineKeyboardButton(a, callback_data='map')
         elif a == 'ЛОКАЦИИ':
             button = InlineKeyboardButton(a, url='https://telegra.ph/Lokacii-Gamma-2019-07-08')
         elif a == 'РАСПИСАНИЕ':
-            button = InlineKeyboardButton(a, url='https://telegra.ph/Gamma-2019-07-08')
+            button = InlineKeyboardButton(a, callback_data='РАСПИСАНИЕ')
         elif a == 'АРТИСТЫ':
             button = InlineKeyboardButton(a, url='https://telegra.ph/Artisty-Gamma-2019-07-08')
-        elif a == 'КАНАЛ':
-            button = InlineKeyboardButton(a, url='https://t.me/m_division')
+        elif a == 'TELEGRA.PH ВЕРСИЯ':
+            button = InlineKeyboardButton(a, url='https://telegra.ph/Gamma-2019-07-08')
         elif a == 'ЧАТ':
             button = InlineKeyboardButton(a, url='https://t.me/joinchat/AtHKFEQZJqg0s0rqdoW_tQ')
         elif a == '<< назад':
@@ -133,16 +134,6 @@ def make_buttons_list(lst):
             button = InlineKeyboardButton(a, callback_data='back_main')
         elif a == 'ПРОДОЛЖИТЬ':
             button = InlineKeyboardButton(a, url='https://t.me/m_divisionbot')
-        elif a == 'VK EVENT':
-            button = InlineKeyboardButton(a, url='https://vk.com/m_family2')
-        elif a == 'FB EVENT':
-            button = InlineKeyboardButton(a, url='https://www.facebook.com/mdivisionevents/')
-        elif a == 'm_VK':
-            button = InlineKeyboardButton(a, url='https://vk.com/mdivisiongroup')
-        elif a == 'm_INSTAGRAM':
-            button = InlineKeyboardButton(a, url='https://www.instagram.com/m_division/')
-        elif a == 'm_SOUNDCLOUD':
-            button = InlineKeyboardButton(a, url='https://soundcloud.com/mdivision/')
         elif a == 'RSVP':
             button = InlineKeyboardButton(a, url='https://docs.google.com/forms/d/e/1FAIpQLSckYhvXDxlUiQfzUONzmyXDWuSg50z_R0VG8684PJ9oxgb-Eg/viewform')
         else:
@@ -172,7 +163,7 @@ def button(bot, update):
 
         markup = InlineKeyboardMarkup(buttons_list)
         bot.sendMessage(chat_id=query.message.chat.id, text=timetable_text, \
-                        parse_mode='HTML', reply_markup=markup)
+                        parse_mode='HTML', disable_web_page_preview=True, reply_markup=markup)
 
 
     elif data == 'БИЛЕТЫ':

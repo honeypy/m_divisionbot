@@ -6,7 +6,7 @@ import os
 import csv
 import glob
 
-from text import *
+from texts import *
 
 os.environ['TZ'] = 'Europe/Moscow'
 time.tzset()
