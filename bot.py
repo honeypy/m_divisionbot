@@ -576,7 +576,11 @@ def playing_at(time):
 def playing_now():
     return playing_at(datetime.datetime.now())
 
-
+def help(bot, update):
+    keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
+    markup = InlineKeyboardMarkup(keyboard)
+    bot.sendMessage(chat_id=update.message.chat.id, text=help_text, parse_mode='HTML',
+                        reply_markup=markup, disable_web_page_preview=True)
 
 
 
@@ -603,12 +607,14 @@ start_handler = CommandHandler('start', start)
 button_handler = CallbackQueryHandler(button)
 text_handler = MessageHandler(Filters.text, push)
 now_handler = CommandHandler('now', now_command)
+help_handler = CommandHandler('help', help)
 
 
 dispatcher.add_handler(start_handler)
 dispatcher.add_handler(button_handler)
 dispatcher.add_handler(text_handler)
 dispatcher.add_handler(now_handler)
+dispatcher.add_handler(help_handler)
 
 if __name__ == '__main__':
     updater.start_polling()
