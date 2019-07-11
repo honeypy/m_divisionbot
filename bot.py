@@ -25,7 +25,7 @@ time.tzset()
 telegram_token = config.telegram_token
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level= logging.INFO)
 
-PORT = int(os.environ.get('PORT', '5000'))
+#PORT = int(os.environ.get('PORT', '5000'))  # type: int
 updater = Updater(telegram_token)
 dispatcher = updater.dispatcher
 
