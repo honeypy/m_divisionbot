@@ -29,7 +29,7 @@ PORT = int(os.environ.get('PORT', '5000'))
 updater = Updater(telegram_token)
 dispatcher = updater.dispatcher
 
-start_keyboard = ('БИЛЕТЫ','РАСПИСАНИЕ','ВЫСТУПАЮТ СЕЙЧАС','АРТИСТЫ','ЛОКАЦИИ','ЧАТ','TELEGRA.PH ВЕРСИЯ')
+start_keyboard = ('БИЛЕТЫ','РАСПИСАНИЕ','ВЫСТУПАЮТ СЕЙЧАС','АРТИСТЫ','ЛОКАЦИИ','ЧАТ','ВЕРСИЯ В TELEGRA.PH')
 continue_keyboard = ('ПРОДОЛЖИТЬ')
 links_keyboard = ('VK EVENT','FB EVENT','m_VK','m_INSTAGRAM','m_SOUNDCLOUD', '<< в начало')
 links_schedule = ('m_19Jul', 'm_20Jul', 'm_21Jul', 'm_22Jul', '<< в начало')
@@ -66,7 +66,7 @@ def push(bot, update):
     print(1)
     print()
 
-    buttons_list = [InlineKeyboardButton('TELEGRA.PH-ВЕРСИЯ', url='https://telegra.ph/Gamma-2019-07-08'),
+    buttons_list = [InlineKeyboardButton('ВЕРСИЯ В TELEGRA.PH', url='https://telegra.ph/Gamma-2019-07-08'),
                     InlineKeyboardButton('ПРОДОЛЖИТЬ', callback_data='back_main')]
     markup = InlineKeyboardMarkup(build_menu(buttons_list, n_cols=1))
     text_to_push = push_sunday_text
