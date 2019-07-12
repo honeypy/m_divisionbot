@@ -29,13 +29,13 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 updater = Updater(telegram_token)
 dispatcher = updater.dispatcher
 
-start_keyboard = ('БИЛЕТЫ','РАСПИСАНИЕ','ВЫСТУПАЮТ СЕЙЧАС','АРТИСТЫ','ЛОКАЦИИ','ЧАТ','ВЕРСИЯ В TELEGRA.PH')
+start_keyboard = ('БИЛЕТЫ','КАРТА GAMMA_MAIN','РАСПИСАНИЕ','ВЫСТУПАЮТ СЕЙЧАС','АРТИСТЫ','ЧАТ','ВЕРСИЯ В TELEGRA.PH')
 continue_keyboard = ('ПРОДОЛЖИТЬ')
 links_keyboard = ('VK EVENT','FB EVENT','m_VK','m_INSTAGRAM','m_SOUNDCLOUD', '<< в начало')
 links_schedule = ('m_19Jul', 'm_20Jul', 'm_21Jul', 'm_22Jul', '<< в начало')
 
 map_pic = 'map_pic.jpg'
-map_picture = 'map_picture.jpg'
+map_picture = 'map_gamma_pic.jpg'
 map_picture2 = 'map_picture2.jpg'
 map_picture3 = 'map_picture3.jpg'
 inttech_pic = 'inttech.jpg'
@@ -223,12 +223,10 @@ def button(bot, update):
     elif data == 'map':
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
-        bot.sendPhoto(chat_id=query.from_user.id, photo=open(map_picture, 'rb'))
-        bot.sendPhoto(chat_id=query.from_user.id, photo=open(map_picture2, 'rb'))
-        bot.sendPhoto(chat_id=query.from_user.id, photo=open(map_picture3, 'rb'))
-        map_text='''Здание А расположено по центру территории фестиваля.
-Здание B расположено слева от центрального здания, это то здание, где вы были в мае на BETA или в декабре на  DELTA'''
-        bot.sendMessage(chat_id=query.from_user.id, text=map_text, reply_markup=markup)
+        # bot.sendPhoto(chat_id=query.from_user.id, photo=open(map_picture, 'rb'))
+        text = map_text  # type: str
+        bot.sendMessage(chat_id=query.from_user.id, text=text, reply_markup=markup)
+
 
     elif data == 'back_main':
         chatbase_log(chat_id, "В НАЧАЛО", "START")
