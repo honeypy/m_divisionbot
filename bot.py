@@ -496,7 +496,7 @@ def playing_at(time):
             for row in scene_reader:
                 # print(row)
                 event_time = parse_time(row[0])
-                print(row[1])
+                # print(row[1])
                 event_name = row[1]
 
                 if event_time < previous_time:
