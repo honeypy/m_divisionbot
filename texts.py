@@ -112,7 +112,7 @@ tickets_push_text = '''
 push_final_text = '''Запуск гостей начнется в 20:00.
 
 Итальянцев Boston 168 не будет -- проблемы с паспортами.
-<b>Gamma_stage в 21:00 откроет наш резидент Blain</b>, затем в 22:30 LIdvall live, в 0 часов Ivan Logos, далее все по плану -- 1:30 Oscar Mulero, 3:30 Surgeon. 
+<b>Gamma_stage в 21:00 откроет наш резидент Blain</b>, затем в 22:30 Lidvall live, в 0 часов Ivan Logos, далее все по плану -- 1:30 Oscar Mulero, 3:30 Surgeon. 
 
 В боте доступны <a href='https://telegra.ph/Karta-GAMMA-MAIN-2019-07-12'>карта</a> и <a href='https://telegra.ph/Gamma-MAIN-07-08'>расписание</a>.
 
