@@ -69,7 +69,7 @@ def push(bot, update):
     buttons_list = [InlineKeyboardButton('ВЕРСИЯ В TELEGRA.PH', url='https://telegra.ph/Gamma-2019-07-08'),
                     InlineKeyboardButton('ПРОДОЛЖИТЬ', callback_data='back_main')]
     markup = InlineKeyboardMarkup(build_menu(buttons_list, n_cols=1))
-    text_to_push = push_sunday_text
+    push_text = push_final_text
 
     if update.message.chat.id == 47303188 and update.message.text == 'push':
         user_ids = get_users()
