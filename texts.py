@@ -5,7 +5,7 @@ location_text = '''<a href='https://t.me/blankclub'>BLANK</a> располага
 Все, чтобы семья была довольна.
 '''
 
-meet_text = '''Добро пожаловать на <b>GAMMA 2019</b>.'''
+meet_text = '''Добро пожаловать на <b>m_division X years</b>.'''
 
 
 token_text = '''
@@ -23,29 +23,37 @@ token_text = '''
 '''
 
 timetable_text = '''<b>РАСПИСАНИЕ</b>
+[Пока известен только лайнап, о точном расписании будет отдельный пуш]
 
-<b>11 ИЮЛЯ</b>
-13:00 — 20:30
-<a href='https://telegra.ph/Forum-Gamma-PRO-07-08'>Форум GAMMA_PRO День 1</a>
-
-21:00 — 22:00
-<a href='https://telegra.ph/Koncert-otkrytie-Gamma-07-08'>Концерт-открытие</a>
-
-<b>12 ИЮЛЯ</b>
-12:00 — 3:00
-<a href='https://telegra.ph/GAMMA-PRO-DEN-2--PYATNICA--12072019-07-11'>Форум GAMMA_PRO День 2</a>
-
-<b>13 ИЮЛЯ</b>
-20:00 — 12:00
-<a href='https://telegra.ph/Gamma-MAIN-07-08'>GAMMA_MAIN</a>
-
-<b>14 ИЮЛЯ</b>
-19:00 — 9:00
-<a href='https://telegra.ph/GAMMA-AFTERPARTY-07-08'>GAMMA_AFTERPARTY</a>
+Anthony Linell aka Abdulla Rashim & Acronym [live] SE
+Belief Defect [live] US
+Boston 168 [live] IT
+Drumcell [live] US
+Luis Flores [dj set] MX
+Terence Fixmer [live] DE
+Acronym [live] SE
+PRCDRL live [DE]
+Lena Popova
+Ivan Logos
+Exponent
+Unbalance
+Abelle
+Sariim
+Cultkitchen
+Regulaar
+Eostra
+Slava Finist
+Alex Glass
+Eye Que
+Naya
+Blain
+Zaletny
+Maksim Panfilov
+Oira
+and more TBA..
 '''
 
-now_text = '''Жмите во время мероприятия, чтобы знать, кто и на какой сцене играет в данный момент.
-'''
+now_text = '''Жмите во время мероприятия, чтобы знать, что происходит на каждой из сцен.'''
 
 no_event_text = '''
 '''
@@ -57,7 +65,8 @@ playing_now_text = ''''''
 
 
 
-over_text = "Main Event подошел к концу. Сегодня вечером — афтепати в Blank."
+over_text = '''Фестиваль подошел к концу. Фото и видео лучших моментов смотрите в канале @m_division.
+До скорых встреч.'''
 
 
 info_text = '''
@@ -106,8 +115,13 @@ tickets_text = '''<b>Доступны:<b>
 На фестивале ваш билет обменивается на пластиковый или бумажный контрольный браслет на руку, который невозможно снять не повредив, если браслет будет поврежден — вам будет отказано в доступе на фестиваль.
 '''
 
-tickets_push_text = '''
-Предыдущие 3 события от m_division был объявлен sold out, так что билетов действительно может на всех не хватить, но обладатели карт m_friends могут не переживать, для вас всю ночь вход открыт и по цене early birds.'''
+afterparty_push_text = '''ВХОД НА GAMMA_AFTERPARTY по браслетам:
+- артисты / организаторы
+- all days
+- main + afterparty
+- main + friend (оранжевый браслет main + желтый браслет friend)
+
+Списки и гардероб работают. Бары работают по токенам.'''
 
 push_final_text = '''Запуск гостей начнется в 20:00.
 
@@ -134,7 +148,7 @@ push_final_text = '''Запуск гостей начнется в 20:00.
 help_text = '''<b>В боте найдете расписание и прочее самое важное.</b>
 Команда /now ("Выступают сейчас") работает на основе официального расписания.
 
-Полная информация <a href='https://gammafestival.ru'>на сайте</a>.
+Полная информация <a href='https://gammafestival.ru/mdivisionx'>на сайте</a>.
 Последние новости в <a href='https://t.me/m_division'>нашем канале</a>.
 
 Обратная связь: @vi_thali.'''
@@ -145,4 +159,15 @@ map_text = '''Сохраняем на телефоны, чтобы верно п
 Обратите особое внимание на точки TOKEN. Это место, где вы сможете приобрести валюту фестиваля для расчета в барах.
 
 Подробности о точках: https://telegra.ph/Karta-GAMMA-MAIN-2019-07-12
+'''
+
+first_push_text ='''<b>m_division X years</b> начнётся через 24 часа.
+Вся актуальная информация будет здесь. Пуш с расписанием придет ближе к началу.
+Во время события жмите /now, чтобы знать, что происходит на каждой из сцен.
+
+5 и 6 октября / Facecontrol / 18 + / Завод им. Степана Разина
+5 октября — вход открыт с в 22:00, по адресу Степана Разина 8а.
+6 октября — вход открыт с 20:00, по адресу Курляндская 48.
+
+<a href='https://gammafestival.ru/mdivisionx'>Финальный релиз билетов</a>
 '''

@@ -29,16 +29,13 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 updater = Updater(telegram_token)
 dispatcher = updater.dispatcher
 
-start_keyboard = ('БИЛЕТЫ','КАРТА GAMMA_MAIN','РАСПИСАНИЕ','ВЫСТУПАЮТ СЕЙЧАС','АРТИСТЫ','ЧАТ','ВЕРСИЯ В TELEGRA.PH')
+start_keyboard = ('БИЛЕТЫ','FAQ','РАСПИСАНИЕ','ВЫСТУПАЮТ СЕЙЧАС','АРТИСТЫ','ЧАТ')
 continue_keyboard = ('ПРОДОЛЖИТЬ')
 links_keyboard = ('VK EVENT','FB EVENT','m_VK','m_INSTAGRAM','m_SOUNDCLOUD', '<< в начало')
 links_schedule = ('m_19Jul', 'm_20Jul', 'm_21Jul', 'm_22Jul', '<< в начало')
 
-map_pic = 'map_pic.jpg'
+
 map_picture = 'map_gamma_pic.jpg'
-map_picture2 = 'map_picture2.jpg'
-map_picture3 = 'map_picture3.jpg'
-inttech_pic = 'inttech.jpg'
 
 
 def chatbase_log(chat_id, message, intent):
@@ -66,10 +63,10 @@ def push(bot, update):
     print(1)
     print()
 
-    buttons_list = [InlineKeyboardButton('ВЕРСИЯ В TELEGRA.PH', url='https://telegra.ph/Gamma-2019-07-08'),
+    buttons_list = [InlineKeyboardButton('БИЛЕТЫ', url='https://gammafestival.ru/mdivisionx'),
                     InlineKeyboardButton('ПРОДОЛЖИТЬ', callback_data='back_main')]
     markup = InlineKeyboardMarkup(build_menu(buttons_list, n_cols=1))
-    push_text = push_final_text
+    push_text = first_push_text
 
     if update.message.chat.id == 47303188 and update.message.text == 'push':
         user_ids = get_users()
@@ -79,7 +76,7 @@ def push(bot, update):
         for user in user_ids:
             try:
                 bot.sendMessage(chat_id=int(user), text=push_text, parse_mode='HTML', reply_markup=markup,
-                                disable_web_page_preview=True)
+                                disable_web_page_preview=False)
 
                 #bot.sendMessage(text = push_final_text, chat_id = int(user), parse_mode='HTML', reply_markup=markup, disable_web_page_preview=True)
                 count+=1
@@ -94,7 +91,7 @@ def push(bot, update):
 
 
         for user in user_ids:
-            bot.sendMessage(chat_id=int(user), text=push_text, parse_mode='HTML',reply_markup=markup, disable_web_page_preview=True)
+            bot.sendMessage(chat_id=int(user), text=push_text, parse_mode='HTML',reply_markup=markup, disable_web_page_preview=False)
 
 def get_users():
     with open('users.csv') as csvfile:
@@ -113,9 +110,9 @@ def make_buttons_list(lst):
     buttons_list = []
     for a in lst:
         if a == 'FAQ':
-            button = InlineKeyboardButton(a, url='https://zen.yandex.ru/media/id/5b93817aef22f400aa2cd778/kratkaia-instrukciia-po-vyjivaniiu-na-blank-new-year-w-mdivision--3112-i-0101-5c2a15fe33986100a95ea02a')
+            button = InlineKeyboardButton(a, url='https://telegra.ph/m-division-X-years-FAQ-10-04')
         elif a == 'БИЛЕТЫ':
-            button = InlineKeyboardButton(a, url='https://gammafestival.ru/#registration')
+            button = InlineKeyboardButton(a, url='https://gammafestival.ru/mdivisionx')
         elif a == 'КАРТА GAMMA_MAIN':
             button = InlineKeyboardButton(a, callback_data='map')
         elif a == 'ЛОКАЦИИ':
@@ -123,7 +120,7 @@ def make_buttons_list(lst):
         elif a == 'РАСПИСАНИЕ':
             button = InlineKeyboardButton(a, callback_data='РАСПИСАНИЕ')
         elif a == 'АРТИСТЫ':
-            button = InlineKeyboardButton(a, url='https://telegra.ph/Artisty-Gamma-2019-07-08')
+            button = InlineKeyboardButton(a, url='https://telegra.ph/Artisty-m-division-X-years-10-04')
         elif a == 'ВЕРСИЯ В TELEGRA.PH':
             button = InlineKeyboardButton(a, url='https://telegra.ph/Gamma-2019-07-08')
         elif a == 'ЧАТ':
@@ -168,7 +165,7 @@ def button(bot, update):
 
     elif data == 'БИЛЕТЫ':
 
-        buttons_list = [InlineKeyboardButton('КУПИТЬ БИЛЕТ', url='https://gammafestival.ru/#registration'),
+        buttons_list = [InlineKeyboardButton('КУПИТЬ БИЛЕТ', url='https://gammafestival.ru/mdivisionx'),
                         InlineKeyboardButton('МЕНЮ', callback_data='back_main')]
         markup = InlineKeyboardMarkup(build_menu(buttons_list, n_cols=1))
         bot.sendMessage(chat_id=query.message.chat.id, text=tickets_text, \
@@ -208,7 +205,7 @@ def button(bot, update):
         chatbase_log(chat_id, "ВЫСТУПАЮТ СЕЙЧАС", "PLAYING NOW")
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
-        now_text=playing_now()
+        # now_text=playing_now()
         bot.sendMessage(chat_id=query.message.chat.id, text=now_text,
                         parse_mode='HTML', reply_markup=markup)
 
@@ -233,7 +230,7 @@ def button(bot, update):
         buttons_list = make_buttons_list(start_keyboard)
         menu = build_menu(buttons_list, 1)
         markup = InlineKeyboardMarkup(menu)
-        bot.sendMessage(text='Добро пожаловать на <b>GAMMA 2019</b>', chat_id=query.message.chat.id, \
+        bot.sendMessage(text='Добро пожаловать на <b>m_division X years</b>', chat_id=query.message.chat.id, \
                         reply_markup=markup, parse_mode='HTML')
 
 
