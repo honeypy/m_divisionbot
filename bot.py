@@ -110,7 +110,7 @@ def make_buttons_list(lst):
     buttons_list = []
     for a in lst:
         if a == 'FAQ':
-            button = InlineKeyboardButton(a, url='https://telegra.ph/m-division-X-years-FAQ-10-04')
+            button = InlineKeyboardButton(a, callback_data ='FAQ')
         elif a == 'БИЛЕТЫ':
             button = InlineKeyboardButton(a, url='https://gammafestival.ru/mdivisionx')
         elif a == 'КАРТА GAMMA_MAIN':
@@ -120,7 +120,7 @@ def make_buttons_list(lst):
         elif a == 'РАСПИСАНИЕ':
             button = InlineKeyboardButton(a, callback_data='РАСПИСАНИЕ')
         elif a == 'АРТИСТЫ':
-            button = InlineKeyboardButton(a, url='https://telegra.ph/Artisty-m-division-X-years-10-04')
+            button = InlineKeyboardButton(a, url='https://zen.yandex.ru/media/id/5d98980b027a1500b2ff17fc/artisty-mdivision-x-years-5d9898cb2fda8600b152e756')
         elif a == 'ВЕРСИЯ В TELEGRA.PH':
             button = InlineKeyboardButton(a, url='https://telegra.ph/Gamma-2019-07-08')
         elif a == 'ЧАТ':
@@ -195,10 +195,10 @@ def button(bot, update):
         bot.sendMessage(chat_id=query.message.chat.id, text=tickets_text, parse_mode='HTML', reply_markup=markup)
 
 
-    # elif data == 'FAQ':
-    #     keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
-    #     markup = InlineKeyboardMarkup(keyboard)
-    #     bot.sendMessage(chat_id=query.message.chat.id, text=faq_text, parse_mode='HTML',reply_markup=markup)
+    elif data == 'FAQ':
+        keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
+        markup = InlineKeyboardMarkup(keyboard)
+        bot.sendMessage(chat_id=query.message.chat.id, text=faq_text, parse_mode='HTML',reply_markup=markup)
 
 
     elif data == 'ИГРАЮТ СЕЙЧАС' or data == 'ВЫСТУПАЮТ СЕЙЧАС':
