@@ -22,35 +22,62 @@ token_text = '''
 Наличные и банковские карты в барах приниматься не будут.
 '''
 
-timetable_text = '''<b>РАСПИСАНИЕ</b>
-[Пока известен только лайнап, о точном расписании будет отдельный пуш]
+timetable_text = '''<b>5 октября, вход: Степана Разина 8а</b>
 
-Anthony Linell aka Abdulla Rashim & Acronym [live] SE
-Belief Defect [live] US
-Boston 168 [live] IT
-Drumcell [live] US
-Luis Flores [dj set] MX
-Terence Fixmer [live] DE
-Acronym [live] SE
-PRCDRL live [DE]
-Lena Popova
-Ivan Logos
-Exponent
-Unbalance
-Abelle
-Sariim
-Cultkitchen
-Regulaar
-Eostra
-Slava Finist
-Alex Glass
-Eye Que
-Naya
-Blain
-Zaletny
-Maksim Panfilov
-Oira
-and more TBA..
+Main (здание А, 1-2 этаж)
+
+22-00 Квантовый Оракул
+23-00 Svibovitch [a/v live]
+0-00 Belief Defect [av live]
+1-00 Anthony Linell & Acronym [live]
+2-00 Drumcell
+3-30 Terence Fixmer [live]
+4-30 Ivan Logos
+6-00 Unbalance
+8-00 m_special
+
+Artist Room (здание А, 3 этаж)
+
+23-00 Blain
+1-00 Maksim Panfilov
+3-00 Cultkitchen
+5-00 Eostra
+7-00 Zaletny
+
+X stage (здание B, 2 этаж)
+
+22-00 Tripinzen
+23-00 Exponent
+1-00 Odd Harmony live
+2-00 PRCDRL [live]
+3-00 Abelle
+4-30 Sariim
+6-00 Lena Popova
+7-30 Slava Finist
+10-00 m_special
+
+<b>6 октября, вход: Курляндская 48</b>
+
+X stage (здание B, 2 этаж)
+
+21:00 Eye Que b2b G Depot
+23:00 Acronym live
+0:00 Luis Flores
+1:30 Boston 168 live
+3:00 Prisheletz live
+4:00 Regulaar
+5:00 Alex Glass
+
+Gallery stage (здание B, 2 этаж)
+
+21:00 Theo H L
+23:00 Nikitin b2b Korjov
+1:00 Oira
+3:00 naya
+4:30 m_special
+
+Билеты: https://gammafestival.ru/mdivisionx
+Если не объявлен sold out, на входе: main + afterparty = 2200 rur / main = 1700 rur
 '''
 
 now_text = '''Жмите во время мероприятия, чтобы знать, что происходит на каждой из сцен.'''
@@ -58,7 +85,7 @@ now_text = '''Жмите во время мероприятия, чтобы зн
 no_event_text = '''
 '''
 
-starting_soon_text = '''Gamma скоро начнется.'''
+starting_soon_text = '''Скоро начнём.'''
 
 playing_now_text = ''''''
 

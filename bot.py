@@ -205,7 +205,7 @@ def button(bot, update):
         chatbase_log(chat_id, "ВЫСТУПАЮТ СЕЙЧАС", "PLAYING NOW")
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
-        # now_text=playing_now()
+        now_text=playing_now()
         bot.sendMessage(chat_id=query.message.chat.id, text=now_text,
                         parse_mode='HTML', reply_markup=markup)
 
@@ -530,8 +530,9 @@ def playing_at(time):
                 result += format_artist(first_entry)
 
         if today_string != "2018.07.19":
-            result += "\n"
-            result += "\nНа основе официального расписания."
+            pass
+            # result += "\n"
+            # result += "\nНа основе официального расписания."
         return result
 
 
