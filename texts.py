@@ -42,8 +42,8 @@ Gallery stage (здание B, 2 этаж)
 3:00 naya
 4:30 m_special
 
-Билеты: https://gammafestival.ru/mdivisionx
-Если не объявлен sold out, на входе: main + afterparty = 2200 rur / main = 1700 rur
+На входе — 700 rur, максимум человек 200 пропустим до 0:00.
+Дальше только по браслетам main+afterparty и картам m_friends.
 '''
 
 now_text = '''Жмите во время мероприятия, чтобы знать, что происходит на каждой из сцен.'''
