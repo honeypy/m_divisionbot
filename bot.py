@@ -66,7 +66,7 @@ def push(bot, update):
     buttons_list = [InlineKeyboardButton('РАСПИСАНИЕ', callback_data='РАСПИСАНИЕ'),
                     InlineKeyboardButton('ПРОДОЛЖИТЬ', callback_data='back_main')]
     markup = InlineKeyboardMarkup(build_menu(buttons_list, n_cols=1))
-    push_text = sat_push_text
+    push_text = sun_push_text
 
     if update.message.chat.id == 47303188 and update.message.text == 'push':
         user_ids = get_users()

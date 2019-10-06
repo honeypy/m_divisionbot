@@ -22,41 +22,7 @@ token_text = '''
 Наличные и банковские карты в барах приниматься не будут.
 '''
 
-timetable_text = '''<b>5 октября, вход: Степана Разина 8а</b>
-
-Main (здание А, 1-2 этаж)
-
-22-00 Квантовый Оракул
-23-00 Svibovitch [a/v live]
-0-00 Belief Defect [av live]
-1-00 Anthony Linell & Acronym [live]
-2-00 Drumcell
-3-30 Terence Fixmer [live]
-4-30 Ivan Logos
-6-00 Unbalance
-8-00 m_special
-
-Artist Room (здание А, 3 этаж)
-
-23-00 Blain
-1-00 Maksim Panfilov
-3-00 Cultkitchen
-5-00 Eostra
-7-00 Zaletny
-
-X stage (здание B, 2 этаж)
-
-22-00 Tripinzen
-23-00 Exponent
-1-00 Odd Harmony live
-2-00 PRCDRL [live]
-3-00 Abelle
-4-30 Sariim
-6-00 Lena Popova
-7-30 Slava Finist
-10-00 m_special
-
-<b>6 октября, вход: Курляндская 48</b>
+timetable_text = '''<b>6 октября, вход: Курляндская 48</b>
 
 X stage (здание B, 2 этаж)
 
@@ -157,6 +123,13 @@ sat_push_text = '''Начинаем в 22:00. Расписание внутри.
 Если не объявлен sold out, на входе: main + afterparty = 2200 rur / main = 1700 rur
 По картам m_friends вход 1200 rur за оба дня.
 '''
+
+sun_push_text = '''Афтепати начинается. Расписание внутри.
+Сегодня вход со стороны Курляндской, 48. X stage становится главным танцполом.
+
+На входе — 700 rur, максимум человек 200 пропустим до 0:00. Дальше только по браслетам main+afterparty и картам m_friends.
+'''
+
 
 help_text = '''<b>В боте найдете расписание и прочее самое важное.</b>
 Команда /now ("Выступают сейчас") работает на основе официального расписания.
