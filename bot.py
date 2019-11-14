@@ -1,6 +1,6 @@
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler
 from telegram.ext import MessageHandler, Filters
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode
 import os
 import logging
 import config
@@ -75,7 +75,7 @@ def push(bot, update):
         count = 0
         for user in user_ids:
             try:
-                bot.sendMessage(chat_id=int(user), text=push_text, parse_mode='HTML', reply_markup=markup,
+                bot.sendMessage(chat_id=int(user), text=push_text, parse_mode='Markdown', reply_markup=markup,
                                 disable_web_page_preview=False)
 
                 #bot.sendMessage(text = push_final_text, chat_id = int(user), parse_mode='HTML', reply_markup=markup, disable_web_page_preview=True)
@@ -112,7 +112,7 @@ def make_buttons_list(lst):
         if a == 'FAQ':
             button = InlineKeyboardButton(a, callback_data ='FAQ')
         elif a == 'БИЛЕТЫ':
-            button = InlineKeyboardButton(a, url='https://gammafestival.ru/mdivisionx')
+            button = InlineKeyboardButton(a, url='https://www.gammafestival.ru/delta')
         elif a == 'КАРТА GAMMA_MAIN':
             button = InlineKeyboardButton(a, callback_data='map')
         elif a == 'ЛОКАЦИИ':
@@ -165,7 +165,7 @@ def button(bot, update):
 
     elif data == 'БИЛЕТЫ':
 
-        buttons_list = [InlineKeyboardButton('КУПИТЬ БИЛЕТ', url='https://gammafestival.ru/mdivisionx'),
+        buttons_list = [InlineKeyboardButton('КУПИТЬ БИЛЕТ', url='https://www.gammafestival.ru/delta'),
                         InlineKeyboardButton('МЕНЮ', callback_data='back_main')]
         markup = InlineKeyboardMarkup(build_menu(buttons_list, n_cols=1))
         bot.sendMessage(chat_id=query.message.chat.id, text=tickets_text, \
@@ -198,14 +198,14 @@ def button(bot, update):
     elif data == 'FAQ':
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
-        bot.sendMessage(chat_id=query.message.chat.id, text=faq_text, parse_mode='HTML',reply_markup=markup)
+        bot.sendMessage(chat_id=query.message.chat.id, text=faq_text, parse_mode=ParseMode.HTML,reply_markup=markup)
 
 
     elif data == 'ИГРАЮТ СЕЙЧАС' or data == 'ВЫСТУПАЮТ СЕЙЧАС':
         chatbase_log(chat_id, "ВЫСТУПАЮТ СЕЙЧАС", "PLAYING NOW")
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
-        now_text=playing_now()
+        #now_text=playing_now()
         bot.sendMessage(chat_id=query.message.chat.id, text=now_text,
                         parse_mode='HTML', reply_markup=markup)
 
@@ -230,7 +230,7 @@ def button(bot, update):
         buttons_list = make_buttons_list(start_keyboard)
         menu = build_menu(buttons_list, 1)
         markup = InlineKeyboardMarkup(menu)
-        bot.sendMessage(text='Добро пожаловать на <b>m_division X years</b>', chat_id=query.message.chat.id, \
+        bot.sendMessage(text=meet_text, chat_id=query.message.chat.id, \
                         reply_markup=markup, parse_mode='HTML')
 
 
