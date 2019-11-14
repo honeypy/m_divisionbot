@@ -120,7 +120,7 @@ def make_buttons_list(lst):
         elif a == 'РАСПИСАНИЕ':
             button = InlineKeyboardButton(a, callback_data='РАСПИСАНИЕ')
         elif a == 'АРТИСТЫ':
-            button = InlineKeyboardButton(a, url='https://zen.yandex.ru/media/id/5d98980b027a1500b2ff17fc/artisty-mdivision-x-years-5d9898cb2fda8600b152e756')
+            button = InlineKeyboardButton(a, url='https://teletype.in/@m_division/ry6Hz6KsB')
         elif a == 'ВЕРСИЯ В TELEGRA.PH':
             button = InlineKeyboardButton(a, url='https://telegra.ph/Gamma-2019-07-08')
         elif a == 'ЧАТ':
