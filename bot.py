@@ -63,10 +63,10 @@ def push(bot, update):
     print(1)
     print()
 
-    buttons_list = [InlineKeyboardButton('РАСПИСАНИЕ', callback_data='РАСПИСАНИЕ'),
+    buttons_list = [InlineKeyboardButton('КУПИТЬ БИЛЕТ', url='https://gammafestival.ru/delta'),
                     InlineKeyboardButton('ПРОДОЛЖИТЬ', callback_data='back_main')]
     markup = InlineKeyboardMarkup(build_menu(buttons_list, n_cols=1))
-    push_text = sun_push_text
+    push_text = first_push_text
 
     if update.message.chat.id == 47303188 and update.message.text == 'push':
         user_ids = get_users()
@@ -75,7 +75,7 @@ def push(bot, update):
         count = 0
         for user in user_ids:
             try:
-                bot.sendMessage(chat_id=int(user), text=push_text, parse_mode='Markdown', reply_markup=markup,
+                bot.sendMessage(chat_id=int(user), text=push_text, parse_mode='HTML', reply_markup=markup,
                                 disable_web_page_preview=False)
 
                 #bot.sendMessage(text = push_final_text, chat_id = int(user), parse_mode='HTML', reply_markup=markup, disable_web_page_preview=True)
@@ -91,7 +91,7 @@ def push(bot, update):
 
 
         for user in user_ids:
-            bot.sendMessage(chat_id=int(user), text=push_text, parse_mode='HTML',reply_markup=markup, disable_web_page_preview=False)
+            bot.sendMessage(chat_id=int(user), text=push_text, parse_mode='HTML',reply_markup=markup, disable_web_page_preview=True)
 
 def get_users():
     with open('users.csv') as csvfile:
