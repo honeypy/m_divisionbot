@@ -22,24 +22,27 @@ token_text = '''
 Наличные и банковские карты в барах приниматься не будут.
 '''
 
-timetable_text = '''Пока известен лайнап:
+timetable_text = '''MAIN
+23:00 Lidvall live
+0:30 Ivan Logos
+2:00 Headless Horseman live
+3:00 Lewis Fautzi
+5:00 PRCDRL live
+6:00 Eye Que 
+7:30 Alex Glass
+9:00 The end
 
-Headless Horseman live [DE]
-Lewis Fautzi [PT]
-NGLY live [AR/DE]
-PRCDRL live [DE]
-Notation_AI a/v live
-Svibovitch a/v live
-Achterstag a/v live
-Ivan Logos
-Lena Popova
-Exponent
-Lidvall live
-Eye Que
-Bionoid live
-Blain
-Kalivas
-m_special
+ROOM
+22:30 Notation_AI a/v live
+23:30 Svibovitch a/v live
+0:30 Achterstag a/v live
+1:30 Exponent
+3:00 Lena Popova 
+5:00 NGLY live
+6:00 Bionoid live
+7:00 Blain b2b Kalivas
+8:30 m_special
+11:00 The end
 '''
 
 now_text = '''Жмите во время мероприятия, чтобы знать, что происходит на сценах.'''
