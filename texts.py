@@ -50,7 +50,7 @@ now_text = '''Жмите во время мероприятия, чтобы зн
 no_event_text = '''
 '''
 
-starting_soon_text = '''Скоро начнём.'''
+starting_soon_text = '''Двери открываем в 22:00.'''
 
 playing_now_text = ''''''
 
