@@ -24,13 +24,18 @@ token_text = '''
 
 timetable_text = '''Пока известен только лайнап:
 
-WRONG ASSESSMENT (IT) [Planet Rhythm / iN / Clergy / AWRY]
-IRSHAD HUSSEIN (AZ) [iN / New Rhythmic/ Circular Recordings]
-ELJAN (AZ) [iN]
+RSHAD HUSSEIN (AZ) [iN / New Rhythmic/ Circular Recordings] 
+ELJAN (AZ) [iN] 
+YUKA [Fullpanda / Semantica / m_division]
 IVAN LOGOS [m_division]
 LENA POPOVA [m_division]
 EXPONENT [m_division]
-+more TBA
+RAUMTESTER [Popoff Kitchen]
+NUCAM 
+COACH
+NAYA
+OIRA
+m_special
 '''
 
 now_text_stub = '''Жмите во время мероприятия, чтобы знать, что происходит на сценах.'''
