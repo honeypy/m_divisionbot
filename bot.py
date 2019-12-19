@@ -16,24 +16,22 @@ import csv
 import glob
 import chatbase
 
-
 from texts import *
 
 os.environ['TZ'] = 'Europe/Moscow'
 time.tzset()
 
 telegram_token = config.telegram_token
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level= logging.INFO)
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
-#PORT = int(os.environ.get('PORT', '5000'))  # type: int
+# PORT = int(os.environ.get('PORT', '5000'))  # type: int
 updater = Updater(telegram_token)
 dispatcher = updater.dispatcher
 
-start_keyboard = ('БИЛЕТЫ','FAQ','РАСПИСАНИЕ','ВЫСТУПАЮТ СЕЙЧАС','АРТИСТЫ','ЧАТ')
+start_keyboard = ('БИЛЕТЫ', 'ОПИСАНИЕ', 'РАСПИСАНИЕ', 'ВЫСТУПАЮТ СЕЙЧАС', 'ЧАТ')
 continue_keyboard = ('ПРОДОЛЖИТЬ')
-links_keyboard = ('VK EVENT','FB EVENT','m_VK','m_INSTAGRAM','m_SOUNDCLOUD', '<< в начало')
+links_keyboard = ('VK EVENT', 'FB EVENT', 'm_VK', 'm_INSTAGRAM', 'm_SOUNDCLOUD', '<< в начало')
 links_schedule = ('m_19Jul', 'm_20Jul', 'm_21Jul', 'm_22Jul', '<< в начало')
-
 
 map_picture = 'map_gamma_pic.jpg'
 
@@ -48,25 +46,27 @@ def chatbase_log(chat_id, message, intent):
                                         intent=intent)
     chatbase_message.send()
 
+
 def start(bot, update):
     chatbase_log(update.message.chat.id, "/start", "START")
     buttons_list = make_buttons_list(start_keyboard)
     menu = build_menu(buttons_list, 1)
     markup = InlineKeyboardMarkup(menu)
-    bot.sendMessage(text = meet_text, chat_id = update.message.chat.id,
+    bot.sendMessage(text=meet_text, chat_id=update.message.chat.id,
                     parse_mode='HTML', reply_markup=markup)
     record_user(user_id=update.message.chat.id)
     print(update.message.text)
-    #botan.track(botan_token, update.message.chat.id,message=update.message.text)
+    # botan.track(botan_token, update.message.chat.id,message=update.message.text)
+
 
 def push(bot, update):
     print(1)
     print()
 
-    buttons_list = [InlineKeyboardButton('РАСПИСАНИЕ', callback_data='РАСПИСАНИЕ'),
+    buttons_list = [InlineKeyboardButton('БИЛЕТЫ', url='https://radario.ru/widgets/mobile/549706'),
                     InlineKeyboardButton('ПРОДОЛЖИТЬ', callback_data='back_main')]
     markup = InlineKeyboardMarkup(build_menu(buttons_list, n_cols=1))
-    push_text = push_text2
+    push_text = first_push_text
 
     if update.message.chat.id == 47303188 and update.message.text == 'push':
         user_ids = get_users()
@@ -78,8 +78,8 @@ def push(bot, update):
                 bot.sendMessage(chat_id=int(user), text=push_text, parse_mode='HTML', reply_markup=markup,
                                 disable_web_page_preview=False)
 
-                #bot.sendMessage(text = push_final_text, chat_id = int(user), parse_mode='HTML', reply_markup=markup, disable_web_page_preview=True)
-                count+=1
+                # bot.sendMessage(text = push_final_text, chat_id = int(user), parse_mode='HTML', reply_markup=markup, disable_web_page_preview=True)
+                count += 1
                 print(user)
             except:
                 pass
@@ -89,9 +89,10 @@ def push(bot, update):
     elif update.message.chat.id == 47303188 and update.message.text == 'test':
         user_ids = [47303188, ]
 
-
         for user in user_ids:
-            bot.sendMessage(chat_id=int(user), text=push_text, parse_mode='HTML',reply_markup=markup, disable_web_page_preview=True)
+            bot.sendMessage(chat_id=int(user), text=push_text, parse_mode='HTML', reply_markup=markup,
+                            disable_web_page_preview=True)
+
 
 def get_users():
     with open('users.csv') as csvfile:
@@ -101,7 +102,8 @@ def get_users():
             user_ids.add(row[2])
     return user_ids
 
-def build_menu(buttons,n_cols,):
+
+def build_menu(buttons, n_cols, ):
     menu = [buttons[i:i + n_cols] for i in range(0, len(buttons), n_cols)]
     return menu
 
@@ -110,17 +112,17 @@ def make_buttons_list(lst):
     buttons_list = []
     for a in lst:
         if a == 'FAQ':
-            button = InlineKeyboardButton(a, callback_data ='FAQ')
+            button = InlineKeyboardButton(a, callback_data='FAQ')
         elif a == 'БИЛЕТЫ':
-            button = InlineKeyboardButton(a, url='https://www.gammafestival.ru/delta')
+            button = InlineKeyboardButton(a, url='https://radario.ru/widgets/mobile/549706')
         elif a == 'КАРТА GAMMA_MAIN':
             button = InlineKeyboardButton(a, callback_data='map')
         elif a == 'ЛОКАЦИИ':
             button = InlineKeyboardButton(a, url='https://telegra.ph/Lokacii-Gamma-2019-07-08')
         elif a == 'РАСПИСАНИЕ':
             button = InlineKeyboardButton(a, callback_data='РАСПИСАНИЕ')
-        elif a == 'АРТИСТЫ':
-            button = InlineKeyboardButton(a, url='https://teletype.in/@m_division/ry6Hz6KsB')
+        elif a == 'ОПИСАНИЕ':
+            button = InlineKeyboardButton(a, url='https://teletype.in/@m_division/HJqLvxFCr')
         elif a == 'ВЕРСИЯ В TELEGRA.PH':
             button = InlineKeyboardButton(a, url='https://telegra.ph/Gamma-2019-07-08')
         elif a == 'ЧАТ':
@@ -132,9 +134,10 @@ def make_buttons_list(lst):
         elif a == 'ПРОДОЛЖИТЬ':
             button = InlineKeyboardButton(a, url='https://t.me/m_divisionbot')
         elif a == 'RSVP':
-            button = InlineKeyboardButton(a, url='https://docs.google.com/forms/d/e/1FAIpQLSckYhvXDxlUiQfzUONzmyXDWuSg50z_R0VG8684PJ9oxgb-Eg/viewform')
+            button = InlineKeyboardButton(a,
+                                          url='https://docs.google.com/forms/d/e/1FAIpQLSckYhvXDxlUiQfzUONzmyXDWuSg50z_R0VG8684PJ9oxgb-Eg/viewform')
         else:
-            button = InlineKeyboardButton(a,callback_data=a)
+            button = InlineKeyboardButton(a, callback_data=a)
         buttons_list.append(button)
 
     return buttons_list
@@ -156,7 +159,7 @@ def button(bot, update):
 
     elif data == 'РАСПИСАНИЕ':
         chatbase_log(chat_id, "РАСПИСАНИЕ", "SCHEDULE")
-        buttons_list = [[InlineKeyboardButton('<< в начало', callback_data='back_main'),]]
+        buttons_list = [[InlineKeyboardButton('<< в начало', callback_data='back_main'), ]]
 
         markup = InlineKeyboardMarkup(buttons_list)
         bot.sendMessage(chat_id=query.message.chat.id, text=timetable_text, \
@@ -175,7 +178,8 @@ def button(bot, update):
         buttons_list = [[InlineKeyboardButton('<< в начало', callback_data='back_main'), ]]
         markup = InlineKeyboardMarkup(buttons_list)
         bot.sendPhoto(chat_id=query.message.chat.id, photo=open(inttech_pic, 'rb'))
-        bot.sendMessage(chat_id=query.message.chat.id, text=info_text, parse_mode='HTML', reply_markup=markup, disable_web_page_preview=True)
+        bot.sendMessage(chat_id=query.message.chat.id, text=info_text, parse_mode='HTML', reply_markup=markup,
+                        disable_web_page_preview=True)
 
     elif data == 'ТОКЕНЫ':
         chatbase_log(chat_id, "ТОКЕНЫ", "TOKENS")
@@ -188,7 +192,8 @@ def button(bot, update):
 
     elif data == 'tickets':
         chatbase_log(chat_id, 'tickets', 'TICKETS')
-        buttons_list = [[InlineKeyboardButton('<< в начало', callback_data='back_main'), InlineKeyboardButton('КУПИТЬ', url='https://radario.ru/widgets/mobile/385838')]]
+        buttons_list = [[InlineKeyboardButton('<< в начало', callback_data='back_main'),
+                         InlineKeyboardButton('КУПИТЬ', url='https://radario.ru/widgets/mobile/385838')]]
 
         markup = InlineKeyboardMarkup(buttons_list)
         print(markup)
@@ -198,14 +203,14 @@ def button(bot, update):
     elif data == 'FAQ':
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
-        bot.sendMessage(chat_id=query.message.chat.id, text=faq_text, parse_mode=ParseMode.HTML,reply_markup=markup)
+        bot.sendMessage(chat_id=query.message.chat.id, text=faq_text, parse_mode=ParseMode.HTML, reply_markup=markup)
 
 
     elif data == 'ИГРАЮТ СЕЙЧАС' or data == 'ВЫСТУПАЮТ СЕЙЧАС':
         chatbase_log(chat_id, "ВЫСТУПАЮТ СЕЙЧАС", "PLAYING NOW")
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
-        now_text=playing_now()
+        now_text = now_text_stub
         bot.sendMessage(chat_id=query.message.chat.id, text=now_text,
                         parse_mode='HTML', reply_markup=markup)
 
@@ -237,7 +242,7 @@ def button(bot, update):
 def get_artists(data):
     artists = []
 
-    with open('schedule.csv','r') as csvfile:
+    with open('schedule.csv', 'r') as csvfile:
         reader = csv.reader(csvfile, delimiter=',', quotechar='"')
         for row in reader:
             if row[0] == data:
@@ -248,11 +253,11 @@ def get_artists(data):
 def make_text(artists):
     text = ''
     for artist in artists:
-        scene = '\n'+'<b>'+artist[1]+'</b>\n'
+        scene = '\n' + '<b>' + artist[1] + '</b>\n'
         if scene not in text:
             text += scene
         text = text + '<b>' + artist[2] + '</b> '
-        text = text + artist[3]+'\n'
+        text = text + artist[3] + '\n'
         # text = text+ '('+artist[4] + ')'
         # text += artist[5] + '\n'
     return text
@@ -279,6 +284,7 @@ def parse_time(time_string):
     except:
         print("parse_time: wrond time " + time_string)
 
+
 def parse_datetime(datetime_string):
     return datetime.datetime.strptime(datetime_string, "%Y.%m.%d %H:%M")
 
@@ -286,14 +292,17 @@ def parse_datetime(datetime_string):
 def scene_name(file_name):
     return file_name.split("+")[2][:-4].strip()
 
+
 """
 (time, artist, [description])
 """
+
+
 def format_artist(entry):
     time = entry[0]
     artist = entry[1]
     description = entry[2]
-    
+
     text = time.strftime("<b>%H:%M - " + artist + "</b>")
     if description != "":
         text += "\n" + description
@@ -475,7 +484,7 @@ def playing_at(time):
                 event_description = ""
                 if len(row) > 2:
                     event_description = row[2]
-                
+
                 schedule[scene].append((event_datetime, event_name, event_description))
 
                 previous_time = event_time
@@ -504,13 +513,12 @@ def playing_at(time):
                 event_description = ""
                 if len(row) > 2:
                     event_description = row[2]
-                
+
                 schedule[scene].append((event_datetime, event_name, event_description))
 
                 previous_time = event_time
 
     # print(schedule)
-
 
     DAY_THRESHOLD = datetime.time(14, 0)
 
@@ -553,7 +561,7 @@ def playing_at(time):
                             result += format_artist(next_entry)
                             if next_entry[1] == "перерыв":
                                 i = schedule[stage][1:].index(next_entry)
-                                after_break_entry = schedule[stage][1:][i+1]
+                                after_break_entry = schedule[stage][1:][i + 1]
                                 result += "\n" + format_artist(after_break_entry)
 
                             break
@@ -573,12 +581,12 @@ def playing_at(time):
 def playing_now():
     return playing_at(datetime.datetime.now())
 
+
 def help(bot, update):
     keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
     markup = InlineKeyboardMarkup(keyboard)
     bot.sendMessage(chat_id=update.message.chat.id, text=help_text, parse_mode='HTML',
-                        reply_markup=markup, disable_web_page_preview=True)
-
+                    reply_markup=markup, disable_web_page_preview=True)
 
 
 def handle_message(bot, update):
@@ -605,7 +613,6 @@ button_handler = CallbackQueryHandler(button)
 text_handler = MessageHandler(Filters.text, push)
 now_handler = CommandHandler('now', now_command)
 help_handler = CommandHandler('help', help)
-
 
 dispatcher.add_handler(start_handler)
 dispatcher.add_handler(button_handler)

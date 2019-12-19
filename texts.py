@@ -5,7 +5,7 @@ location_text = '''<a href='https://t.me/blankclub'>BLANK</a> располага
 Все, чтобы семья была довольна.
 '''
 
-meet_text = '''Добро пожаловать на <b>Delta 2019 — official afterparty GAMMA festival</b>.'''
+meet_text = '''Добро пожаловать на <b>m_division meets iN Night</b>.'''
 
 
 token_text = '''
@@ -22,30 +22,18 @@ token_text = '''
 Наличные и банковские карты в барах приниматься не будут.
 '''
 
-timetable_text = '''<b>MAIN
-23:00 Lidvall live
-0:30 Ivan Logos
-2:00 Headless Horseman live
-3:00 Lewis Fautzi
-5:00 PRCDRL live
-6:00 Eye Que 
-7:30 Alex Glass
-9:00 The end
+timetable_text = '''Пока известен только лайнап:
 
-ROOM
-22:30 Notation_AI a/v live
-23:30 Svibovitch a/v live
-0:30 Achterstag a/v live
-1:30 Exponent
-3:00 Lena Popova 
-5:00 NGLY live
-6:00 Bionoid live
-7:00 Blain b2b Kalivas
-8:30 m_special
-11:00 The end</b>
+WRONG ASSESSMENT (IT) [Planet Rhythm / iN / Clergy / AWRY]
+IRSHAD HUSSEIN (AZ) [iN / New Rhythmic/ Circular Recordings]
+ELJAN (AZ) [iN]
+IVAN LOGOS [m_division]
+LENA POPOVA [m_division]
+EXPONENT [m_division]
++more TBA
 '''
 
-now_text = '''Жмите во время мероприятия, чтобы знать, что происходит на сценах.'''
+now_text_stub = '''Жмите во время мероприятия, чтобы знать, что происходит на сценах.'''
 
 no_event_text = '''
 '''
@@ -129,7 +117,7 @@ sun_push_text = '''Афтепати начинается. Расписание �
 help_text = '''<b>В боте найдете расписание и прочее самое важное.</b>
 Команда /now ("Выступают сейчас") работает на основе официального расписания.
 
-Полная информация <a href='https://www.gammafestival.ru/delta'>на сайте</a>.
+Полная информация <a href='https://www.mdivisionpromo.com/innight'>на сайте</a>.
 Последние новости в <a href='https://t.me/m_division'>нашем канале</a>.
 
 Обратная связь: @vi_thali.'''
@@ -142,10 +130,12 @@ map_text = '''Сохраняем на телефоны, чтобы верно п
 Подробности о точках: https://telegra.ph/Karta-GAMMA-MAIN-2019-07-12
 '''
 
-first_push_text ='''Delta начнётся уже завтра.
-Вся актуальная информация будет здесь. Пуш с расписанием придет отдельно.
+first_push_text ='''<b>m_division meets iN Night</b> ждет вас в эту субботу.
 
-SOLD OUT близок — успевайте.
+21 декабря / 23:00 / 21 + / FC
+RAF 25: <a href='https://goo.gl/maps/kBH2t8fkjfesuFxT6'>Светлановский Проспект 3а</a>
+
+Успевайте в третью волну билетов по 800 RUR.
 '''
 
 faq_text ='''<b>FAQ</b>
