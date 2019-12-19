@@ -76,7 +76,7 @@ def push(bot, update):
         for user in user_ids:
             try:
                 bot.sendMessage(chat_id=int(user), text=push_text, parse_mode='HTML', reply_markup=markup,
-                                disable_web_page_preview=False)
+                                disable_web_page_preview=True)
 
                 # bot.sendMessage(text = push_final_text, chat_id = int(user), parse_mode='HTML', reply_markup=markup, disable_web_page_preview=True)
                 count += 1
