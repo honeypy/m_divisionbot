@@ -31,6 +31,7 @@ timetable_text = '''<b>MAIN
 6:30 Ivan Logos
 8:00 m_special
 
+CHAMBER
 23:00 Coach
 00:30 Oira
 2:00 Exponent
