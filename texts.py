@@ -44,7 +44,7 @@ now_text_stub = '''Жмите во время мероприятия, чтобы
 no_event_text = '''
 '''
 
-starting_soon_text = '''Двери открываем в 22:00.'''
+starting_soon_text = ''''''
 
 playing_now_text = ''''''
 
