@@ -63,10 +63,10 @@ def push(bot, update):
     print(1)
     print()
 
-    buttons_list = [InlineKeyboardButton('БИЛЕТЫ', url='https://radario.ru/widgets/mobile/549706'),
+    buttons_list = [InlineKeyboardButton('РАСПИСАНИЕ', callback_data='РАСПИСАНИЕ'),
                     InlineKeyboardButton('ПРОДОЛЖИТЬ', callback_data='back_main')]
     markup = InlineKeyboardMarkup(build_menu(buttons_list, n_cols=1))
-    push_text = first_push_text
+    push_text = push_text2
 
     if update.message.chat.id == 47303188 and update.message.text == 'push':
         user_ids = get_users()
