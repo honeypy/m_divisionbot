@@ -22,20 +22,21 @@ token_text = '''
 Наличные и банковские карты в барах приниматься не будут.
 '''
 
-timetable_text = '''Пока известен только лайнап:
+timetable_text = '''<b>MAIN
+23:00 Nucam
+00:30 Yuka
+2:00 Eljan
+3:30 Irshad Hussein
+5:00 Lena Popova
+6:30 Ivan Logos
+8:00 m_special
 
-RSHAD HUSSEIN (AZ) [iN / New Rhythmic/ Circular Recordings] 
-ELJAN (AZ) [iN] 
-YUKA [Fullpanda / Semantica / m_division]
-IVAN LOGOS [m_division]
-LENA POPOVA [m_division]
-EXPONENT [m_division]
-RAUMTESTER [Popoff Kitchen]
-NUCAM 
-COACH
-NAYA
-OIRA
-m_special
+23:00 Coach
+00:30 Oira
+2:00 Exponent
+4:00 naya
+5:30 Raumtester
+7:30 m_special</b>
 '''
 
 now_text_stub = '''Жмите во время мероприятия, чтобы знать, что происходит на сценах.'''
