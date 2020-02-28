@@ -14,7 +14,7 @@ import time
 import os
 import csv
 import glob
-import chatbase
+#import chatbase
 
 from texts import *
 
@@ -36,15 +36,15 @@ links_schedule = ('m_19Jul', 'm_20Jul', 'm_21Jul', 'm_22Jul', '<< в начал�
 map_picture = 'map_gamma_pic.jpg'
 
 
-def chatbase_log(chat_id, message, intent):
-    chat_id_key = 18223618210808258664  # type: int # a 64-bit random number
-    chat_id ^= chat_id_key
-    chatbase_message = chatbase.Message(api_key=config.chatbase_token,
-                                        platform="telegram",
-                                        user_id=str(chat_id),
-                                        message=message,
-                                        intent=intent)
-    chatbase_message.send()
+# def chatbase_log(chat_id, message, intent):
+#     chat_id_key = 18223618210808258664  # type: int # a 64-bit random number
+#     chat_id ^= chat_id_key
+#     chatbase_message = chatbase.Message(api_key=config.chatbase_token,
+#                                         platform="telegram",
+#                                         user_id=str(chat_id),
+#                                         message=message,
+#                                         intent=intent)
+#     chatbase_message.send()
 
 
 def start(update, context):
