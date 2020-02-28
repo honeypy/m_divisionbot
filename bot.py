@@ -149,7 +149,7 @@ def button(update, context):
     lat = '59.954688'
     lng = '30.372135'
     if data == 'МЕСТО':
-        chatbase_log(chat_id, "МЕСТО", "PLACE")
+        #chatbase_log(chat_id, "МЕСТО", "PLACE")
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
         context.bot.sendLocation(chat_id=query.message.chat.id, latitude=lat, longitude=lng)
@@ -157,7 +157,7 @@ def button(update, context):
                         reply_markup=markup, disable_web_page_preview=True)
 
     elif data == 'РАСПИСАНИЕ':
-        chatbase_log(chat_id, "РАСПИСАНИЕ", "SCHEDULE")
+        #chatbase_log(chat_id, "РАСПИСАНИЕ", "SCHEDULE")
         buttons_list = [[InlineKeyboardButton('<< в начало', callback_data='back_main'), ]]
 
         markup = InlineKeyboardMarkup(buttons_list)
@@ -181,7 +181,7 @@ def button(update, context):
                         disable_web_page_preview=True)
 
     elif data == 'ТОКЕНЫ':
-        chatbase_log(chat_id, "ТОКЕНЫ", "TOKENS")
+        #chatbase_log(chat_id, "ТОКЕНЫ", "TOKENS")
         # menu = build_menu(buttons_list, 1)
         # markup = InlineKeyboardMarkup(menu)
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
@@ -190,7 +190,7 @@ def button(update, context):
                         parse_mode='HTML', reply_markup=markup)
 
     elif data == 'tickets':
-        chatbase_log(chat_id, 'tickets', 'TICKETS')
+        #chatbase_log(chat_id, 'tickets', 'TICKETS')
         buttons_list = [[InlineKeyboardButton('<< в начало', callback_data='back_main'),
                          InlineKeyboardButton('КУПИТЬ', url='https://radario.ru/widgets/mobile/385838')]]
 
@@ -206,7 +206,7 @@ def button(update, context):
 
 
     elif data == 'ИГРАЮТ СЕЙЧАС' or data == 'ВЫСТУПАЮТ СЕЙЧАС':
-        chatbase_log(chat_id, "ВЫСТУПАЮТ СЕЙЧАС", "PLAYING NOW")
+        #chatbase_log(chat_id, "ВЫСТУПАЮТ СЕЙЧАС", "PLAYING NOW")
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
         #now_text = playing_now()
@@ -215,7 +215,7 @@ def button(update, context):
                         parse_mode='HTML', reply_markup=markup)
 
     elif data == 'ССЫЛКИ':
-        chatbase_log(chat_id, "ССЫЛКИ", "LINKS")
+        #chatbase_log(chat_id, "ССЫЛКИ", "LINKS")
         buttons_list = make_buttons_list(links_keyboard)
         menu = build_menu(buttons_list, 1)
         markup = InlineKeyboardMarkup(menu)
@@ -231,7 +231,7 @@ def button(update, context):
 
 
     elif data == 'back_main':
-        chatbase_log(chat_id, "В НАЧАЛО", "START")
+        #chatbase_log(chat_id, "В НАЧАЛО", "START")
         buttons_list = make_buttons_list(start_keyboard)
         menu = build_menu(buttons_list, 1)
         markup = InlineKeyboardMarkup(menu)
