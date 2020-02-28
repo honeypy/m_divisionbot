@@ -25,10 +25,10 @@ telegram_token = config.telegram_token
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
 # PORT = int(os.environ.get('PORT', '5000'))  # type: int
-updater = Updater(telegram_token)
+updater = Updater(token=telegram_token, use_context=True)
 dispatcher = updater.dispatcher
 
-start_keyboard = ('БИЛЕТЫ', 'ОПИСАНИЕ', 'РАСПИСАНИЕ', 'ВЫСТУПАЮТ СЕЙЧАС', 'ЧАТ')
+start_keyboard = ('БИЛЕТЫ', 'АРТИСТЫ', 'РАСПИСАНИЕ', 'ВЫСТУПАЮТ СЕЙЧАС', 'ЧАТ')
 continue_keyboard = ('ПРОДОЛЖИТЬ')
 links_keyboard = ('VK EVENT', 'FB EVENT', 'm_VK', 'm_INSTAGRAM', 'm_SOUNDCLOUD', '<< в начало')
 links_schedule = ('m_19Jul', 'm_20Jul', 'm_21Jul', 'm_22Jul', '<< в начало')
@@ -47,26 +47,25 @@ def chatbase_log(chat_id, message, intent):
     chatbase_message.send()
 
 
-def start(bot, update):
-    chatbase_log(update.message.chat.id, "/start", "START")
+def start(update, context):
+    #chatbase_log(update.message.chat.id, "/start", "START")
     buttons_list = make_buttons_list(start_keyboard)
     menu = build_menu(buttons_list, 1)
     markup = InlineKeyboardMarkup(menu)
-    bot.sendMessage(text=meet_text, chat_id=update.message.chat.id,
+    context.bot.sendMessage(text=meet_text, chat_id=update.effective_chat.id,
                     parse_mode='HTML', reply_markup=markup)
-    record_user(user_id=update.message.chat.id)
+    record_user(user_id=update.effective_chat.id)
     print(update.message.text)
     # botan.track(botan_token, update.message.chat.id,message=update.message.text)
 
 
-def push(bot, update):
-    print(1)
-    print()
+def push(update, context):
+    print('push started')
 
-    buttons_list = [InlineKeyboardButton('РАСПИСАНИЕ', callback_data='РАСПИСАНИЕ'),
+    buttons_list = [InlineKeyboardButton('БИЛЕТЫ', url='https://gammafestival.ru/mdivisionx'),
                     InlineKeyboardButton('ПРОДОЛЖИТЬ', callback_data='back_main')]
     markup = InlineKeyboardMarkup(build_menu(buttons_list, n_cols=1))
-    push_text = push_text2
+    push_text = thursday_push
 
     if update.message.chat.id == 47303188 and update.message.text == 'push':
         user_ids = get_users()
@@ -75,8 +74,8 @@ def push(bot, update):
         count = 0
         for user in user_ids:
             try:
-                bot.sendMessage(chat_id=int(user), text=push_text, parse_mode='HTML', reply_markup=markup,
-                                disable_web_page_preview=True)
+                context.bot.sendMessage(chat_id=int(user), text=push_text, parse_mode='HTML', reply_markup=markup,
+                                disable_web_page_preview=False)
 
                 # bot.sendMessage(text = push_final_text, chat_id = int(user), parse_mode='HTML', reply_markup=markup, disable_web_page_preview=True)
                 count += 1
@@ -90,8 +89,8 @@ def push(bot, update):
         user_ids = [47303188, ]
 
         for user in user_ids:
-            bot.sendMessage(chat_id=int(user), text=push_text, parse_mode='HTML', reply_markup=markup,
-                            disable_web_page_preview=True)
+            context.bot.sendMessage(chat_id=int(user), text=push_text, parse_mode='HTML', reply_markup=markup,
+                            disable_web_page_preview=False)
 
 
 def get_users():
@@ -114,15 +113,15 @@ def make_buttons_list(lst):
         if a == 'FAQ':
             button = InlineKeyboardButton(a, callback_data='FAQ')
         elif a == 'БИЛЕТЫ':
-            button = InlineKeyboardButton(a, url='https://radario.ru/widgets/mobile/549706')
+            button = InlineKeyboardButton(a, url='https://gammafestival.ru/mdivisionx')
         elif a == 'КАРТА GAMMA_MAIN':
             button = InlineKeyboardButton(a, callback_data='map')
         elif a == 'ЛОКАЦИИ':
             button = InlineKeyboardButton(a, url='https://telegra.ph/Lokacii-Gamma-2019-07-08')
         elif a == 'РАСПИСАНИЕ':
             button = InlineKeyboardButton(a, callback_data='РАСПИСАНИЕ')
-        elif a == 'ОПИСАНИЕ':
-            button = InlineKeyboardButton(a, url='https://teletype.in/@m_division/HJqLvxFCr')
+        elif a == 'АРТИСТЫ':
+            button = InlineKeyboardButton(a, url='https://teletype.in/@m_division/mutabor_artists')
         elif a == 'ВЕРСИЯ В TELEGRA.PH':
             button = InlineKeyboardButton(a, url='https://telegra.ph/Gamma-2019-07-08')
         elif a == 'ЧАТ':
@@ -143,7 +142,7 @@ def make_buttons_list(lst):
     return buttons_list
 
 
-def button(bot, update):
+def button(update, context):
     query = update.callback_query
     data = query.data
     chat_id = query.message.chat.id
@@ -153,8 +152,8 @@ def button(bot, update):
         chatbase_log(chat_id, "МЕСТО", "PLACE")
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
-        bot.sendLocation(chat_id=query.message.chat.id, latitude=lat, longitude=lng)
-        bot.sendMessage(chat_id=query.message.chat.id, text=location_text, parse_mode='HTML',
+        context.bot.sendLocation(chat_id=query.message.chat.id, latitude=lat, longitude=lng)
+        context.bot.sendMessage(chat_id=query.message.chat.id, text=location_text, parse_mode='HTML',
                         reply_markup=markup, disable_web_page_preview=True)
 
     elif data == 'РАСПИСАНИЕ':
@@ -162,23 +161,23 @@ def button(bot, update):
         buttons_list = [[InlineKeyboardButton('<< в начало', callback_data='back_main'), ]]
 
         markup = InlineKeyboardMarkup(buttons_list)
-        bot.sendMessage(chat_id=query.message.chat.id, text=timetable_text, \
+        context.bot.sendMessage(chat_id=query.message.chat.id, text=timetable_text, \
                         parse_mode='HTML', disable_web_page_preview=True, reply_markup=markup)
 
 
     elif data == 'БИЛЕТЫ':
 
-        buttons_list = [InlineKeyboardButton('КУПИТЬ БИЛЕТ', url='https://www.gammafestival.ru/delta'),
+        buttons_list = [InlineKeyboardButton('КУПИТЬ БИЛЕТ', url='https://gammafestival.ru/mdivisionx'),
                         InlineKeyboardButton('МЕНЮ', callback_data='back_main')]
         markup = InlineKeyboardMarkup(build_menu(buttons_list, n_cols=1))
-        bot.sendMessage(chat_id=query.message.chat.id, text=tickets_text, \
+        context.bot.sendMessage(chat_id=query.message.chat.id, text=tickets_text, \
                         parse_mode='HTML', reply_markup=markup)
 
     elif data == 'ИНФОРМАЦИЯ':
         buttons_list = [[InlineKeyboardButton('<< в начало', callback_data='back_main'), ]]
         markup = InlineKeyboardMarkup(buttons_list)
-        bot.sendPhoto(chat_id=query.message.chat.id, photo=open(inttech_pic, 'rb'))
-        bot.sendMessage(chat_id=query.message.chat.id, text=info_text, parse_mode='HTML', reply_markup=markup,
+        context.bot.sendPhoto(chat_id=query.message.chat.id, photo=open(inttech_pic, 'rb'))
+        context.bot.sendMessage(chat_id=query.message.chat.id, text=info_text, parse_mode='HTML', reply_markup=markup,
                         disable_web_page_preview=True)
 
     elif data == 'ТОКЕНЫ':
@@ -187,7 +186,7 @@ def button(bot, update):
         # markup = InlineKeyboardMarkup(menu)
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
-        bot.sendMessage(chat_id=query.message.chat.id, text=token_text, \
+        context.bot.sendMessage(chat_id=query.message.chat.id, text=token_text, \
                         parse_mode='HTML', reply_markup=markup)
 
     elif data == 'tickets':
@@ -197,21 +196,22 @@ def button(bot, update):
 
         markup = InlineKeyboardMarkup(buttons_list)
         print(markup)
-        bot.sendMessage(chat_id=query.message.chat.id, text=tickets_text, parse_mode='HTML', reply_markup=markup)
+        context.bot.sendMessage(chat_id=query.message.chat.id, text=tickets_text, parse_mode='HTML', reply_markup=markup)
 
 
     elif data == 'FAQ':
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
-        bot.sendMessage(chat_id=query.message.chat.id, text=faq_text, parse_mode=ParseMode.HTML, reply_markup=markup)
+        context.bot.sendMessage(chat_id=query.message.chat.id, text=faq_text, parse_mode=ParseMode.HTML, reply_markup=markup)
 
 
     elif data == 'ИГРАЮТ СЕЙЧАС' or data == 'ВЫСТУПАЮТ СЕЙЧАС':
         chatbase_log(chat_id, "ВЫСТУПАЮТ СЕЙЧАС", "PLAYING NOW")
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
-        now_text = playing_now()
-        bot.sendMessage(chat_id=query.message.chat.id, text=now_text,
+        #now_text = playing_now()
+        now_text = now_text_stub
+        context.bot.sendMessage(chat_id=query.message.chat.id, text=now_text,
                         parse_mode='HTML', reply_markup=markup)
 
     elif data == 'ССЫЛКИ':
@@ -219,7 +219,7 @@ def button(bot, update):
         buttons_list = make_buttons_list(links_keyboard)
         menu = build_menu(buttons_list, 1)
         markup = InlineKeyboardMarkup(menu)
-        bot.sendMessage(chat_id=query.message.chat.id, text='Выберите ресурс:', \
+        context.bot.sendMessage(chat_id=query.message.chat.id, text='Выберите ресурс:', \
                         parse_mode='HTML', reply_markup=markup)
 
     elif data == 'map':
@@ -227,7 +227,7 @@ def button(bot, update):
         markup = InlineKeyboardMarkup(keyboard)
         # bot.sendPhoto(chat_id=query.from_user.id, photo=open(map_picture, 'rb'))
         text = map_text  # type: str
-        bot.sendMessage(chat_id=query.from_user.id, text=text, reply_markup=markup)
+        context.bot.sendMessage(chat_id=query.from_user.id, text=text, reply_markup=markup)
 
 
     elif data == 'back_main':
@@ -235,7 +235,7 @@ def button(bot, update):
         buttons_list = make_buttons_list(start_keyboard)
         menu = build_menu(buttons_list, 1)
         markup = InlineKeyboardMarkup(menu)
-        bot.sendMessage(text=meet_text, chat_id=query.message.chat.id, \
+        context.bot.sendMessage(text=meet_text, chat_id=query.message.chat.id, \
                         reply_markup=markup, parse_mode='HTML')
 
 
@@ -582,43 +582,46 @@ def playing_now():
     return playing_at(datetime.datetime.now())
 
 
-def help(bot, update):
+def help(update, context):
+    print('help')
     keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
     markup = InlineKeyboardMarkup(keyboard)
-    bot.sendMessage(chat_id=update.message.chat.id, text=help_text, parse_mode='HTML',
+    context.bot.sendMessage(chat_id=update.effective_chat.id, text=help_text, parse_mode='HTML',
                     reply_markup=markup, disable_web_page_preview=True)
 
 
-def handle_message(bot, update):
+def handle_message(update, context):
     chat_id = update.message.chat.id
 
     buttons_list = make_buttons_list()
     menu = build_menu(buttons_list, 1)
     markup = InlineKeyboardMarkup(menu)
-    bot.sendMessage(text=test_suite(), chat_id=chat_id, reply_markup=markup)
+    context.bot.sendMessage(text=test_suite(), chat_id=chat_id, reply_markup=markup)
 
 
-def now_command(bot, update):
+def now_command(update, context):
+    print('now')
     chat_id = update.message.chat.id
-    chatbase_log(chat_id, "/now", "PLAYING NOW")
+    #chatbase_log(chat_id, "/now", "PLAYING NOW")
     keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
     markup = InlineKeyboardMarkup(keyboard)
-    now_text = playing_now()
-    bot.sendMessage(chat_id=chat_id, text=now_text, \
+    #now_text = playing_now()
+    now_text = now_text_stub
+    context.bot.sendMessage(chat_id=chat_id, text=now_text, \
                     parse_mode='HTML', reply_markup=markup)
 
 
 start_handler = CommandHandler('start', start)
 button_handler = CallbackQueryHandler(button)
-text_handler = MessageHandler(Filters.text, push)
 now_handler = CommandHandler('now', now_command)
 help_handler = CommandHandler('help', help)
+text_handler = MessageHandler(Filters.text, push)
 
 dispatcher.add_handler(start_handler)
 dispatcher.add_handler(button_handler)
-dispatcher.add_handler(text_handler)
 dispatcher.add_handler(now_handler)
 dispatcher.add_handler(help_handler)
+dispatcher.add_handler(text_handler)
 
 if __name__ == '__main__':
     updater.start_polling()
