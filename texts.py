@@ -70,7 +70,7 @@ MAIN
 20:00 Grigory Gromov a/v live
 21:00 Svibovitch  a/v live
 22:00 Singularity a/v performance (DE)
-23:00 Takaaki Itoh
+23:00 Takaaki Itoh (JP)
 1:00 m_special
 3:00 the end</b>
 '''
