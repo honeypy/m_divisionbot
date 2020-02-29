@@ -62,7 +62,7 @@ def start(update, context):
 def push(update, context):
     print('push started')
 
-    buttons_list = [InlineKeyboardButton('БИЛЕТЫ', url='https://gammafestival.ru/mdivisionx'),
+    buttons_list = [InlineKeyboardButton('РАСПИСАНИЕ', callback_data='РАСПИСАНИЕ'),
                     InlineKeyboardButton('ПРОДОЛЖИТЬ', callback_data='back_main')]
     markup = InlineKeyboardMarkup(build_menu(buttons_list, n_cols=1))
     push_text = thursday_push
@@ -209,8 +209,8 @@ def button(update, context):
         #chatbase_log(chat_id, "ВЫСТУПАЮТ СЕЙЧАС", "PLAYING NOW")
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
-        #now_text = playing_now()
-        now_text = now_text_stub
+        now_text = playing_now()
+        #now_text = now_text_stub
         context.bot.sendMessage(chat_id=query.message.chat.id, text=now_text,
                         parse_mode='HTML', reply_markup=markup)
 
@@ -605,8 +605,8 @@ def now_command(update, context):
     #chatbase_log(chat_id, "/now", "PLAYING NOW")
     keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
     markup = InlineKeyboardMarkup(keyboard)
-    #now_text = playing_now()
-    now_text = now_text_stub
+    now_text = playing_now()
+    #now_text = now_text_stub
     context.bot.sendMessage(chat_id=chat_id, text=now_text, \
                     parse_mode='HTML', reply_markup=markup)
 
