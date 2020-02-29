@@ -22,28 +22,27 @@ token_text = '''
 Наличные и банковские карты в барах приниматься не будут.
 '''
 
-timetable_text = '''<b>День 1
+timetable_text = '''<b>29.02
 
 MAIN
 23:00 Naya
 0:30 Ivan Logos
-2:00 Imperial Black Unit (live)
-3:00 Phase Fatale
-5:00 Irshad Hussein
-7:00 T_st
+2:00 Imperial Black Unit live (FR)
+3:00 Phase Fatale (DE)
+5:00 Irshad Hussein (AZ)
+7:00 T_st (AR)
 9:00 Unbalance
-11:00 the end
 
 MEDIUM	
 23:00 Eye Que	
 1:00 Prisheletz live	
 2:00 Lena Popova	
 3:30 Symbol live	
-4:30 Marco Shuttle	
+4:30 Marco Shuttle (IT)	
 6:30 Sestrica live	
-7:30 Eljan	
+7:30 Eljan (AZ)
 9:30 CultKitchen	
-11:30 Ksenia Kamikaza	
+11:30 Ksenia Kamikaza (LT)	
 13:00 Dob-S	
 14:30 Theo	
 16:00 Estafet	
@@ -51,29 +50,29 @@ MEDIUM
 19:00 Kovyazin D live	
 20:00 Abelle	
 21:30 Exponent	
-23:00 the end
 
 UNDER
 23:30 Oira
 1:30 Humanoid Lubovnik live
 2:30 Bionoid live
 3:30 Sariim
-5:30 PRCDRL live
+5:30 PRCDRL live (DE)
 6:30 Achterstag live
 7:30 Inox Traxx
 9:00 Slava Finist
 10:30 Roks
-12:00 the end
 
-День 2
+
+01.03
 
 MAIN
-18:00	bvoice
-20:00	grigory gromov a/v live
-21:00	svibovitch  a/v live
-22:00	singularity performance
-23:00	takaaki itoh
-1:00	m_special </b>
+18:00 Bvoice
+20:00 Grigory Gromov a/v live
+21:00 Svibovitch  a/v live
+22:00 Singularity a/v performance (DE)
+23:00 Takaaki Itoh
+1:00 m_special
+3:00 the end</b>
 '''
 
 now_text_stub = '''Жмите во время мероприятия, чтобы знать, что происходит на сценах.'''
