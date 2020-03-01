@@ -89,7 +89,7 @@ playing_now_text = ''''''
 
 over_text = '''THE END.
 
-Смотрите фото и видео в @m_division.
+Смотрите фото и видео в канале  @m_division.
 '''
 
 
