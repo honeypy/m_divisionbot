@@ -29,6 +29,7 @@ updater = Updater(token=telegram_token, use_context=True)
 dispatcher = updater.dispatcher
 
 start_keyboard = ('ОНЛАЙН-ТРАНСЛЯЦИЯ', )
+
 # 'БИЛЕТЫ', 'АРТИСТЫ', 'РАСПИСАНИЕ', 'ВЫСТУПАЮТ СЕЙЧАС',
 continue_keyboard = ('ПРОДОЛЖИТЬ')
 links_keyboard = ('VK EVENT', 'FB EVENT', 'm_VK', 'm_INSTAGRAM', 'm_SOUNDCLOUD', '<< в начало')
