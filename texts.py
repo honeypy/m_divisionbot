@@ -176,7 +176,7 @@ thursday_push = '''Ждем сегодня и завтра на масштабн
 
 
 online_beta_push = '''\
-<b>Beta</b> стартовала!
+<b>Beta: hybrid event</b> стартовала!
 Смотрите онлайн-трансляцию на gammafestival.ru/beta
 
 Расписание:
