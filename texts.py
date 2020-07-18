@@ -5,7 +5,7 @@ location_text = '''<a href='https://t.me/blankclub'>BLANK</a> располага
 Все, чтобы семья была довольна.
 '''
 
-meet_text = '''Добро пожаловать на <b>m_division X: Mutabor</b>'''
+meet_text = '''Добро пожаловать на <b>m_division: Beta</b>'''
 
 
 token_text = '''
@@ -22,57 +22,24 @@ token_text = '''
 Наличные и банковские карты в барах приниматься не будут.
 '''
 
-timetable_text = '''<b>29.02
+timetable_text = '''\
+<b>MAIN
+20:00 Performance INTRO: Gleb Kolyadin
+20:45 Performance OSTINATO: Symphocat, Anna Matskova, Mariam Traore, Avgustin
+21:30 Grigory Gromov a/v live
+22:15 Tonoptik a/v live
+23:00 Svibovitch a/v live 
+23:45 Ivan Logos 
+1:00 VTP
+2:00 Regulaar
 
-MAIN
-23:00 Naya
-0:30 Ivan Logos
-2:00 Imperial Black Unit live (FR)
-3:00 Phase Fatale (DE)
-5:00 Irshad Hussein (AZ)
-7:00 T_st (AR)
-9:00 Unbalance
-
-MEDIUM	
-23:00 Eye Que	
-1:00 Prisheletz live	
-2:00 Lena Popova	
-3:30 Symbol live	
-4:30 Marco Shuttle (IT)	
-6:30 Sestrica live	
-7:30 Eljan (AZ)
-9:30 CultKitchen	
-11:30 Ksenia Kamikaza (LT)	
-13:00 Dob-S	
-14:30 Theo	
-16:00 Estafet	
-17:30 Sergey Timoshov	
-19:00 Kovyazin D live	
-20:00 Abelle	
-21:30 Exponent	
-
-UNDER
-23:30 Oira
-1:30 Humanoid Lubovnik live
-2:30 Bionoid live
-3:30 Sariim
-5:30 PRCDRL live (DE)
-6:30 Achterstag live
-7:30 Inox Traxx
-9:00 Slava Finist
-10:30 Roks
-
-
-01.03
-
-MAIN
-18:00 Bvoice
-20:00 Grigory Gromov a/v live
-21:00 Svibovitch  a/v live
-22:00 Singularity a/v performance (DE)
-23:00 Takaaki Itoh (JP)
-1:00 m_special
-3:00 the end</b>
+LOFT
+21:00 Blain 
+22:30 Prisheletz live
+23:30 Shutta
+0:30 Lena Popova 
+2:00 Zaletny
+</b>
 '''
 
 now_text_stub = '''Жмите во время мероприятия, чтобы знать, что происходит на сценах.'''
@@ -205,3 +172,8 @@ faq_text ='''<b>FAQ</b>
 thursday_push = '''Ждем сегодня и завтра на масштабном шоукейсе <b>m_division X: Mutabor</b>.
 
 Расписание внутри.'''
+
+
+online_beta_push = '''\
+
+'''

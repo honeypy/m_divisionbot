@@ -28,7 +28,8 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 updater = Updater(token=telegram_token, use_context=True)
 dispatcher = updater.dispatcher
 
-start_keyboard = ('БИЛЕТЫ', 'АРТИСТЫ', 'РАСПИСАНИЕ', 'ВЫСТУПАЮТ СЕЙЧАС', 'ЧАТ')
+start_keyboard = ('ОНЛАЙН-ТРАНСЛЯЦИЯ', 'ЧАТ')
+# 'БИЛЕТЫ', 'АРТИСТЫ', 'РАСПИСАНИЕ', 'ВЫСТУПАЮТ СЕЙЧАС',
 continue_keyboard = ('ПРОДОЛЖИТЬ')
 links_keyboard = ('VK EVENT', 'FB EVENT', 'm_VK', 'm_INSTAGRAM', 'm_SOUNDCLOUD', '<< в начало')
 links_schedule = ('m_19Jul', 'm_20Jul', 'm_21Jul', 'm_22Jul', '<< в начало')
@@ -62,10 +63,9 @@ def start(update, context):
 def push(update, context):
     print('push started')
 
-    buttons_list = [InlineKeyboardButton('РАСПИСАНИЕ', callback_data='РАСПИСАНИЕ'),
-                    InlineKeyboardButton('ПРОДОЛЖИТЬ', callback_data='back_main')]
+    buttons_list = [InlineKeyboardButton('ОНЛАЙН-ТРАНСЛЯЦИЯ', url='http://gammafestival.ru/beta')]
     markup = InlineKeyboardMarkup(build_menu(buttons_list, n_cols=1))
-    push_text = thursday_push
+    push_text = online_beta_push
 
     if update.message.chat.id == 47303188 and update.message.text == 'push':
         user_ids = get_users()
@@ -119,6 +119,8 @@ def make_buttons_list(lst):
     for a in lst:
         if a == 'FAQ':
             button = InlineKeyboardButton(a, callback_data='FAQ')
+        elif a == 'ОНЛАЙН-ТРАНСЛЯЦИЯ':
+            button = InlineKeyboardButton(a, url='http://gammafestival.ru/beta')
         elif a == 'БИЛЕТЫ':
             button = InlineKeyboardButton(a, url='https://gammafestival.ru/mdivisionx')
         elif a == 'КАРТА GAMMA_MAIN':
