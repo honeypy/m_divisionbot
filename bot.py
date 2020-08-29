@@ -28,9 +28,9 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 updater = Updater(token=telegram_token, use_context=True)
 dispatcher = updater.dispatcher
 
-start_keyboard = ('ОНЛАЙН-ТРАНСЛЯЦИЯ', )
+start_keyboard = ('БИЛЕТЫ & ИНФО', 'РАСПИСАНИЕ', 'ВЫСТУПАЮТ СЕЙЧАС')
 
-# 'БИЛЕТЫ', 'АРТИСТЫ', 'РАСПИСАНИЕ', 'ВЫСТУПАЮТ СЕЙЧАС',
+# ,
 continue_keyboard = ('ПРОДОЛЖИТЬ')
 links_keyboard = ('VK EVENT', 'FB EVENT', 'm_VK', 'm_INSTAGRAM', 'm_SOUNDCLOUD', '<< в начало')
 links_schedule = ('m_19Jul', 'm_20Jul', 'm_21Jul', 'm_22Jul', '<< в начало')
@@ -66,7 +66,7 @@ def push(update, context):
 
     buttons_list = [InlineKeyboardButton('ОНЛАЙН-ТРАНСЛЯЦИЯ', url='http://gammafestival.ru/beta')]
     markup = InlineKeyboardMarkup(build_menu(buttons_list, n_cols=1))
-    push_text = online_beta_push
+    push_text = gamma2020
 
     if update.message.chat.id == 47303188 and update.message.text == 'push':
         user_ids = get_users()
@@ -122,8 +122,8 @@ def make_buttons_list(lst):
             button = InlineKeyboardButton(a, callback_data='FAQ')
         elif a == 'ОНЛАЙН-ТРАНСЛЯЦИЯ':
             button = InlineKeyboardButton(a, url='http://gammafestival.ru/beta')
-        elif a == 'БИЛЕТЫ':
-            button = InlineKeyboardButton(a, url='https://gammafestival.ru/mdivisionx')
+        elif a == 'БИЛЕТЫ & ИНФО':
+            button = InlineKeyboardButton(a, url='https://gammafestival.ru')
         elif a == 'КАРТА GAMMA_MAIN':
             button = InlineKeyboardButton(a, callback_data='map')
         elif a == 'ЛОКАЦИИ':
@@ -219,8 +219,8 @@ def button(update, context):
         #chatbase_log(chat_id, "ВЫСТУПАЮТ СЕЙЧАС", "PLAYING NOW")
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
-        now_text = playing_now()
-        #now_text = now_text_stub
+        #now_text = playing_now()
+        now_text = now_text_stub
         context.bot.sendMessage(chat_id=query.message.chat.id, text=now_text,
                         parse_mode='HTML', reply_markup=markup)
 

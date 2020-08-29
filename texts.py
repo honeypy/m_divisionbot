@@ -5,7 +5,8 @@ location_text = '''<a href='https://t.me/blankclub'>BLANK</a> располага
 Все, чтобы семья была довольна.
 '''
 
-meet_text = '''Добро пожаловать на <b>m_division: Beta</b>'''
+meet_text = '''Добро пожаловать на <b>Gamma_RAVE</b>.
+5-6 сентября, завод им. Степана Разина.'''
 
 
 token_text = '''
@@ -23,23 +24,7 @@ token_text = '''
 '''
 
 timetable_text = '''\
-<b>MAIN
-20:00 Performance INTRO: Gleb Kolyadin
-20:45 Performance OSTINATO: Symphocat, Anna Matskova, Mariam Traore, Avgustin
-21:30 Grigory Gromov a/v live
-22:15 Tonoptik a/v live
-23:00 Svibovitch a/v live 
-23:45 Ivan Logos 
-1:00 VTP
-2:00 Regulaar
-
-LOFT
-21:00 Blain 
-22:30 Prisheletz live
-23:30 Shutta
-0:30 Lena Popova 
-2:00 Zaletny
-</b>
+Расписание будет известно накануне.
 '''
 
 now_text_stub = '''Жмите во время мероприятия, чтобы знать, что происходит на сценах.'''
@@ -201,4 +186,9 @@ LOFT
 Если у вас возникнут проблемы с главным стримом на сайте, \
 переходите на резервные трансляции, они идут в группах \
 vk.com/m_division и facebook.com/gammafestivalspb
+'''
+
+
+gamma2020 = '''\
+Скоро Гамма.
 '''
