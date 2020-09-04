@@ -28,7 +28,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 updater = Updater(token=telegram_token, use_context=True)
 dispatcher = updater.dispatcher
 
-start_keyboard = ('БИЛЕТЫ & ИНФО', 'РАСПИСАНИЕ', 'ВЫСТУПАЮТ СЕЙЧАС')
+start_keyboard = ('БИЛЕТЫ & ИНФО', 'РАСПИСАНИЕ', 'ВЫСТУПАЮТ СЕЙЧАС', 'ЧАТ')
 
 # ,
 continue_keyboard = ('ПРОДОЛЖИТЬ')
@@ -64,9 +64,11 @@ def start(update, context):
 def push(update, context):
     print('push started')
 
-    buttons_list = [InlineKeyboardButton('ОНЛАЙН-ТРАНСЛЯЦИЯ', url='http://gammafestival.ru/beta')]
+    buttons_list = [InlineKeyboardButton('РАСПИСАНИЕ', callback_data='РАСПИСАНИЕ'),
+                                         InlineKeyboardButton('БИЛЕТЫ & ИНФО', url='http://gammafestival.ru'),
+                                        InlineKeyboardButton('МЕНЮ', callback_data='back_main')]
     markup = InlineKeyboardMarkup(build_menu(buttons_list, n_cols=1))
-    push_text = gamma2020
+    push_text = timetable_push_text
 
     if update.message.chat.id == 47303188 and update.message.text == 'push':
         user_ids = get_users()
@@ -240,7 +242,7 @@ def button(update, context):
         context.bot.sendMessage(chat_id=query.from_user.id, text=text, reply_markup=markup)
 
 
-    elif data == 'back_main':
+    elif data == 'back_main' or data == 'МЕНЮ':
         #chatbase_log(chat_id, "В НАЧАЛО", "START")
         buttons_list = make_buttons_list(start_keyboard)
         menu = build_menu(buttons_list, 1)

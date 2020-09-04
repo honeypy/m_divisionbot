@@ -5,7 +5,7 @@ location_text = '''<a href='https://t.me/blankclub'>BLANK</a> располага
 Все, чтобы семья была довольна.
 '''
 
-meet_text = '''Добро пожаловать на <b>Gamma_RAVE</b>.
+meet_text = '''Добро пожаловать на <b>Gamma_MAIN.</b>
 5-6 сентября, завод им. Степана Разина.'''
 
 
@@ -24,7 +24,71 @@ token_text = '''
 '''
 
 timetable_text = '''\
-Расписание будет известно накануне.
+<b>5 СЕНТЯБРЯ, открытие дверей 21:00
+
+MAIN (GAMMA_STAGE)
+
+21:00 Abjective [live]
+22:00 Neonicle [live]
+23:00 Дельфин Механический Пёс [live]
+0:00  Sestrica [live] 
+1:00  Ivan Logos 
+2:00  Unbalance 
+3:30  Abelle 
+5:00  Regulaar
+6:00  Inox Traxx 
+7:00-8:00 Slava Finist
+
+V STAGE
+      
+23:00 Grigory Gromov [a/v live]
+0:00  Beennoutside [live] 
+1:00  Dawn Razor [live] 
+2:00  Lena Popova
+3:00  Eostra 
+4:00  St Theodore 
+5:00  Sariim 
+6:00  G Depot 
+7:00  Mrac 
+8:00-10:00 Kyk b2b Draag
+
+LAMP STAGE
+
+23:00 Blain 
+0:00  Zaletny 
+1:00  Anrilov
+2:00  Panorama Channel 
+3:00  Oira 
+4:00  Muzikalist 
+5:00  Cultkitchen 
+7:00  Balu 
+8:00  un2un 
+9:00-11:00 m_special
+
+--
+6 СЕНТЯБРЯ
+
+V STAGE
+
+21:00 Svibovitch [a/v live]
+22:00 Symphocat + Augustine (vocal) + Alex Zender (sax) [live]
+23:00 Digital Moss [modular live] 
+0:00  Symbol [live] (мск)
+1:00  Prisheletz [live]
+2:00  Poima 
+3:30  Stanislav Glazov [a/v + modular live]
+4:30  Torn 
+5:30-7:00 Eye Que b2b naya 
+
+LAMP STAGE
+
+21:00 Pfpf
+22:30 Karina Saakyan
+0:30  Rhitektor [modular live]
+1:30  Void Of Gene
+3:00  Bionoid [modular live] 
+4:00  Noform 
+5:30-7:00 m_special</b>
 '''
 
 now_text_stub = '''Жмите во время мероприятия, чтобы знать, что происходит на сценах.'''
@@ -106,15 +170,13 @@ sun_push_text = '''Афтепати начинается. Расписание �
 '''
 
 
-help_text = '''<b>\
-Полная информация <a href='http://gammafestival.ru/beta'>на сайте</a>.
+help_text = '''Команда /now ("Выступают сейчас") работает на основе официального расписания.
+
+Полная информация <a href='http://gammafestival.ru'>на сайте</a>.
 Последние новости в <a href='https://t.me/m_division'>нашем канале</a>.
 
 Обратная связь: @vi_thali.'''
-'''
-В боте найдете расписание и прочее самое важное.</b>
-Команда /now ("Выступают сейчас") работает на основе официального расписания.
-'''
+
 map_text = '''Сохраняем на телефоны, чтобы верно прокладывать свои маршруты.
 Также вы сможете найти ее на входе или отсканировать специальный QR-код ВКонтакте, размещенный на экранах в баре, ведущий на эту публикацию.
 
@@ -160,32 +222,8 @@ thursday_push = '''Ждем сегодня и завтра на масштабн
 Расписание внутри.'''
 
 
-online_beta_push = '''\
-<b>Beta: hybrid event</b> начинается!
-Смотрите онлайн-трансляцию на gammafestival.ru/beta
-
-Расписание:
-
-MAIN
-20:00 Performance INTRO: Gleb Kolyadin
-20:45 Performance OSTINATO: Symphocat, Anna Matskova, Mariam Traore, Avgustin
-21:30 Grigory Gromov a/v live
-22:15 Tonoptik a/v live
-23:00 Svibovitch a/v live 
-23:45 Ivan Logos 
-1:00 VTP
-2:00 Regulaar
-
-LOFT
-21:00 Blain 
-22:30 Prisheletz live
-23:30 Shutta
-0:30 Lena Popova 
-2:00 Zaletny
-
-Если у вас возникнут проблемы с главным стримом на сайте, \
-переходите на резервные трансляции, они идут в группах \
-vk.com/m_division и facebook.com/gammafestivalspb
+timetable_push_text = '''\
+Расписание внутри. Начинаем завтра в 21:00.
 '''
 
 
