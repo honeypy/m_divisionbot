@@ -28,7 +28,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 updater = Updater(token=telegram_token, use_context=True)
 dispatcher = updater.dispatcher
 
-start_keyboard = ('БИЛЕТЫ & ИНФО', 'РАСПИСАНИЕ', 'ВЫСТУПАЮТ СЕЙЧАС', 'ЧАТ')
+start_keyboard = ('БИЛЕТЫ', 'FAQ', 'ТОКЕНЫ', 'ЛОКАЦИЯ', 'ЧАТ', 'РАСПИСАНИЕ', 'ВЫСТУПАЮТ СЕЙЧАС')
 
 # ,
 continue_keyboard = ('ПРОДОЛЖИТЬ')
@@ -36,6 +36,7 @@ links_keyboard = ('VK EVENT', 'FB EVENT', 'm_VK', 'm_INSTAGRAM', 'm_SOUNDCLOUD',
 links_schedule = ('m_19Jul', 'm_20Jul', 'm_21Jul', 'm_22Jul', '<< в начало')
 
 map_picture = 'map_gamma_pic.jpg'
+location_pic = 'location_pic.jpg'
 
 
 # def chatbase_log(chat_id, message, intent):
@@ -124,14 +125,16 @@ def make_buttons_list(lst):
             button = InlineKeyboardButton(a, callback_data='FAQ')
         elif a == 'ОНЛАЙН-ТРАНСЛЯЦИЯ':
             button = InlineKeyboardButton(a, url='http://gammafestival.ru/beta')
-        elif a == 'БИЛЕТЫ & ИНФО':
+        elif a in ('БИЛЕТЫ & ИНФО', 'БИЛЕТЫ'):
             button = InlineKeyboardButton(a, url='https://gammafestival.ru')
         elif a == 'КАРТА GAMMA_MAIN':
             button = InlineKeyboardButton(a, callback_data='map')
-        elif a == 'ЛОКАЦИИ':
-            button = InlineKeyboardButton(a, url='https://telegra.ph/Lokacii-Gamma-2019-07-08')
+        elif a == 'ЛОКАЦИЯ':
+            button = InlineKeyboardButton(a, callback_data='ЛОКАЦИЯ')
         elif a == 'РАСПИСАНИЕ':
             button = InlineKeyboardButton(a, callback_data='РАСПИСАНИЕ')
+        elif a == 'РАСПИСАНИЕ':
+            button = InlineKeyboardButton(a, callback_data='ТОКЕНЫ')
         elif a == 'АРТИСТЫ':
             button = InlineKeyboardButton(a, url='https://teletype.in/@m_division/mutabor_artists')
         elif a == 'ВЕРСИЯ В TELEGRA.PH':
@@ -185,11 +188,11 @@ def button(update, context):
         context.bot.sendMessage(chat_id=query.message.chat.id, text=tickets_text, \
                         parse_mode='HTML', reply_markup=markup)
 
-    elif data == 'ИНФОРМАЦИЯ':
+    elif data == 'ЛОКАЦИЯ':
         buttons_list = [[InlineKeyboardButton('<< в начало', callback_data='back_main'), ]]
         markup = InlineKeyboardMarkup(buttons_list)
-        context.bot.sendPhoto(chat_id=query.message.chat.id, photo=open(inttech_pic, 'rb'))
-        context.bot.sendMessage(chat_id=query.message.chat.id, text=info_text, parse_mode='HTML', reply_markup=markup,
+        context.bot.sendPhoto(chat_id=query.message.chat.id, photo=open(location_pic, 'rb'))
+        context.bot.sendMessage(chat_id=query.message.chat.id, text=location_text, parse_mode='HTML', reply_markup=markup,
                         disable_web_page_preview=True)
 
     elif data == 'ТОКЕНЫ':
