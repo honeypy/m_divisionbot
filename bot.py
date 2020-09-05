@@ -224,8 +224,8 @@ def button(update, context):
         #chatbase_log(chat_id, "ВЫСТУПАЮТ СЕЙЧАС", "PLAYING NOW")
         keyboard = [[InlineKeyboardButton('<< в начало', callback_data='back_main')]]
         markup = InlineKeyboardMarkup(keyboard)
-        #now_text = playing_now()
-        now_text = now_text_stub
+        now_text = playing_now()
+        #now_text = now_text_stub
         context.bot.sendMessage(chat_id=query.message.chat.id, text=now_text,
                         parse_mode='HTML', reply_markup=markup)
 
