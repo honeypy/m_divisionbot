@@ -511,7 +511,7 @@ def playing_at(time):
 
         reached_tomorrow = False
 
-        with open(file, newline='') as csvfile:
+        with open(file, newline='', encoding='utf-8') as csvfile:
             previous_time = datetime.time(0, 0)
             scene_reader = csv.reader(csvfile)
             for row in scene_reader:
