@@ -30,7 +30,7 @@ dispatcher = updater.dispatcher
 
 start_keyboard = ('БИЛЕТЫ', 'FAQ', 'ТОКЕНЫ', 'ЛОКАЦИЯ', 'ЧАТ', 'РАСПИСАНИЕ', 'ВЫСТУПАЮТ СЕЙЧАС')
 
-# ,
+
 continue_keyboard = ('ПРОДОЛЖИТЬ')
 links_keyboard = ('VK EVENT', 'FB EVENT', 'm_VK', 'm_INSTAGRAM', 'm_SOUNDCLOUD', '<< в начало')
 links_schedule = ('m_19Jul', 'm_20Jul', 'm_21Jul', 'm_22Jul', '<< в начало')
@@ -65,11 +65,12 @@ def start(update, context):
 def push(update, context):
     print('push started')
 
-    buttons_list = [InlineKeyboardButton('РАСПИСАНИЕ', callback_data='РАСПИСАНИЕ'),
-                                         InlineKeyboardButton('БИЛЕТЫ & ИНФО', url='http://gammafestival.ru'),
-                                        InlineKeyboardButton('МЕНЮ', callback_data='back_main')]
+    # buttons_list = [InlineKeyboardButton('РАСПИСАНИЕ', callback_data='РАСПИСАНИЕ'),
+    #                                      InlineKeyboardButton('БИЛЕТЫ & ИНФО', url='http://gammafestival.ru'),
+    #                                     InlineKeyboardButton('МЕНЮ', callback_data='back_main')]
+    buttons_list = make_buttons_list(start_keyboard)
     markup = InlineKeyboardMarkup(build_menu(buttons_list, n_cols=1))
-    push_text = timetable_push_text
+    push_text = final_push_text
 
     if update.message.chat.id == 47303188 and update.message.text == 'push':
         user_ids = get_users()
