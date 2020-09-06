@@ -70,7 +70,7 @@ def push(update, context):
     #                                     InlineKeyboardButton('МЕНЮ', callback_data='back_main')]
     buttons_list = make_buttons_list(start_keyboard)
     markup = InlineKeyboardMarkup(build_menu(buttons_list, n_cols=1))
-    push_text = final_push_text
+    push_text = afterparty_push_text
 
     if update.message.chat.id == 47303188 and update.message.text == 'push':
         user_ids = get_users()
