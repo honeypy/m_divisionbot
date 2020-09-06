@@ -2,9 +2,9 @@
 
 meet_text = '''Добро пожаловать на <b>Gamma_MAIN.</b>'''
 
-location_text = '''Вход на afterparty с Курляндской 48 (рядом с AF Brew).
+location_text = '''Afterparty пройдет в RAF25, Светлановский проспект, 3а.
 
-<a href='https://goo.gl/maps/LvNwxAa2YKqaSgkM7'>Метка на карте</a>.
+<a href='https://goo.gl/maps/R5gCsxPMs95576vG9'>Метка на карте</a>.
 '''
 token_text = '''
 <b>ТОКЕНЫ</b>
@@ -21,29 +21,7 @@ Gamma_SHOP это наш магазин мерча и он расположен 
 '''
 
 timetable_text = '''\
-<b>6 СЕНТЯБРЯ
-
-V STAGE
-
-21:00 Svibovitch [a/v live]
-22:00 Symphocat + Augustine (vocal) + Alex Zender (sax) [live]
-23:00 Digital Moss [modular live] 
-0:00  Symbol [live] (мск)
-1:00  Prisheletz [live]
-2:00  Poima 
-3:30  Stanislav Glazov [a/v + modular live]
-4:30  Torn 
-5:30-7:00 Eye Que b2b naya 
-
-LAMP STAGE
-
-21:00 Pfpf
-22:30 Karina Saakyan
-0:30  Rhitektor [modular live]
-1:30  Void Of Gene
-3:00  Bionoid [modular live] 
-4:00  Noform 
-5:30-7:00 m_special</b>
+В связи с переносом в RAF25 расписание изменилось. Актуальное ищите тут: @m_division
 '''
 
 now_text_stub = '''Жмите во время мероприятия, чтобы знать, что происходит на сценах.'''
@@ -102,7 +80,7 @@ tickets_text = '''<b>Доступны:<b>
 На фестивале ваш билет обменивается на пластиковый или бумажный контрольный браслет на руку, который невозможно снять не повредив, если браслет будет поврежден — вам будет отказано в доступе на фестиваль.
 '''
 
-afterparty_push_text = '''Вход на afterparty как всегда с Курляндской 48 (рядом с Af Brew). Вход без билета и браслета 1200, токены работают. '''
+afterparty_push_text = '''Afterparty переносится в RAF25 (Светлановский проспект, 3а). Двери открываются в 1:00. Вход по браслетам и билетам. Бар за наличные и карты.'''
 
 sat_push_text = '''Начинаем в 22:00. Расписание внутри.
 Сегодня вход со Степана Разина, 8а
