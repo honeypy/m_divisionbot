@@ -28,7 +28,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 updater = Updater(token=telegram_token, use_context=True)
 dispatcher = updater.dispatcher
 
-start_keyboard = ('БИЛЕТЫ', 'FAQ', 'ТОКЕНЫ', 'ЛОКАЦИЯ', 'ЧАТ', 'РАСПИСАНИЕ', 'ВЫСТУПАЮТ СЕЙЧАС')
+start_keyboard = ('БИЛЕТЫ', 'FAQ', 'ТОКЕНЫ', 'ЛОКАЦИЯ', 'ЧАТ', 'РАСПИСАНИЕ')
 
 
 continue_keyboard = ('ПРОДОЛЖИТЬ')
